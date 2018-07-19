@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>XP Market- درباره ما</title>
+    <title>XP Market - درباره ما</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
