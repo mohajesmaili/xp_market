@@ -1,14 +1,5 @@
 logs
 target
-.idea/
-admin/
-assets/
-fonts/
-images/
-inc/
-js/
-lib/
-stylesheets/
 tmp
 .history
 dist
