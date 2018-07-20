@@ -207,7 +207,11 @@
                     	                    <div class="img-overlay">
                     	                        <a class="btn more btn-primary" href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'">توضیحات بیشتر</a>';
                     	                        if($_SESSION["user"]==true) {
-                                                   echo'<a class="btn buy btn-danger" href = "inc/add_basket.php?product_id='. $row["id"] .'" > اضافه به سبد خرید </a >';
+                                                    if($row["number"]!=0){
+                                                        echo'<a class="btn buy btn-danger" href = "inc/add_basket.php?product_id='. $row["id"] .'" > اضافه به سبد خرید </a >';
+                                                    }else if($row["number"]==0){
+                                                        echo'<a class="btn buy btn-danger">موجود نیست</a>';
+                                                    }
                                                     }
                     	                    echo '</div>
                     	                </div>

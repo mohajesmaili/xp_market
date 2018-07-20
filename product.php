@@ -280,7 +280,7 @@
                 <!--  ==========  -->
                 <!--  = Products =  -->
                 <?php
-                $product="SELECT * FROM `product` where product.categoryp='$category' ORDER BY id DESC LIMIT 4";
+                $product="SELECT * FROM `product` where product.categoryp='$category' && number!=0 ORDER BY id DESC LIMIT 4";
                 $result=mysqli_query($sql,$product);
                 if(mysqli_num_rows($result) >0){
                 while($row=mysqli_fetch_assoc($result)){

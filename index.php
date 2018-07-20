@@ -288,7 +288,7 @@ session_start();
                         <!--  ==========  -->
                         <?php
                         require("inc/connect.php");
-                        $product_special=("SELECT * FROM product WHERE special=1 && id%2=0 ORDER BY id DESC LIMIT 3  ");
+                        $product_special=("SELECT * FROM product WHERE special=1 && id%2=0 && number!=0 ORDER BY id DESC LIMIT 3  ");
                         $result=mysqli_query($sql,$product_special);
 
                         if(mysqli_num_rows($result) >0){
@@ -333,7 +333,7 @@ session_start();
     					<!--  ========== -->
                         <?php
                         require("inc/connect.php");
-                        $product_special=("SELECT * FROM `product` WHERE special=1 && id%2!=0 ORDER BY id DESC LIMIT 3");
+                        $product_special=("SELECT * FROM `product` WHERE special=1 && id%2!=0 && number!=0 ORDER BY id DESC LIMIT 3");
                         $result=mysqli_query($sql,$product_special);
 
                         if(mysqli_num_rows($result) >0){
@@ -398,7 +398,7 @@ session_start();
                 <!--  ==========  -->   
                 <?php
                 require("inc/connect.php");
-                $product=("SELECT * FROM `product` ORDER BY id DESC LIMIT 8");
+                $product=("SELECT * FROM `product` WHERE number!=0 ORDER BY id DESC LIMIT 8");
                 $result=mysqli_query($sql,$product);
                 if(mysqli_num_rows($result) >0){
                 while($row= mysqli_fetch_assoc($result)){
@@ -464,7 +464,7 @@ session_start();
 				<!--  = Product =  -->
 				<!--  ==========  -->
                 <?php
-                $product_random=("SELECT * FROM `product` ORDER BY RAND() LIMIT 4");
+                $product_random=("SELECT * FROM `product` WHERE number!=0 ORDER BY RAND() LIMIT 4");
                 $result=mysqli_query($sql,$product_random);
                 if(mysqli_num_rows($result) >0){
 

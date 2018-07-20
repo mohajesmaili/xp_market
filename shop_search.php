@@ -242,9 +242,15 @@
                     	                <div class="picture">
                     	                    <img width="540" height="374" alt="" src="images/product/'.$row["id"].'.png" />
                     	                    <div class="img-overlay">
-                    	                        <a class="btn more btn-primary" href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'">توضیحات بیشتر</a>
-                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
-                    	                    </div>
+                    	                        <a class="btn more btn-primary" href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'">توضیحات بیشتر</a>';
+                                                if($_SESSION["user"]==true) {
+                                                    if($row["number"]!=0){
+                                                        echo'<a class="btn buy btn-danger" href = "inc/add_basket.php?product_id='. $row["id"] .'" > اضافه به سبد خرید </a >';
+                                                    }else if($row["number"]==0){
+                                                        echo'<a class="btn buy btn-danger">موجود نیست</a>';
+                                                    }
+                                                }
+                    	                echo '</div>
                     	                </div>
                     	            </div>
                     	            <div class="main-titles no-margin">
