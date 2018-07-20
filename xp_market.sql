@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 18, 2018 at 09:53 AM
+-- Generation Time: Jul 20, 2018 at 01:27 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -36,29 +36,19 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `basket`
 --
 
 INSERT INTO `basket` (`id`, `user_id`, `product_id`) VALUES
-(4, 16, 8),
-(3, 1, 4),
-(5, 1, 8),
-(6, 1, 8),
-(7, 1, 1),
-(8, 1, 2),
-(9, 16, 6),
-(10, 16, 4),
-(11, 16, 3),
-(12, 17, 6),
-(13, 17, 4),
-(14, 16, 5),
-(15, 18, 3),
-(16, 18, 6),
-(17, 18, 7),
-(18, 18, 4);
+(28, 1, 3),
+(27, 16, 3),
+(26, 16, 6),
+(25, 16, 4),
+(24, 16, 7),
+(23, 16, 9);
 
 -- --------------------------------------------------------
 
@@ -112,6 +102,28 @@ INSERT INTO `categoryp` (`id`, `name`) VALUES
 (5, 'case'),
 (6, 'hard disk'),
 (10, 'power');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_product`
+--
+
+DROP TABLE IF EXISTS `comment_product`;
+CREATE TABLE IF NOT EXISTS `comment_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `comment_product`
+--
+
+INSERT INTO `comment_product` (`id`, `product_id`, `user_id`, `comment`) VALUES
+(20, 3, 1, 'با سلام خیلی خوبه ');
 
 -- --------------------------------------------------------
 
