@@ -67,6 +67,7 @@
                 <!--  ==========  -->
                 <?php
                 $id=$_GET["productid"];
+                $category=$_GET["categoryid"];
                 echo '<div class="span5">
                     <div class="product-preview">
                         <div class="picture">
@@ -122,19 +123,22 @@
                         <!--  ==========  -->
                         <?php
                         $r=mysqli_fetch_assoc($result);
-                        echo '<form action="inc/add_basket.php" method="post" class="form form-inline clearfix">
+                        echo '<form  method="post" class="form form-inline clearfix">
                             <div class="numbered">
                             	<input type="text" name="num" value="1" class="tiny-size" />
                             	<span class="clickable add-one icon-plus-sign-alt"></span>
                             	<span class="clickable remove-one icon-minus-sign-alt"></span>
                             </div>
                             &nbsp;';
+                        if($_SESSION["user"]==true){
                             if($row["number"]!=0){
-                            echo'<button class="btn btn-success pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>';
+                                echo'<a href="inc/add_basket.php?product_id='.$row["id"].'" class="btn btn-success pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</a>';
                             }else if($row["number"]==0){
-                                echo'<button class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i>موجود شد به من اطلاع بده</button>';
+                                echo'<a href="#" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i>موجود شد به من اطلاع بده</a>';
                             }
-                        
+                        }else{
+                            echo'<a href="#" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i>ثبت نام کنید یا وارد شوید</a>';
+                        }
                         echo'</form>';
                         ?>
                         <hr />
@@ -150,10 +154,10 @@
                 <div class="span12">
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active">
-                            <a href="#tab-1" data-toggle="tab">جزئیات</a>
+                            <a href="#tab-1" data-toggle="tab">نقد و بررسی</a>
                         </li>
                         <li>
-                            <a href="#tab-2" data-toggle="tab">جدول اندازه</a>
+                            <a href="#tab-2" data-toggle="tab">مشخصات فنی</a>
                         </li>
                         <li>
                             <a href="#tab-3" data-toggle="tab">نظرات</a>
@@ -180,9 +184,65 @@
                             </p>
                         </div>
                         <div class="fade tab-pane" id="tab-3">
-                            <p>
-                                لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود.  
-                            </p>
+                            <section id="comments" class="comments-container">
+                                <?php
+                                $counter="SELECT count(id) as counter from comment_product where product_id='$id'";
+                                $res=mysqli_query($sql,$counter);
+                                $row=mysqli_fetch_assoc($res);
+                                echo '<h3 class="push-down-25"><span class="light">'.$row["counter"].'</span> نظر</h3>';
+                                 ?>
+                                <!--  ==========  -->
+                                <!--  = Single Comment =  -->
+                                <!--  ==========  -->
+                                <?php
+                                $sel_comment=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id'");
+                                $result3=mysqli_query($sql,$sel_comment);
+
+                                if(mysqli_num_rows($result3) >0) {
+                                    while ($row3 = mysqli_fetch_assoc($result3)) {
+                                        echo '<div class="single-comment clearfix">
+                                    <div class="avatar-container">
+                                        <img src="images/dummy/avatars/avatar-2.jpg" alt="avatar" class="avatar" width="184" height="184" />
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-inner">
+                                            <cite class="author-name">
+                                                <span class="light">'.$row3["username"].'</span>
+                                            </cite>
+                                            <div class="metadata">
+                                                26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
+                                            </div>
+                                            <div class="comment-text">
+                                            <p>'.$row3["comment"].'</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>';
+                                    }
+                                }
+                                ?>
+
+                                <hr />
+
+                                <h3 class="push-down-25"><span class="light">نظر</span> بدهید</h3>
+                                <?php
+                                if($_SESSION["user"]==true) {
+                                    echo '<form id="commentform" method="POST" action="inc/send_commentp.php?userid='.$_SESSION["user_id"].'&productid='.$id.'&categoryid='.$category.'" class="form form-inline form-comments">
+                                    <p class="push-down-20">
+                                        <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
+                                    </p>
+                                    <p>
+                                        <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>
+                                    </p>
+                                </form>';
+                                }else{
+                                    echo' <button class="btn btn-primary bold" tabindex="5">ابتدا باید ثبت نام کنید یا وارد شوید</button>';
+                                }
+                                ?>
+                            </section>
+
+                            </section> <!-- /main content -->
                         </div>
                         <div class="fade tab-pane" id="tab-4">
                             <p>
@@ -219,8 +279,7 @@
                     
                 <!--  ==========  -->
                 <!--  = Products =  -->
-                <?php 
-                $category=$_GET["categoryid"];
+                <?php
                 $product="SELECT * FROM `product` where product.categoryp='$category' ORDER BY id DESC LIMIT 4";
                 $result=mysqli_query($sql,$product);
                 if(mysqli_num_rows($result) >0){
@@ -231,15 +290,17 @@
                             <div class="picture">
                                 <img src="images/product/'.$row["id"].'.png" alt="" width="540" height="374" />
                                 <div class="img-overlay">
-                                    <a href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
+                                    <a href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'" class="btn more btn-primary">توضیحات بیشتر</a>';
+                                    if($_SESSION["user"]==true){
+                                echo'<a href="inc/add_basket.php?product_id='.$row["id"].'" class="btn buy btn-danger">اضافه به سبد خرید</a>';
+                                }else{
+                                    }
+                                echo '</div>
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                        <h3 class="title">'.$row["name"].'</h3>
-						<h4 class="title">'.$row["price"].' تومان</h4>
-                        <h5 class="no-margin">کد '.$row["code"].'</h5>
+                        <h4 class="title">'.$row["name"].'</h4>
+                        <h5 class="no-margin isotope--title">'.$row["price"].' تومان</h5>
                         </div>
                         <p class="center-align stars">
                             <span class="icon-star stars-clr"></span>
