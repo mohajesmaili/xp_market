@@ -85,7 +85,7 @@
                              </script>";
 
                     }else {
-                        $result_search = "SELECT * FROM `news` where subject like '%$search%'";
+                        $result_search = "SELECT * FROM `news` where subject like '%$search%' ORDER BY id DESC ";
                         $result = mysqli_query($sql, $result_search);
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {

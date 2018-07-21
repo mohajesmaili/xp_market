@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>XP Market- محصول</title>
+    <title>XP Market - محصول</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -102,6 +102,7 @@
                         <h1 class="name">'.$row["name"].'</h1>
                         <div class="meta">
                             <span class="tag">'.$row["price"].' هزار تومان</span>
+                            &nbsp;
                             <span class="stock">';
                             if($row["number"]!=0){
                               echo '<span class="btn btn-success">موجود</span>';

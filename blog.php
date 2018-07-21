@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>XP Market- مقالات</title>
+    <title>XP Market - اخبار</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -74,7 +74,14 @@
                     <!--  ==========  -->
                     <?php 
                     require("inc/connect.php");
-                    $news="SELECT * FROM `news`";
+                    $page=$_GET["pageid"];
+                    $per_page = 5;
+                    $start = ($page-1)*$per_page;
+                    $show_pages=("SELECT * FROM `news`");
+                    $resu=mysqli_query($sql,$show_pages);
+                    $coun = mysqli_num_rows($resu);
+
+                    $news="SELECT * FROM `news` ORDER BY id DESC limit $start,$per_page";
                     $result=mysqli_query($sql,$news);
                     if(mysqli_num_rows($result)>0){
                         while($row=mysqli_fetch_assoc($result)){
@@ -97,18 +104,24 @@
                              }
                          }
                     ?>
-                    
+
                     <!--  ==========  -->
                     <!--  = Pagination =  -->
                     <!--  ==========  -->
-                    <div class="pagination">
+                    <div class="pagination" style="text-align: center;">
                         <ul>
                             <li><a href="#" class="btn btn-primary"><span class="icon-chevron-left"></span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
+                            <?php
+                            $allpages = ceil($coun / $per_page);
+                            for($i = 1 ; $i <= $allpages ; $i++) {
+                                if($page==$i) {
+                                    echo '<li class="active"><a href = "blog.php?pageid=' . $i . '" > ' . $i . '</a ></li>';
+                                }else{
+                                    echo '<li><a href = "blog.php?pageid=' . $i . '" > ' . $i . '</a ></li>';
+                                }
+                            }
+
+                            ?>
                             <li><a href="#" class="btn btn-primary"><span class="icon-chevron-right"></span></a></li>
                         </ul>
                     </div> <!-- /pagination -->

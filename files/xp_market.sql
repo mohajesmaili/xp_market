@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 20, 2018 at 01:27 PM
+-- Generation Time: Jul 21, 2018 at 02:04 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -36,13 +36,15 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `basket`
 --
 
 INSERT INTO `basket` (`id`, `user_id`, `product_id`) VALUES
+(30, 17, 1),
+(29, 17, 6),
 (28, 1, 3),
 (27, 16, 3),
 (26, 16, 6),
@@ -102,6 +104,33 @@ INSERT INTO `categoryp` (`id`, `name`) VALUES
 (5, 'case'),
 (6, 'hard disk'),
 (10, 'power');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_news`
+--
+
+DROP TABLE IF EXISTS `comment_news`;
+CREATE TABLE IF NOT EXISTS `comment_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `comment_news`
+--
+
+INSERT INTO `comment_news` (`id`, `news_id`, `user_id`, `comment`) VALUES
+(1, 1, 16, 'ب اسلام وبسایت خیلی خوبی دارید '),
+(2, 1, 16, 'با سلام وبسایت خیلی بدی دارید '),
+(3, 1, 1, 'حمال چرا فش میدی '),
+(4, 1, 1, 'خری مگه'),
+(5, 1, 1, 'ززز'),
+(6, 5, 1, 'با سلام خیلی ممنون از تخفیف هایتان ');
 
 -- --------------------------------------------------------
 

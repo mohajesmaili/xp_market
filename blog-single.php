@@ -105,193 +105,63 @@
                     <!--  ==========  -->
                     <!--  = Comments =  -->
                     <!--  ==========  -->
-                    
+
                     <section id="comments" class="comments-container">
-                        <h3 class="push-down-25"><span class="light">7</span> نظر</h3>
-                        
+                        <?php
+                        $counter="SELECT count(id) as counter from comment_news where news_id='$id'";
+                        $res=mysqli_query($sql,$counter);
+                        $row=mysqli_fetch_assoc($res);
+                        echo '<h3 class="push-down-25"><span class="light">'.$row["counter"].'</span> نظر</h3>';
+                        ?>
                         <!--  ==========  -->
                         <!--  = Single Comment =  -->
                         <!--  ==========  -->
-                        <div class="single-comment clearfix">
-                            <div class="avatar-container">
-                                <img src="images/dummy/avatars/avatar-2.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-inner">
-                                    <cite class="author-name">
-                                        <span class="light">جک</span> اسمیت
-                                    </cite>
-                                    <div class="metadata">
-                                        26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                    </div>
-                                </div>
-                                
-                                 
-                                <!--  ==========  -->
-                                <!--  = Single Nested Comment - one level =  -->
-                                <!--  ==========  -->
-                                <div class="single-comment nested clearfix">
-                                    <div class="avatar-container">
-                                        <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                                    </div>
-                                    <div class="comment-content">
-                                        <div class="comment-inner">
-                                            <cite class="author-name">
-                                                <span class="light">Nested</span> Comment One Level
-                                            </cite>
-                                            <div class="metadata">
-                                                26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                            </div>
-                                            <div class="comment-text">
-                                                <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- /nested comment -->
-                                 
-                                <!--  ==========  -->
-                                <!--  = Single Nested Comment - one level =  -->
-                                <!--  ==========  -->
-                                <div class="single-comment nested clearfix">
+                        <?php
+                        $sel_comment=("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id'");
+                        $result3=mysqli_query($sql,$sel_comment);
+
+                        if(mysqli_num_rows($result3) >0) {
+                            while ($row3 = mysqli_fetch_assoc($result3)) {
+                                echo '<div class="single-comment clearfix">
                                     <div class="avatar-container">
                                         <img src="images/dummy/avatars/avatar-2.jpg" alt="avatar" class="avatar" width="184" height="184" />
                                     </div>
                                     <div class="comment-content">
                                         <div class="comment-inner">
                                             <cite class="author-name">
-                                                <span class="light">Nested</span> Comment One Level
+                                                <span class="light">'.$row3["username"].'</span>
                                             </cite>
                                             <div class="metadata">
                                                 26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
                                             </div>
                                             <div class="comment-text">
-                                                <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
+                                            <p>'.$row3["comment"].'</p>
                                             </div>
                                         </div>
+
                                     </div>
-                                </div> <!-- /nested comment -->
-                                 
-                            </div>
-                        </div>
-                        
-                        <!--  ==========  -->
-                        <!--  = Single Comment =  -->
-                        <!--  ==========  -->
-                        <div class="single-comment clearfix">
-                            <div class="avatar-container">
-                                <img src="images/dummy/avatars/avatar-4.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-inner">
-                                    <cite class="author-name">
-                                        <span class="light">جان</span> دیوید
-                                    </cite>
-                                    <div class="metadata">
-                                        26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                    </div>
-                                </div>
-                                
-                                
-                                <!--  ==========  -->
-                                <!--  = Single Nested Comment - one level =  -->
-                                <!--  ==========  -->
-                                <div class="single-comment nested clearfix">
-                                    <div class="avatar-container">
-                                        <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                                    </div>
-                                    <div class="comment-content">
-                                        <div class="comment-inner">
-                                            <cite class="author-name">
-                                                <span class="light">Nested</span> Comment One Level
-                                            </cite>
-                                            <div class="metadata">
-                                                26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                            </div>
-                                            <div class="comment-text">
-                                                <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <!--  ==========  -->
-                                        <!--  = Single Nested Comment - two levels =  -->
-                                        <!--  ==========  -->
-                                        <div class="single-comment nested clearfix">
-                                            <div class="avatar-container">
-                                                <img src="images/dummy/avatars/avatar-2.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                                            </div>
-                                            <div class="comment-content">
-                                                <div class="comment-inner">
-                                                    <cite class="author-name">
-                                                        <span class="light">Nested</span> Comment Two Levels
-                                                    </cite>
-                                                    <div class="metadata">
-                                                        26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                                    </div>
-                                                    <div class="comment-text">
-                                                        <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- /nested comment 2 -->
-                                    </div>
-                                </div> <!-- /nested comment 1 -->
-                            </div>
-                        </div>
-                        
-                        <!--  ==========  -->
-                        <!--  = Single Comment =  -->
-                        <!--  ==========  -->
-                        <div class="single-comment clearfix">
-                            <div class="avatar-container">
-                                <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-inner">
-                                    <cite class="author-name">
-                                        <span class="light">جک</span> اسمیت
-                                    </cite>
-                                    <div class="metadata">
-                                        26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                                </div>';
+                            }
+                        }
+                        ?>
+
                         <hr />
-                        
+
                         <h3 class="push-down-25"><span class="light">نظر</span> بدهید</h3>
-                        
-                        <form id="commentform" method="post" action="#" class="form form-inline form-comments">
-                            <p class="push-down-20">
-                                <input type="text" aria-required="true" tabindex="1" size="30" value="" id="author" name="author" required>
-                                <label for="author">نام<span class="red-clr bold">*</span></label>
-                            </p>
-                            <p class="push-down-20">
-                                <input type="email" aria-required="true" tabindex="2" size="30" value="" id="email" name="email" required>
-                                <label for="email">ایمیل<span class="red-clr bold">*</span></label>
-                            </p>
-                            <p class="push-down-20">
-                                <input type="text" tabindex="3" size="30" value="" id="url" name="url">
-                                <label for="url">وبسایت</label>
-                            </p>
-    
-                            <p class="push-down-20">
-                                <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
-                            </p>
-                            <p>
-                                <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit">ارسال نظر</button>
-                            </p>
-                        </form>
-                        
+                        <?php
+                        if($_SESSION["user"]==true) {
+                            echo '<form id="commentform" method="POST" action="inc/send_commentn.php?userid='.$_SESSION["user_id"].'&newsid='.$id.'" class="form form-inline form-comments">
+                                    <p class="push-down-20">
+                                        <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
+                                    </p>
+                                    <p>
+                                        <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>
+                                    </p>
+                                </form>';
+                        }else{
+                            echo' <button class="btn btn-primary bold" tabindex="5">ابتدا باید ثبت نام کنید یا وارد شوید</button>';
+                        }
+                        ?>
                     </section>
 
                 </section> <!-- /main content -->

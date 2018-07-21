@@ -86,7 +86,7 @@ $_SESSION["user"];
                         <a href="shop.php?pageid=1" class="dropdown-toggle"> فروشگاه</a>
                     </li> 
                     <li class="dropdown">
-                        <a href="blog.php" class="dropdown-toggle">اخبار</a>
+                        <a href="blog.php?pageid=1" class="dropdown-toggle">اخبار</a>
                     </li>
                     <li class="dropdown">
                         <a href="about-us.php" class="dropdown-toggle">درباره ما</a>
