@@ -74,6 +74,7 @@
                     <!--  ==========  -->
                     <?php 
                     require("inc/connect.php");
+
                     $page=$_GET["pageid"];
                     $per_page = 5;
                     $start = ($page-1)*$per_page;
@@ -85,13 +86,17 @@
                     $result=mysqli_query($sql,$news);
                     if(mysqli_num_rows($result)>0){
                         while($row=mysqli_fetch_assoc($result)){
+                            $idc=$row["id"];
+                            $counter="SELECT count(id) as counter from `comment_news` where news_id='$idc'";
+                            $re=mysqli_query($sql,$counter);
+                            $r=mysqli_fetch_assoc($re);
                     echo'<article class="post format-standard sticky">
                         <div class="post-inner">
                             <div class="post-title">
                             	<h2><a href="blog-single.php?newsid='.$row["id"].'">'.$row["subject"].'</a></h2>
                             	<div class="metadata">
                             	    '.$row["date"].'/
-                            	    <a href="#">بدون نظر</a> /
+                            	    <a href="#">'.$r["counter"].' نظر </a> /
                             	    Posted in: <a rel="category tag" title="View all posts in aciform" href="#">Webmarket</a>
                             	</div>
                             </div>
