@@ -1,4 +1,7 @@
- 
+<?php
+error_reporting(0);
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
@@ -6,7 +9,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>Webmarket HTML Template - Checkout Step 1</title>
+    <title>XP Market - بازبینی سبد خرید</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -65,7 +68,7 @@
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>
+                    		    		<a href="index.html"><img src="images/xp logo.png" alt="Xp market Logo" width="300" height="150"/></a>
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">
@@ -90,11 +93,11 @@
                     		    	    سبد خرید
                     		    	</div>
                     		    	<div class="step">
-                    		    	    <div class="step-badge">3</div>
+                    		    	    <div class="step-badge">2</div>
                     		    	    آدرس ارسال
                     		    	</div>
                     		    	<div class="step">
-                                        <div class="step-badge">2</div>
+                                        <div class="step-badge">3</div>
                                         شیوه پرداخت
                                     </div>
                     		    	<div class="step">
@@ -116,61 +119,32 @@
 							    	</tr>
 							    </thead>
 							    <tbody>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-1.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
-							        	<td class="qty">
-							        	    <input type="text" class="tiny-size" value="4" />
-					            	    </td>
+                                <?php
+                                require ("inc/connect.php");
+                                $id=$_SESSION["user_id"];
+                                $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id'";
+                                $result=mysqli_query($sql,$show);
+                                if(mysqli_num_rows($result) >0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $p_id=$row["id"];
+                                        echo '<tr>
+							        	<td class="image"><img src="images/product_s/'.$row["id"].'.png" alt="" width="124" height="124" /></td>
+							        	<td class="desc">'.$row["name"].' <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="qty">';
+                                        $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id'";
+                                        $r=mysqli_query($sql,$counter);
+                                        if(mysqli_num_rows($r) >0){
+                                            $ro=(mysqli_fetch_assoc($r));
+                                            echo'<input type="text" class="tiny-size" value="'.$ro["counter"].'" />';
+                                        }
+					            	    echo'</td>
 							        	<td class="price">
-							        	    $59
+							        	   '.$row["price"].' T
 							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-2.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
-							        	<td class="qty">
-							        	    <input type="text" class="tiny-size" value="1" />
-					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-3.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
-							        	<td class="qty">
-							        	    <input type="text" class="tiny-size" value="2" />
-					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-4.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
-							        	<td class="qty">
-							        	    <input type="text" class="tiny-size" value="4" />
-					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
-							         
-							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-5.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
-							        	<td class="qty">
-							        	    <input type="text" class="tiny-size" value="4" />
-					            	    </td>
-							        	<td class="price">
-							        	    $59
-							        	</td>
-							        </tr>
+							           </tr>';
+                                    }
+                                }
+                                ?>
 							        							        <tr>
 							        	<td colspan="2" rowspan="2">
 							        	    <div class="alert alert-info">
@@ -179,11 +153,18 @@
                                             </div>
 							        	</td>
 							        	<td class="stronger">هزینه ارسال :</td>
-							        	<td class="stronger"><div class="align-right">$4.99</div></td>
+							        	<td class="stronger"><div class="align-right">20000 تومان</div></td>
 							        </tr>
 							        <tr>
 							        	<td class="stronger">جمع کل :</td>
-							        	<td class="stronger"><div class="size-16 align-right">$357.81</div></td>
+                                       <?php
+                                          //sum product
+                                          $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id'";
+                                          $result2=mysqli_query($sql,$sum);
+                                          $row2= mysqli_fetch_assoc($result2);
+                                          //end sum
+							        	  echo '<td class="stronger"><div class="size-16 align-right">'.$row2["sum"].' تومان </div></td>';
+	                                ?>
 							        </tr>
 							    </tbody>
 							</table>

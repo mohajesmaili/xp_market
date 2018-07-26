@@ -133,17 +133,18 @@ $_SESSION["user"];
                     <div class="cart">
                         <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>
                         <p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>
-                        <a href="checkout-step-1.html" class="btn btn-danger">
+                        <a href="checkout-step-1.php" class="btn btn-danger">
                             <!-- <span class="icon icons-cart"></span> -->
                             <i class="icon-shopping-cart"></i>
                         </a>
                     </div>
                     <div class="open-panel">';
                   //for show
-                  $show="SELECT product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id'";
+                  $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id'";
                   $result=mysqli_query($sql,$show);
                   if(mysqli_num_rows($result) >0){
-                  while($row= mysqli_fetch_assoc($result)){
+                  while($row = mysqli_fetch_assoc($result)){
+                      $p_id=$row["id"];
                   //end show
                         echo'<div class="item-in-cart clearfix">
                             <div class="image">
@@ -151,10 +152,14 @@ $_SESSION["user"];
                             </div>
                             <div class="desc">
                                 <strong><a href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'">'.$row["name"].'</a></strong>
-                                <span class="light-clr qty">
-                                    تعداد : 1
-                                    &nbsp;
-                                    <a href="#" class="icon-remove-sign" title="Remove Item"></a>
+                                <span class="light-clr qty">';
+                                $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id'";
+                                $r=mysqli_query($sql,$counter);
+                                if(mysqli_num_rows($r) >0){
+                                $ro=(mysqli_fetch_assoc($r));
+                                 echo 'تعداد :  '.$ro["counter"].'  ';
+                                }
+                                echo'<a href="#" class="icon-remove-sign" title="Remove Item"></a>
                                 </span>
                             </div>
                             <div class="price">
@@ -178,7 +183,7 @@ $_SESSION["user"];
                             </div>
                         </div>
                         <div class="proceed">
-                            <a href="checkout-step-1.html" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
+                            <a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
                             <small>هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a></small>
                         </div>
                     </div>
