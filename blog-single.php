@@ -117,7 +117,7 @@
                         <!--  = Single Comment =  -->
                         <!--  ==========  -->
                         <?php
-                        $sel_comment=("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id'");
+                        $sel_comment=("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id' ORDER BY comment_news.id DESC ");
                         $result3=mysqli_query($sql,$sel_comment);
 
                         if(mysqli_num_rows($result3) >0) {
