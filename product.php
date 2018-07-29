@@ -125,9 +125,13 @@
                         <?php
                         $r=mysqli_fetch_assoc($result);
                         echo '<form  method="post" class="form form-inline clearfix">
-                            <div class="numbered">
-                            	<input type="text" name="num" value="1" class="tiny-size" />
-                            	<span class="clickable add-one icon-plus-sign-alt"></span>
+                            <div class="numbered">';
+                        if($row["number"]!=0){
+                        echo '<input type="text" name="num" value="1"  class="tiny-size" />';
+                        }else if($row["number"]==0){
+                        echo '<input type="text" name="num" value="0"  disabled class="tiny-size" />';
+                        }
+                        echo   '<span class="clickable add-one icon-plus-sign-alt"></span>
                             	<span class="clickable remove-one icon-minus-sign-alt"></span>
                             </div>
                             &nbsp;';

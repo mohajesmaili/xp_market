@@ -98,7 +98,7 @@ session_start();
                     		    	</div>
                     		    	<div class="step">
                                         <div class="step-badge">3</div>
-                                        شیوه پرداخت
+                                        درگاه خرید
                                     </div>
                     		    	<div class="step">
                     		    	    <div class="step-badge">4</div>
@@ -173,7 +173,7 @@ session_start();
 							
 							<p class="right-align">
 							    در مرحله بعدی شما آدرس ارسال را انتخاب خواهید کرد. &nbsp; &nbsp;
-							    <a href="checkout-step-2.html" class="btn btn-primary higher bold">ادامه</a>
+							    <a href="checkout-step-2.php" class="btn btn-primary higher bold">ادامه</a>
 							</p>
                     	</div>
                     </div>
