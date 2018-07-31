@@ -119,12 +119,12 @@ $_SESSION["user"];
                   //for counter
                   session_start();
                   $id=$_SESSION["user_id"];
-                  $result=mysqli_query($sql,"select count(id) as 'count' from `basket` where basket.user_id='$id'");
+                  $result=mysqli_query($sql,"select count(id) as 'count' from `basket` where basket.user_id='$id'AND basket.sell!=1");
                   $row= mysqli_fetch_assoc($result);
                   //end counter
 
                   //sum product
-                  $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id'";
+                  $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id'AND basket.sell!=1";
                   $result2=mysqli_query($sql,$sum);
                   $row2= mysqli_fetch_assoc($result2);
                   //end sum
@@ -132,15 +132,15 @@ $_SESSION["user"];
                 <div class="cart-container" id="cartContainer">
                     <div class="cart">
                         <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>
-                        <p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>
-                        <a href="checkout-step-1.php" class="btn btn-danger">
+                            <p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>
+                            <a href="checkout-step-1.php" class="btn btn-danger">
                             <!-- <span class="icon icons-cart"></span> -->
                             <i class="icon-shopping-cart"></i>
                         </a>
                     </div>
                     <div class="open-panel">';
                   //for show
-                  $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id'";
+                  $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                   $result=mysqli_query($sql,$show);
                   if(mysqli_num_rows($result) >0){
                   while($row = mysqli_fetch_assoc($result)){
@@ -153,7 +153,7 @@ $_SESSION["user"];
                             <div class="desc">
                                 <strong><a href="product.php?productid='.$row["id"].'&categoryid='.$row["categoryp"].'">'.$row["name"].'</a></strong>
                                 <span class="light-clr qty">';
-                                $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id'";
+                                $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                                 $r=mysqli_query($sql,$counter);
                                 if(mysqli_num_rows($r) >0){
                                 $ro=(mysqli_fetch_assoc($r));
@@ -177,8 +177,8 @@ $_SESSION["user"];
                             </div>
                             <div class="line">
                                 <div class="row-fluid">
-                                    <div class="span6 align-right size-16">'.$row2["sum"].'  تومان </div>
-                                    <div class="span6">جمع کل :</div>
+                                 <div class="span6 align-right size-16">' . $row2["sum"] . '  تومان </div>
+                                  <div class="span6">جمع کل :</div>
                                 </div>
                             </div>
                         </div>

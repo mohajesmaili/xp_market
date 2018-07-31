@@ -5,7 +5,7 @@
 
     require("connect.php");
 
-    $insert = "INSERT INTO `basket` VALUES (NULL,'$user_id','$product_id')";
+    $insert = "INSERT INTO `basket` VALUES (NULL,'$user_id','$product_id',0)";
 
     $result = mysqli_query($sql, $insert);
 

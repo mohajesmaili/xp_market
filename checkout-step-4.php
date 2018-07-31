@@ -122,7 +122,7 @@ session_start();
                                 <?php
                                 require ("inc/connect.php");
                                 $id=$_SESSION["user_id"];
-                                $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id'";
+                                $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                                 $result=mysqli_query($sql,$show);
                                 if(mysqli_num_rows($result) >0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -131,7 +131,7 @@ session_start();
 							        	<td class="image"><img src="images/product_s/'.$row["id"].'.png" alt="" width="124" height="124" /></td>
 							        	<td class="desc">'.$row["name"].' <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">';
-                                        $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id'";
+                                        $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                                         $r=mysqli_query($sql,$counter);
                                         if(mysqli_num_rows($r) >0){
                                             $ro=(mysqli_fetch_assoc($r));
@@ -156,7 +156,7 @@ session_start();
 							        	<td class="stronger">جمع کل :</td>
                                         <?php
                                         //sum product
-                                        $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id'";
+                                        $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id' AND basket.sell!=1";
                                         $result2=mysqli_query($sql,$sum);
                                         $row2= mysqli_fetch_assoc($result2);
                                         //end sum
@@ -167,7 +167,7 @@ session_start();
 							</table>
 							
 							<p class="right-align">
-							    <a href="index.php" class="btn btn-primary higher bold">تاييد و پرداخت</a>
+							    <a href="inc/sell.php" class="btn btn-primary higher bold">تاييد و پرداخت</a>
 							</p>
                     	</div>
                     </div>
