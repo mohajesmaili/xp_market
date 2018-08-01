@@ -160,25 +160,6 @@
                     </div>
                     
                     <!--  ==========  -->
-                    <!--  = Flickr Widget =  -->
-                    <!--  ==========  -->
-                    <div class="sidebar-item widget_flickr">
-                        <div class="underlined">
-                            <h3><span class="light">ابزارک</span> فلیکر</h3>
-                        </div>
-                        
-                        <div class="flickr-badge clearfix">
-                            <!-- Start of Flickr Badge -->
-                            <div id="flickr_badge_uber_wrapper">
-                                <div id="flickr_badge_wrapper">
-                                    <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=random&size=s&layout=x&source=all_tag&tag=surf&user=29003388%40N04"></script>
-                                </div>
-                            </div>
-                            <!-- End of Flickr Badge -->
-                        </div>
-                    </div>
-                    
-                    <!--  ==========  -->
                     <!--  = Archive =  -->
                     <!--  ==========  -->
                     <div class="sidebar-item widget_archive">
@@ -195,22 +176,7 @@
                             <li><a title="فروردین 91" href="http://localhost/themeforest/wp-theme/2008/03/">فروردین 91</a>&nbsp;(3)</li>
                         </ul>
                     </div>
-                    
-                    
-                    <!--  ==========  -->
-                    <!--  = Twitter Widget =  -->
-                    <!--  ==========  -->
-                    <div class="sidebar-item widget_twitter">
-                        <div class="underlined">
-                            <h3><span class="light">فید</span> توییتر</h3>
-                        </div>
-                        
-                        <a class="twitter-timeline"  href="https://twitter.com/primozدیوید"  data-widget-id="361435057526800385">Tweets by @primozدیوید</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-                    </div>
-                    
-                    
                 </aside> <!-- /sidebar --> 
                 
             </div>
