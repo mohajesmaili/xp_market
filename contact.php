@@ -98,39 +98,6 @@
                     </section>
                     
                     <hr />
-                    
-                    <!--  ==========  -->
-                    <!--  = Company Info with Google Maps =  -->
-                    <!--  ==========  -->
-                    <article class="company-info">
-                        <div class="row">
-                        	<div class="span3">
-                        		<h3 class="push-down-30"><span class="light">اطلاعات</span> شرکت</h3>
-                        		    
-                        		<p>
-                        		    <strong class="opensans dark-clr">شرکت خیالی با مسئولیت محدود</strong>
-                        		    <br />
-                        		    Wall street 17,
-                        		    <br />
-                        		    1000 New York,
-                        		    <br />
-                        		    United States
-                        		</p>
-                        		    
-                        		<p>
-                        		    <strong class="opensans dark-clr">شماره تماس :</strong> 00386 31 567 537
-                        		    <br />
-                        		    <strong class="opensans dark-clr">فکس:</strong> 00386 31 567 538
-                        		    <br />
-                        		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">info@webmarket.com</a>
-                        		</p>
-                        	</div>
-                        	<div class="span5">
-                        	    <div class="add-googlemap" data-height="205" data-addr="Prešernov Trg, Ljubljana" data-title="Webmarket Business" data-zoom="14" data-type="roadmap"></div>
-                        	</div>
-                        </div>
-    
-                    </article>
 
                 </section> <!-- /main content -->
                 
@@ -204,19 +171,6 @@
                                 </dd>
                             </dl>
                         </div>
-                    </div>
-                    
-                    <!--  ==========  -->
-                    <!--  = Twitter Widget =  -->
-                    <!--  ==========  -->
-                    <div class="sidebar-item widget_twitter">
-                        <div class="underlined">
-                            <h3><span class="light">فید</span> توییتر</h3>
-                        </div>
-                        
-                        <a class="twitter-timeline"  href="https://twitter.com/primozدیوید"  data-widget-id="361435057526800385">Tweets by @primozدیوید</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
                     </div>
                     
                     
