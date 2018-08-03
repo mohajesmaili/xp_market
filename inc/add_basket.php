@@ -1,13 +1,23 @@
 <?php
-    $product_id = $_GET['product_id'];
+    error_reporting(0);
     session_start();
-    $user_id = $_SESSION["user_id"];
-
     require("connect.php");
 
-    $insert = "INSERT INTO `basket` VALUES (NULL,'$user_id','$product_id',0)";
+    $number=$_POST["num"];
 
-    $result = mysqli_query($sql, $insert);
+    $product_id = $_GET['product_id'];
+
+    $user_id = $_SESSION["user_id"];
+
+
+    $insert = "INSERT INTO `basket` VALUES (NULL,'$user_id','$product_id',0)";
+    if($number==0){
+        $result = mysqli_query($sql, $insert);
+    }else {
+        for ($i = 1; $i <= $number; $i++) {
+            $result = mysqli_query($sql, $insert);
+        }
+    }
 
 
     if($result){

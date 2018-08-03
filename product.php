@@ -124,12 +124,12 @@
                         <!--  ==========  -->
                         <?php
                         $r=mysqli_fetch_assoc($result);
-                        echo '<form  method="post" class="form form-inline clearfix">
+                        echo '<form  method="post" action="inc/add_basket.php?product_id='.$row["id"].'" class="form form-inline clearfix">
                             <div class="numbered">';
                         if($row["number"]!=0){
-                        echo '<input type="text" name="num" value="1"  class="tiny-size" />';
+                        echo '<input type="text" name="num"  id="num" value="1"  class="tiny-size" />';
                         }else if($row["number"]==0){
-                        echo '<input type="text" name="num" value="0"  disabled class="tiny-size" />';
+                        echo '<input type="text" name="num" value="0"  class="tiny-size"  disabled />';
                         }
                         echo   '<span class="clickable add-one icon-plus-sign-alt"></span>
                             	<span class="clickable remove-one icon-minus-sign-alt"></span>
@@ -137,7 +137,7 @@
                             &nbsp;';
                         if($_SESSION["user"]==true){
                             if($row["number"]!=0){
-                                echo'<a href="inc/add_basket.php?product_id='.$row["id"].'" class="btn btn-success pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</a>';
+                                echo'<button type="submit" class="btn btn-success pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>';
                             }else if($row["number"]==0){
                                 echo'<a href="#" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i>موجود شد به من اطلاع بده</a>';
                             }

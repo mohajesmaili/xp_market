@@ -168,6 +168,9 @@ $_SESSION["user"];
                         </div>';
                         }
                         }
+                  else {
+                      echo '<p>کالا وجود ندارد</p>';
+                  }
                         echo'<div class="summary">
                             <div class="line">
                                 <div class="row-fluid">

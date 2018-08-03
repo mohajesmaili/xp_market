@@ -6,9 +6,10 @@ session_start();
 
 $user_id = $_SESSION["user_id"];
 
-$update = "UPDATE `basket` SET `sell`=1 WHERE user_id='$user_id'";
+$update = "UPDATE `basket` SET `sell`=1  WHERE user_id='$user_id'";
 
 $result = mysqli_query($sql, $update);
+
 
 if($result){
     echo "<script>alert('خرید انجام گرفت');
