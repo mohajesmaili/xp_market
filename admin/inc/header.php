@@ -3,7 +3,7 @@ function exit()
 {
 a=confirm('آیا خارج میشوید؟');
 if(a==true){
-    document.location.href="inc/exit.php"
+    document.location.href="inc/exit.php";
     return true
 }else{
 return false
@@ -107,8 +107,7 @@ return false
                             }
                             ?>    
                             </li>
-                            <?php 
-                            require('connect.php');
+                            <?php
                             $contact=("SELECT * FROM `contact`");
                             $result=mysqli_query($sql,$contact);
                             if(mysqli_num_rows($result) > 0){

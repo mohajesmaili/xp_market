@@ -7,7 +7,7 @@ $user="root";
 
 $password="";
 
-$database="mr_developer";
+$database="xp_market";
 
 $sql=mysqli_connect($server,$user,$password);
 
@@ -26,4 +26,10 @@ $mysqli_connect=mysqli_select_db($sql,$database);
 if(!$mysqli_connect){
 	echo ".دیتابیس انتخاب نشد"."<br>";
 	}
+
+
+
+
+
+
 ?>

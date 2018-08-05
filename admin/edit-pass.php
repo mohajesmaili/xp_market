@@ -23,7 +23,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | edit_pass</title>
+    <title>Mr.Developer | edit_admin</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -114,7 +114,7 @@ function CheckEmpty(){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <?php require("inc/header.php") ?> 
+                  <?php require("inc/header.php") ?> 
 
       
       <!-- **********************************************************************************************************************************************************
@@ -215,28 +215,22 @@ function CheckEmpty(){
                       <form class="form-horizontal style-form" method="post" action="inc/edit-pass.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
                         <?php
                           $id=$_REQUEST['adminid'];
-                          $id = htmlentities($id, ENT_QUOTES, "UTF-8");   
-                          $id = str_replace("<", "&lt;", $id);
-                          $id = str_replace(">", "&gt;", $id);
-                          $id = str_replace("script", "", $id);                   
-                          $id=filter_var($id, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                          $id=mysqli_escape_string($sql,$id);
                           echo '<div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">پسورد فعلی:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="pass" name="pass" AUTOCOMPLETE="off" class="form-control round-form" type="password" placeholder="پسورد" onblur="CheckEmpty();">
+                                  <input id="pass" name="pass" class="form-control round-form" type="text" placeholder="پسورد" onblur="CheckEmpty();">
                               </div>
                           </div>                            
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">پسورد جدید:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="new-pass" name="new-pass" AUTOCOMPLETE="off" class="form-control round-form" type="password" placeholder="پسورد جدید" onblur="CheckEmpty();">
+                                  <input id="new-pass" name="new-pass" class="form-control round-form" type="text" placeholder="پسورد جدید" onblur="CheckEmpty();">
                               </div>
                           </div>                          
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">تکرار پسورد:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="rn-pass" name="rn-pass" AUTOCOMPLETE="off" class="form-control round-form" type="password" placeholder="تکرار پسورد" onblur="CheckEmpty();">
+                                  <input id="rn-pass" name="rn-pass" class="form-control round-form" type="text" placeholder="تکرار پسورد" onblur="CheckEmpty();">
                               </div>
                           </div> 
                           <div class="form-group">
@@ -251,7 +245,6 @@ function CheckEmpty(){
                           </div> 
                           <input type="hidden" value="'.filter_var($id, FILTER_SANITIZE_NUMBER_INT).'" name="hiddenid"/>
                           <button type="submit" name="submit" class="btn btn-success">ارسال</button>
-                          <button type="button" type="reset" class="btn btn-danger">حذف</button>
                       </form>
                      </div> 
                   </div>';

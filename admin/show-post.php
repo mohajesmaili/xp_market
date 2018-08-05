@@ -195,7 +195,7 @@ if(!$_SESSION['login']){
                     <?php 
                     $allpages = ceil($coun / $per_page); 
                     for($i = 1 ; $i <= $allpages ; $i++){
-                    echo '<a style="margin-right:2px;"  href="show-post.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                    echo '<a style="margin-right:2px;" href="show-post.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
                      }
                     ?>
                     </div>

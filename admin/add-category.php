@@ -32,7 +32,7 @@ if(!$_SESSION['login']){
 
     <script src="assets/js/chart-master/Chart.js"></script>
     <script src="assets/js/ckeditor/ckeditor.js" type="text/javascript"></script>
-    <script src="assets/js/ckfinder/ckfinder.js" type="text/javascript"></script>
+    <script src="assets/js/ckfinder/ckfinder.js"type="text/javascript"></script>
     <script>
         function dl()
          {

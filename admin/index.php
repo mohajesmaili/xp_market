@@ -33,10 +33,6 @@ if(!$_SESSION['login']){
     <script src="assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -45,7 +41,7 @@ if(!$_SESSION['login']){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <?php require('inc/header.php') ?>      
+      <?php require("inc/header.php") ?>
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -65,11 +61,11 @@ if(!$_SESSION['login']){
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>دوره ها</span>
+                          <span>کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
-                          <li><a  href="add-tutorails.php">شروع دوره جدید</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                       </ul>
                   </li> 
 
@@ -263,18 +259,18 @@ if(!$_SESSION['login']){
                     <!--COMPLETED ACTIONS DONUTS CHART-->
 						        <h3>ادمین ها</h3>
                     <?php
-                      require('connect.php');
+                      require('inc/connect.php');
                       $show_admin=("SELECT * FROM `admin`");
                       $result=mysqli_query($sql,$show_admin);
                       if(mysqli_num_rows($result) > 0){
                       while($row=mysqli_fetch_assoc($result)){
                       echo'<div class="desc">
                       	<div class="thumb">
-                      		<img class="img-circle" src="../assets/img/admin/'.$row["id"].'.jpg" width="45px" height="45px" align="">
+                      		<img class="img-circle" src="assets/img/admin/'.$row["id"].'.jpg" width="45px" height="45px" align="">
                       	</div>
                       	<div class="details">
                       		<p><a href="show-user.php">'.$row["name"].'</a><br/>
-                      		   <muted>'.$row["semat"].'</muted>
+                      		   <muted>'.$row["level"].'</muted>
                       		</p>
                       	</div>
                       </div>';
