@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 01, 2018 at 01:55 PM
+-- Generation Time: Aug 04, 2018 at 02:07 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -37,36 +37,28 @@ CREATE TABLE IF NOT EXISTS `basket` (
   `product_id` int(11) NOT NULL,
   `sell` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `basket`
 --
 
 INSERT INTO `basket` (`id`, `user_id`, `product_id`, `sell`) VALUES
-(30, 17, 1, 1),
-(29, 17, 6, 1),
-(28, 1, 3, 1),
-(27, 16, 3, 0),
-(26, 16, 6, 0),
-(25, 16, 4, 0),
-(24, 16, 7, 0),
-(23, 16, 9, 0),
-(31, 17, 3, 1),
-(32, 16, 6, 0),
-(33, 1, 5, 1),
-(34, 1, 6, 1),
-(35, 1, 4, 1),
-(36, 1, 4, 1),
-(37, 1, 5, 1),
-(38, 1, 5, 1),
-(39, 1, 8, 1),
-(40, 1, 7, 1),
-(41, 1, 4, 1),
-(42, 1, 9, 1),
-(43, 1, 9, 1),
-(44, 1, 3, 1),
-(45, 1, 3, 1);
+(108, 1, 6, 1),
+(107, 1, 7, 1),
+(106, 1, 7, 1),
+(105, 1, 7, 1),
+(104, 1, 7, 1),
+(103, 1, 7, 1),
+(102, 1, 8, 1),
+(101, 1, 8, 1),
+(100, 1, 8, 1),
+(99, 1, 8, 1),
+(98, 1, 3, 1),
+(97, 1, 3, 1),
+(96, 1, 3, 1),
+(95, 1, 3, 1),
+(94, 1, 3, 1);
 
 -- --------------------------------------------------------
 
