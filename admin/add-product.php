@@ -147,8 +147,8 @@ function CheckEmpty(){
                           <span>دوره ها</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
-                          <li class="active"><a  href="add-tutorails.php">شروع دوره جدید</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش دوره ها</a></li>
+                          <li class="active"><a  href="add-product.php">شروع دوره جدید</a></li>
                       </ul>
                   </li> 
 
@@ -254,7 +254,6 @@ function CheckEmpty(){
                               <div class="col-sm-10" style="margin-right: -100px;">
                                   <select id="categoryb" name="categoryb" class="form-control round-form" onblur="CheckEmpty();">
                                       <?php
-                                      require('inc/connect.php');
                                       $category=("Select * from `categoryb`");
                                       $result=mysqli_query($sql,$category);
                                       while($row=mysqli_fetch_assoc($result)){
@@ -264,7 +263,6 @@ function CheckEmpty(){
                                   </select>
                               </div>
                           </div>
-
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">قیمت :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">

@@ -183,7 +183,7 @@ if($_SESSION["permission"]!=1){
                                 $result=mysqli_query($sql,$show_product);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                echo'<form method="post" action="inc/dltutorails.php" id="frm"   onSubmit="return dl()">
+                                echo'<form method="post" action="inc/dl-product.php" id="frm"   onSubmit="return dl()">
                                       <tr style="font-family:roya;">
                                       <td>'.$row["name"].'</td>
                                       <td>'.$row["code"].'</td>

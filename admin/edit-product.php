@@ -48,48 +48,7 @@ if($_SESSION["permission"]!=1){
             return false
             else return true;
          }
-function validateForm(){
-var title = document.forms["form"]["title"].value;
-var date = document.forms["form"]["date"].value;
-var captcha = document.forms["form"]["captcha"].value;
-if (title == null || title == ""){
-    document.getElementById('title').style="border:1px solid #D40000";
-  return false;
-  }
-if (captcha == null || captcha == ""){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-  return false;
-  }
-  if (date == null || date == ""){
-    document.getElementById('date').style="border:1px solid #D40000";
-  return false;
-  }
-  return true
-}
 
-function CheckEmpty(){
-  title=document.getElementById('title').value;
-  captcha=document.getElementById('captcha').value;
-  date=document.getElementById('date').value;
-    if(title === ''){
-        document.getElementById('title').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('title').style="";
-    }
-    if(captcha === ''){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-    return false;
-    }    
-    if(date === ''){
-    document.getElementById('date').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('date').style="";
-    }  
-    return true;
 }
 </script>
   </head>
@@ -124,8 +83,8 @@ function CheckEmpty(){
                           <span>دوره ها</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
-                          <li><a  href="add-tutorails.php">شروع دوره جدید</a></li>
+                          <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                       </ul>
                   </li> 
 
@@ -196,56 +155,91 @@ function CheckEmpty(){
           <section class="wrapper">
           
                   <div class="form-panel">
-                      <h4 class="mb"><i class="fa fa-angle-left"></i>ویرایش دوره</h4>
-                      <form class="form-horizontal style-form" method="post" action="inc/edit-tutorails.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
+                      <h4 class="mb">ویرایش کالا</h4>
+                      <form class="form-horizontal style-form" method="post" action="inc/edit-product.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
                         <?php
-                          $id=$_REQUEST['tutorailsid'];
+                          $id=$_REQUEST['productid'];
                           $id = htmlentities($id, ENT_QUOTES, "UTF-8");   
                           $id = str_replace("<", "&lt;", $id);
                           $id = str_replace(">", "&gt;", $id);
                           $id = str_replace("script", "", $id);                   
                           $id=filter_var($id, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                          require("connect.php");
+                          require("inc/connect.php");
                           $id=mysqli_escape_string($sql,$id);
-                          $edit_tutorails=("SELECT * FROM `tutorails` where id='$id'");
-                          $result=mysqli_query($sql,$edit_tutorails);
+                          $edit_product=("SELECT * FROM `product` where id='$id'");
+                          $result=mysqli_query($sql,$edit_product);
                           if(mysqli_num_rows($result) > 0){
                           $row=mysqli_fetch_array($result);
                           echo '<div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تیتر:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">نام :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="title" name="title" class="form-control round-form" type="text" placeholder="تیتر" onblur="CheckEmpty();" value="'.$row["title"].'">
+                                  <input id="name" name="name" class="form-control round-form" type="text" placeholder="نام" value="'.$row["name"].'" onblur="CheckEmpty();">
                               </div>
-                          </div> 
+                          </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تیتر:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">کد :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="date" name="date" class="form-control round-form" type="text" placeholder="تیتر" onblur="CheckEmpty();" value="'.$row["date"].'">
+                                  <input id="code" name="code" class="form-control round-form" type="number" placeholder="کد" value="'.$row["code"].'" onblur="CheckEmpty();">
                               </div>
-                          </div> 
+                          </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">متن آموزش:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">دسته بندی :</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <select id="categoryp" name="categoryp" class="form-control round-form"  onblur="CheckEmpty();">';
+                                      $category=("Select * from `categoryp`");
+                                      $result=mysqli_query($sql,$category);
+                                      while($row2=mysqli_fetch_assoc($result)) {
+                                          echo '<option value="'.$row["categoryp"].'">' . $row2["id"] . '</option>';
+                                      }
+                              echo '</select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label"> برند :</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <select id="categoryb" name="categoryb" class="form-control round-form" onblur="CheckEmpty();">';
+                                      $category=("Select * from `categoryb`");
+                                      $result=mysqli_query($sql,$category);
+                                      while($row3=mysqli_fetch_assoc($result)) {
+                                          echo '<option value="'.$row["categoryb"].'">' . $row3["id"] . '</option>';
+                                      }
+                              echo '</select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">قیمت :</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <input id="price" name="price" class="form-control round-form"  type="number" placeholder="قیمت" value="'.$row["price"].'" onblur="CheckEmpty();">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">متن:</label>
                               <div class="col-sm-10" style="margin-right: -100px;width: 900px">
-                                  <textarea  id="content" name="content">
-                                  '.$row["content"].'
+                                  <textarea  id="description" name="description" >
                                   </textarea>
                                   <script>
-                                     CKEDITOR.replace( "content", {
-                                     customConfig: "custom/editor_full_config.js",});
-                                     CKFinder.setupCKEditor(null, "assets/js/ckfinder/");
+                                     CKEDITOR.replace( \'description\', {
+                                     customConfig: \'custom/editor_full_config.js\',});
+                                     CKFinder.setupCKEditor(null, \'assets/js/ckfinder/\');
                                   </script>
                               </div>
-                          </div>                          
+                          </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">عکس فعلی:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">محصول ویژه</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                <img src="../assets/img/tutorails_image/'.$row["id"].'.jpg" width=300px; height=300px style="border-radius:2px;" />
+                                  <input id="special" name="special" onblur="CheckEmpty();" class="form-control round-form" value="'.$row["special"].'" type="number" placeholder="ویژه">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">تعداد</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <input id="number" name="number" onblur="CheckEmpty();" class="form-control round-form" value="'.$row["number"].'" type="number" placeholder="تعداد">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ارسال عکس:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                <input id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file">
+                                <input id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
                               </div>
                           </div>
                           <div class="form-group">
