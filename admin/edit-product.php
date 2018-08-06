@@ -237,6 +237,12 @@ if($_SESSION["permission"]!=1){
                               </div>
                           </div>
                           <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">عکس فعلی :</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <img src="../images/product_s/'.$row["id"].'.png">
+                              </div>
+                          </div>
+                          <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ارسال عکس:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
                                 <input id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
