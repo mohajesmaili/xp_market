@@ -60,7 +60,7 @@ if(!$_SESSION['login']){
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
+                          <i class="fa fa-shopping-cart"></i>
                           <span>کالا</span>
                       </a>
                       <ul class="sub">

@@ -144,11 +144,11 @@ function CheckEmpty(){
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>دوره ها</span>
+                          <span>کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-product.php?pageid=1">نمایش دوره ها</a></li>
-                          <li class="active"><a  href="add-product.php">شروع دوره جدید</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li class="active"><a  href="add-product.php">اضافه کردن کالا</a></li>
                       </ul>
                   </li> 
 
@@ -220,7 +220,7 @@ function CheckEmpty(){
           <section class="wrapper">
           
                   <div class="form-panel">
-                      <h4 class="mb">اضافه کردن کالا</h4>
+                      <h4 class="mb"><i class="fa fa-angle-left"></i> اضافه کردن کالا</h4>
                       <form class="form-horizontal style-form" method="post" action="inc/add-product.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">نام :</label>

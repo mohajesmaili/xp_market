@@ -6,4 +6,3 @@ unset($_SESSION["div-right"]);
 unset($_SESSION["permission"]);
 
 header("location:../login.php");
-?>

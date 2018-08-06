@@ -156,7 +156,7 @@ if($_SESSION["permission"]!=1){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نمایش دوره ها</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>نمایش کالا</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
