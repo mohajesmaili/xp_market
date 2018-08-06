@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
             $code = htmlentities($code,ENT_QUOTES);
             $price = htmlentities($price,ENT_QUOTES);
             $categoryp = htmlentities($categoryp,ENT_QUOTES);
-            $categoryp = htmlentities($categoryb,ENT_QUOTES);
+            $categoryb = htmlentities($categoryb,ENT_QUOTES);
             $description = htmlentities($description,ENT_QUOTES);
             $special = htmlentities($special,ENT_QUOTES);
             $number = htmlentities($number,ENT_QUOTES);

@@ -23,7 +23,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | نمایش کالا</title>
+    <title>XP_Market | نمایش کالا</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -162,6 +162,8 @@ if($_SESSION["permission"]!=1){
                               <tr>
                                   <th>نام کالا</th>
                                   <th>کد</th>
+                                  <th>دسته بندی</th>
+                                  <th>برند</th>
                                   <th>قیمت</th>
                                   <th>تعداد</th>
                                   <th>عکس</th> 
@@ -183,10 +185,22 @@ if($_SESSION["permission"]!=1){
                                 $result=mysqli_query($sql,$show_product);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
+                                    $id=$row["id"];
                                 echo'<form method="post" action="inc/dl-product.php" id="frm"   onSubmit="return dl()">
                                       <tr style="font-family:roya;">
                                       <td>'.$row["name"].'</td>
-                                      <td>'.$row["code"].'</td>
+                                      <td>'.$row["code"].'</td>';
+                                       //category product
+                                       $categoryp="SELECT categoryp.name as categoryp FROM `categoryp`,`product` WHERE categoryp.id=product.categoryp and product.id='$id'";
+                                       $re=mysqli_query($sql,$categoryp);
+                                       $r=mysqli_fetch_assoc($re);
+                                       //category brand
+                                       $categoryb="SELECT categoryb.name as categoryb FROM `categoryb`,`product` WHERE categoryb.id=product.categoryb and product.id='$id'";
+                                       $res=mysqli_query($sql,$categoryb);
+                                       $ro=mysqli_fetch_assoc($res);
+                                      echo '
+                                      <td>'.$r["categoryp"].'</td>
+                                      <td>'.$ro["categoryb"].'</td>
                                       <td>'.$row["price"].'</td>
                                       <td>'.$row["number"].'</td>
                                       <td><img src="../images/product_s/'.$row["id"].'.png" width="60" height="60" style="border-radius:8px;"/></td>

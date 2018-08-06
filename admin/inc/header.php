@@ -13,7 +13,7 @@ return false
 <!--header start-->
       <header class="header black-bg">
             <!--logo start-->
-            <a href="index.php" class="logo"><img style="width:150px;margin-top:-5px;"  src="assets/img/logo.png"/></a>
+            <a href="index.php" class="logo"><img style="width:150px;margin-top:-5px;"  src="../images/xp-logo.png"/></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->

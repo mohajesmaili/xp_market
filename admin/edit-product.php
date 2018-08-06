@@ -186,10 +186,10 @@ if($_SESSION["permission"]!=1){
                               <label class="col-sm-2 col-sm-2 control-label">دسته بندی :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
                                   <select id="categoryp" name="categoryp" class="form-control round-form"  onblur="CheckEmpty();">';
-                                      $category=("Select * from `categoryp`");
-                                      $result=mysqli_query($sql,$category);
-                                      while($row2=mysqli_fetch_assoc($result)) {
-                                          echo '<option value="'.$row["categoryp"].'">' . $row2["id"] . '</option>';
+                                      $categoryp=("Select categoryp.* from `categoryp`,`product` WHERE categoryp.id=product.categoryp and product.id='$id'");
+                                      $resul=mysqli_query($sql,$categoryp);
+                                      while($row2=mysqli_fetch_assoc($resul)) {
+                                          echo '<option value="'.$row2["id"].'">' . $row2["name"] . '</option>';
                                       }
                               echo '</select>
                               </div>
@@ -198,10 +198,10 @@ if($_SESSION["permission"]!=1){
                               <label class="col-sm-2 col-sm-2 control-label"> برند :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
                                   <select id="categoryb" name="categoryb" class="form-control round-form" onblur="CheckEmpty();">';
-                                      $category=("Select * from `categoryb`");
-                                      $result=mysqli_query($sql,$category);
-                                      while($row3=mysqli_fetch_assoc($result)) {
-                                          echo '<option value="'.$row["categoryb"].'">' . $row3["id"] . '</option>';
+                                      $categoryb=("Select categoryb.* from `categoryb`,`product` WHERE categoryb.id=product.categoryb and product.id='$id'");
+                                      $resu=mysqli_query($sql,$categoryb);
+                                      while($row3=mysqli_fetch_assoc($resu)) {
+                                          echo '<option value="'.$row3["id"].'">' . $row3["name"] . '</option>';
                                       }
                               echo '</select>
                               </div>

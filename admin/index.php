@@ -171,11 +171,11 @@ if(!$_SESSION['login']){
                         </div>
                       </div>
                       </a>
-                  		<a href="show-post.php?pageid=1">
+                  		<a href="show-product.php?pageid=1">
                       <div class="col-md-2 col-sm-2 box0">
                   			<div class="box1">
-                          <span class="li_note"></span>
-                          <h3>مقالات</h3>
+                          <span class="li_shop"></span>
+                          <h3>کالا</h3>
                         </div>
                   		</div>
                       </a>

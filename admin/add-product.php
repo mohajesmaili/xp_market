@@ -23,7 +23,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | add_toturails</title>
+    <title>XP_Market | اضافه کردن کالا</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -240,10 +240,10 @@ function CheckEmpty(){
                                   <select id="categoryp" name="categoryp" class="form-control round-form" onblur="CheckEmpty();">
                                       <?php
                                       require('inc/connect.php');
-                                      $category=("Select * from `categoryp`");
-                                      $result=mysqli_query($sql,$category);
-                                      while($row=mysqli_fetch_assoc($result)){
-                                          echo'<option>'.$row["id"].'</option>';
+                                      $categoryp=("Select * from `categoryp`");
+                                      $resul=mysqli_query($sql,$categoryp);
+                                      while($ro=mysqli_fetch_assoc($resul)){
+                                          echo'<option value="'.$ro["id"].'">'.$ro["name"].'</option>';
                                       }
                                       ?>
                                   </select>
@@ -254,10 +254,10 @@ function CheckEmpty(){
                               <div class="col-sm-10" style="margin-right: -100px;">
                                   <select id="categoryb" name="categoryb" class="form-control round-form" onblur="CheckEmpty();">
                                       <?php
-                                      $category=("Select * from `categoryb`");
-                                      $result=mysqli_query($sql,$category);
-                                      while($row=mysqli_fetch_assoc($result)){
-                                          echo'<option>'.$row["id"].'</option>';
+                                      $categoryb=("Select * from `categoryb`");
+                                      $resu=mysqli_query($sql,$categoryb);
+                                      while($r=mysqli_fetch_assoc($resu)){
+                                          echo'<option value="'.$r["id"].'">'.$r["name"].'</option>';
                                       }
                                       ?>
                                   </select>
