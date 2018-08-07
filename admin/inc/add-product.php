@@ -19,7 +19,6 @@ if(isset($_POST['submit'])){
 				$price = htmlentities($price,ENT_QUOTES);
 				$categoryp = htmlentities($categoryp,ENT_QUOTES);
 				$categoryb = htmlentities($categoryb,ENT_QUOTES);
-				$description = htmlentities($description,ENT_QUOTES);
 				$special = htmlentities($special,ENT_QUOTES);
 				$number = htmlentities($number,ENT_QUOTES);
 

@@ -15,7 +15,7 @@ $_SESSION["user"];
                 <!--  ==========  -->
                 <div class="span7">
                     <a href="index.php">
-                    <img src="images/xp logo.png" width="300" height="100" style="padding: 20px 0;"/>
+                    <img src="images/xp-logo.png" width="300" height="100" style="padding: 20px 0;"/>
                     </a>
                     
                 </div>

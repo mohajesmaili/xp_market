@@ -216,6 +216,7 @@ if($_SESSION["permission"]!=1){
                               <label class="col-sm-2 col-sm-2 control-label">متن:</label>
                               <div class="col-sm-10" style="margin-right: -100px;width: 900px">
                                   <textarea  id="description" name="description" >
+                                  '.$row["Description"].'
                                   </textarea>
                                   <script>
                                      CKEDITOR.replace( \'description\', {

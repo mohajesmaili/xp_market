@@ -13,7 +13,7 @@
 
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
+
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -24,13 +24,13 @@
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -40,34 +40,34 @@
     <link rel="shortcut icon" href="images/apple-touch/57.png">
   </head>
 
-   
+
   <body class="boxed pattern-10">
-    
+
     <div class="master-wrapper">
-     
-     <?php 
-     
+
+     <?php
+
      require('inc/header.php');
 
-     ?> 
+     ?>
 
     <div class="container">
         <div class="push-up blocks-spacer">
             <div class="row">
-                
+
                 <!--  ==========  -->
                 <!--  = Sidebar =  -->
                 <!--  ==========  -->
                 <aside class="span3 left-sidebar" id="tourStep1">
                     <div class="sidebar-item sidebar-filters" id="sidebarFilters">
-                        
+
                         <!--  ==========  -->
                         <!--  = Sidebar Title =  -->
                         <!--  ==========  -->
                         <div class="underlined">
                         	<h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
                         </div>
-                        
+
                         <!--  ==========  -->
                         <!--  = Categories =  -->
                         <!--  ==========  -->
@@ -77,7 +77,7 @@
                             </div>
                             <div id="filterOne" class="accordion-body collapse in">
                                 <div class="accordion-inner">
-                                    <?php 
+                                    <?php
                                     require("inc/connect.php");
                                     $categoryp="SELECT * FROM `categoryp`";
                                     $result=mysqli_query($sql,$categoryp);
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         </div> <!-- /categories -->
-                        
+
                         <!--  ==========  -->
                         <!--  = Prices slider =  -->
                         <!--  ==========  -->
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
-                                             
+
                         <!--  ==========  -->
                         <!--  = Brand filter =  -->
                         <!--  ==========  -->
@@ -119,7 +119,7 @@
                             </div>
                             <div id="filterFour" class="accordion-body collapse">
                                 <div class="accordion-inner">
-                                    <?php 
+                                    <?php
                                     $categoryb="SELECT * FROM `categoryb`";
                                     $result2=mysqli_query($sql,$categoryb);
                                     if(mysqli_num_rows($result2)>0){
@@ -129,21 +129,21 @@
                                             }
                                         }
                                     ?>
- 
+
                                 </div>
                             </div>
                         </div> <!-- /brand filter -->
-                        
+
                         <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> حذف همه فیلتر ها</a>
-                        
+
                     </div>
                 </aside> <!-- /sidebar -->
-                
+
                 <!--  ==========  -->
                 <!--  = Main content =  -->
                 <!--  ==========  -->
                 <section class="span9">
-                    
+
                     <!--  ==========  -->
                     <!--  = Title =  -->
                     <!--  ==========  -->
@@ -158,8 +158,8 @@
                                     <select id="isotopeSorting" class="span3">
                                         <option value='{"sortBy":"price", "sortAscending":"true"}'>بر اساس قیمت (کم به زیاد) &uarr;</option>
                                         <option value='{"sortBy":"price", "sortAscending":"false"}'>بر اساس قیمت (زیاد به کم) &darr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"true"}'>بر اساس نام (صعودی) &uarr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"false"}'>بر اساس نام (نزولی) &darr;</option>
+                                        <option value='{"sortBy":"id", "sortAscending":"false"}'>بر اساس زمان (جدیدترین) &uarr;</option>
+                                        <option value='{"sortBy":"id", "sortAscending":"true"}'>بر اساس زمان (قدیمی ترین) &darr;</option>
                                         <option value='{"sortBy":"popularity", "sortAscending":"true"}'>بر اساس محبوبیت (کم به زیاد) &uarr;</option>
                                         <option value='{"sortBy":"popularity", "sortAscending":"false"}'>بر اساس محبوبیت (زیاد به کم) &darr;</option>
                                     </select>
@@ -167,36 +167,36 @@
                             </div>
                         </div>
                     </div> <!-- /title -->
-                    
+
                     <!--  ==========  -->
                     <!--  = Products =  -->
                     <!--  ==========  -->
                     <div class="row popup-products" >
                         <div id="isotopeContainer" class="isotope-container">
-                    	    
-                    	    
-                    	     
+
+
+
                 	        <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
                             <?php
                             require("inc/connect.php");
                             $page=$_GET["pageid"];
-                            $per_page = 9;
+                            $per_page = 15;
                             $start = ($page-1)*$per_page;
                             $show_pages=("SELECT * FROM `product`");
                             $resu=mysqli_query($sql,$show_pages);
                             $coun = mysqli_num_rows($resu);
 
-                            $product=("SELECT * FROM `product` ORDER BY id DESC limit $start,$per_page");
+                            $product=("SELECT * FROM `product` limit $start,$per_page");
 
                             $result=mysqli_query($sql,$product);
 
                             if(mysqli_num_rows($result) >0){
                                 while($row=mysqli_fetch_assoc($result)){
-                    	    echo '<div class="span3 filter--'.$row["categoryp"].'" data-price="'.$row["price"].'" data-popularity="2" data-brand="'.$row["categoryb"].'">
+                    	    echo '<div class="span3 filter--'.$row["categoryp"].'" data-price="'.$row["price"].'" data-id="'.$row["id"].'" data-popularity="2" data-brand="'.$row["categoryb"].'">
                     	        <div class="product" >';
-                    	        if($row["number"]!=0){  
+                    	        if($row["number"]!=0){
                 	               echo'<div class="stamp green">موجود</div>';
             	                     }else if($row["number"]==0){
                                     echo'<div class="stamp red">تمام شد</div>';
@@ -226,14 +226,14 @@
                     	                <span class="icon-star"></span>
                     	                <span class="icon-star"></span>
                     	                <span class="icon-star"></span>
-                    	                 
+
                     	            </p>
                     	        </div>
-                    	    </div>'; 
+                    	    </div>';
                                  }
                              }
-                            ?>         	     
-                    	    
+                            ?>
+
                     	</div>
                 	</div>
                 	<hr />
@@ -261,22 +261,22 @@
             </div>
         </div>
     </div> <!-- /container -->
-    
-    <?php 
+
+    <?php
     require("inc/footer.php");
     ?>
 
-     
+
     </div> <!-- end of master-wrapper -->
-    
+
 
 
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -285,38 +285,38 @@
       js.src = "";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
-    
+
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
     <!--  = Custom JS =  -->
@@ -324,6 +324,3 @@
 
   </body>
 </html>
-
-    
-    

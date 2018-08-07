@@ -21,7 +21,6 @@ if(isset($_POST['submit']))
             $price = htmlentities($price,ENT_QUOTES);
             $categoryp = htmlentities($categoryp,ENT_QUOTES);
             $categoryb = htmlentities($categoryb,ENT_QUOTES);
-            $description = htmlentities($description,ENT_QUOTES);
             $special = htmlentities($special,ENT_QUOTES);
             $number = htmlentities($number,ENT_QUOTES);
 
@@ -53,7 +52,7 @@ if(isset($_POST['submit']))
 			}
 
 			else{
-			echo "<script>alert('دوره آپدیت نشد');
+			echo "<script>alert('کالا آپدیت نشد');
             document.location.href='../show-product.php?pageid=1';</script>";
 			}
 	}else{			

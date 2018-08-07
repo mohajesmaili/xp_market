@@ -11,6 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
 
+
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
     
@@ -38,6 +39,38 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch/72.png">
     <link rel="apple-touch-icon-precomposed" href="images/apple-touch/57.png">
     <link rel="shortcut icon" href="images/apple-touch/57.png">
+      <!-- syntaxhighlighter-->
+      <link rel="stylesheet" type="text/css" href="admin/assets/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shCore.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushAppleScript.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushAS3.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushBash.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushColdFusion.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCss.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushDelphi.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushDiff.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushErlang.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushGroovy.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJava.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJavaFX.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPython.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushRuby.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushSass.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushScala.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushSql.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushVb.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shLegacy.js"></script>
+      <script type="text/javascript">SyntaxHighlighter.all();</script>
+      <!-- syntaxhighlighter-->
   </head>
 
    
@@ -115,7 +148,7 @@
                         </div>
                     </div>
                     <div class="product-description">
-                        <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود. </p>
+                        <p >'.substr($row["Description"],0,990).'</p>
                         <hr />';
                             }
                         ?>
@@ -174,14 +207,9 @@
                     <div class="tab-content">
                         <div class="fade in tab-pane active" id="tab-1">
                             <h3>توضیحات محصول</h3>
-                            <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود. </p>
-                            <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بل</p>
-                            <h1>سرخط H1 30px</h1>
-                            <h2>سرخط H2 26px</h2>
-                            <h3>سرخط H3 20px</h3>
-                            <h4>سرخط H4 18px</h4>
-                            <h5>سرخط H5 15px</h5>
-                            <p>لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. </p>
+                            <?php
+                            echo '<p>'.$row["Description"].'</p>';
+                            ?>
                         </div>
                         <div class="fade tab-pane" id="tab-2">
                             <p>
