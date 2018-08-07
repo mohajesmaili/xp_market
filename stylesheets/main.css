@@ -695,7 +695,7 @@ header .register { display: -moz-inline-stack; display: inline-block; vertical-a
 
 .product-preview img { border: 1px solid #e0e0e0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border 0.2s ease; -moz-transition: border 0.2s ease; -o-transition: border 0.2s ease; transition: border 0.2s ease; }
 .product-preview .picture { margin-bottom: 10px; }
-.product-preview .thumbs .thumb { width: 32%; margin-right: 2%; float: left; }
+.product-preview .thumbs .thumb { width: 15%; margin-right: 2%; float: left; }
 .product-preview .thumbs .thumb:last-child { margin-right: 0; }
 .product-preview .thumbs .thumb.active img, .product-preview .thumbs .thumb img:hover { border-width: 3px; border-color: #00becc; }
 

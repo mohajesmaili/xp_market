@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
@@ -14,7 +14,7 @@
 
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
+
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -25,13 +25,13 @@
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -73,28 +73,28 @@
       <!-- syntaxhighlighter-->
   </head>
 
-   
+
   <body class="">
-    
+
     <div class="master-wrapper">
 
-     <?php 
+     <?php
 
      require("inc/header.php");
 
-     ?> 
+     ?>
 
     <!--  ==========  -->
     <!--  = Main container =  -->
     <!--  ==========  -->
     <div class="container">
         <div class="push-up top-equal blocks-spacer">
-            
+
             <!--  ==========  -->
             <!--  = Product =  -->
             <!--  ==========  -->
             <div class="row blocks-spacer">
-                
+
                 <!--  ==========  -->
                 <!--  = Preview Images =  -->
                 <!--  ==========  -->
@@ -107,24 +107,33 @@
                             <img src="images/product/'.$id.'.png" alt="" width="940" height="940" id="mainPreviewImg" />
                         </div>
                         <div class="thumbs clearfix">
+                        <div class="thumb ">
+                            <a href="#mainPreviewImg"><img src="images/more_p/'.$id.'-(6).png"  alt="" width="100" height="100" /></a>
+                        </div>
+                        <div class="thumb ">
+                              <a href="#mainPreviewImg"><img src="images/more_p/'.$id.'-(5).png"  alt="" width="100" height="100" /></a>
+                          </div>
+                            <div class="thumb ">
+                                <a href="#mainPreviewImg"><img src="images/more_p/'.$id.'-(4).png"  alt="" width="100" height="100" /></a>
+                            </div>
+                            <div class="thumb ">
+                                <a href="#mainPreviewImg"><img src="images/more_p/'.$id.'-(3).png"  alt="" width="100" height="100" /></a>
+                            </div>
+                            <div class="thumb">
+                                <a href="#mainPreviewImg"><img src="images/product/'.$id.'.png" alt="" width="100" height="100" /></a>
+                            </div>
                             <div class="thumb active">
-                                <a href="#mainPreviewImg"><img src="images/product/'.$id.'.png"  alt="" width="940" height="940" /></a>
-                            </div>
-                            <div class="thumb">
-                                <a href="#mainPreviewImg"><img src="images/product/'.$id.'.png" alt="" width="940" height="940" /></a>
-                            </div>
-                            <div class="thumb">
-                                <a href="#mainPreviewImg"><img src="images/product/'.$id.'.png" alt="" width="940" height="940" /></a>
+                                <a href="#mainPreviewImg"><img src="images/more_p/'.$id.'-(2).png" alt="" width="100" height="100" /></a>
                             </div>
                         </div>
                     </div>
                 </div>';
                 ?>
-                
+
                 <!--  ==========  -->
                 <!--  = Title and short desc =  -->
                 <!--  ==========  -->
-                <?php 
+                <?php
                 require("inc/connect.php");
                 $product="SELECT * FROM `product` WHERE id='$id'";
                 $result=mysqli_query($sql,$product);
@@ -180,11 +189,11 @@
                         echo'</form>';
                         ?>
                         <hr />
-                        
+
                     </div>
                 </div>
             </div>
-            
+
             <!--  ==========  -->
             <!--  = Tabs with more info =  -->
             <!--  ==========  -->
@@ -213,7 +222,7 @@
                         </div>
                         <div class="fade tab-pane" id="tab-2">
                             <p>
-                                لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود.  
+                                لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود.
                             </p>
                         </div>
                         <div class="fade tab-pane" id="tab-3">
@@ -287,13 +296,13 @@
             </div>
         </div>
     </div> <!-- /container -->
-    
+
     <!--  ==========  -->
     <!--  = Related Products =  -->
     <!--  ==========  -->
     <div class="boxed-area no-bottom">
         <div class="container">
-            
+
             <!--  ==========  -->
             <!--  = Title =  -->
             <!--  ==========  -->
@@ -304,16 +313,16 @@
                     </div>
                 </div>
             </div>
-            
+
             <!--  ==========  -->
             <!--  = Related products =  -->
             <!--  ==========  -->
             <div class="row popup-products">
-                    
+
                 <!--  ==========  -->
                 <!--  = Products =  -->
                 <?php
-                $product="SELECT * FROM `product` where product.categoryp='$category' && number!=0 ORDER BY id DESC LIMIT 4";
+                $product="SELECT * FROM `product` where product.categoryp='$category' && number!=0 && id!='$id' ORDER BY id DESC LIMIT 4";
                 $result=mysqli_query($sql,$product);
                 if(mysqli_num_rows($result) >0){
                 while($row=mysqli_fetch_assoc($result)){
@@ -345,29 +354,29 @@
             	    </div>
             	</div>';
                        }
-                    } 
+                    }
                 ?>
                 <!-- /product -->
-            	 
-            	
+
+
             </div>
         </div>
     </div>
-    
-    <?php 
+
+    <?php
     require("inc/footer.php");
     ?>
-     
+
     </div> <!-- end of master-wrapper -->
-    
+
 
 
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -376,38 +385,38 @@
       js.src = "";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
-    
+
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
     <!--  = Custom JS =  -->
@@ -415,6 +424,3 @@
 
   </body>
 </html>
-
-    
-    
