@@ -140,7 +140,7 @@ $_SESSION["user"];
                     </div>
                     <div class="open-panel">';
                   //for show
-                  $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
+                  $show="SELECT distinct(code) ,product.* from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                   $result=mysqli_query($sql,$show);
                   if(mysqli_num_rows($result) >0){
                   while($row = mysqli_fetch_assoc($result)){

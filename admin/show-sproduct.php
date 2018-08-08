@@ -23,7 +23,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>XP_Market | نمایش کالا</title>
+    <title>XP_Market | نمایش کالا خریداری شده</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -83,9 +83,9 @@ if($_SESSION["permission"]!=1){
                           <span>کالا</span>
                       </a>
                       <ul class="sub">
-                          <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
-                          <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
+                          <li class="active"><a  href="add-product.php">نمایش کالا فروخته شده</a></li>
                       </ul>
                   </li> 
 
@@ -157,7 +157,7 @@ if($_SESSION["permission"]!=1){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نمایش کالا</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>نمایش کالا فروخته شده</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
@@ -166,9 +166,8 @@ if($_SESSION["permission"]!=1){
                                   <th>دسته بندی</th>
                                   <th>برند</th>
                                   <th>قیمت</th>
-                                  <th>تعداد</th>
-                                  <th>عکس</th> 
-                                  <th>تنظیمات</th>                               
+                                  <th>تعداد فروش</th>
+                                  <th>عکس</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -178,12 +177,11 @@ if($_SESSION["permission"]!=1){
                               $page=$_GET["pageid"];
                               $per_page =10;
                               $start = ($page-1)*$per_page;
-                              $show_pages=("SELECT * FROM `product`");
+                              $show_pages=("SELECT * FROM `basket`");
                               $resu=mysqli_query($sql,$show_pages);
                               $coun = mysqli_num_rows($resu);
-
-                               $show_product=("SELECT * FROM `product` ORDER BY id DESC limit $start,$per_page");
-                                $result=mysqli_query($sql,$show_product);
+                               $show_sproduct=("SELECT distinct(product.code),product.* FROM `product`,`basket` where product.id=basket.product_id and basket.sell=1 ORDER BY basket.id DESC limit $start,$per_page");
+                                $result=mysqli_query($sql,$show_sproduct);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
                                     $id=$row["id"];
@@ -202,14 +200,17 @@ if($_SESSION["permission"]!=1){
                                       echo '
                                       <td>'.$r["categoryp"].'</td>
                                       <td>'.$ro["categoryb"].'</td>
-                                      <td>'.$row["price"].'</td>
-                                      <td>'.$row["number"].'</td>
-                                      <td><img src="../images/product_s/'.$row["id"].'.png" width="60" height="60" style="border-radius:8px;"/></td>
-                                      <td>
-									   <a href="edit-product.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <input type="hidden" name="inputhidden" value='.$row["id"].'>
-                                      <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                      </td>
+                                      <td>'.$row["price"].'</td>';
+                                      //counter
+                                       $counter="SELECT COUNT(product_id) as counter FROM basket WHERE basket.product_id='$id' AND basket.sell!=0";
+                                       $r=mysqli_query($sql,$counter);
+                                       if(mysqli_num_rows($r) >0){
+                                       $ro=(mysqli_fetch_assoc($r));
+
+                                       echo '<td>'.$ro["counter"].'</td>';
+                                       }
+                                       //end counter
+                                       echo '<td><img src="../images/product_s/'.$row["id"].'.png" width="60" height="60" style="border-radius:8px;"/></td>
                                     </tr>
                                   </form>';
                                   }

@@ -149,6 +149,7 @@ function CheckEmpty(){
                       <ul class="sub">
                           <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li class="active"><a  href="add-product.php">اضافه کردن کالا</a></li>
+                          <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
                       </ul>
                   </li> 
 
@@ -282,9 +283,12 @@ function CheckEmpty(){
                               </div>
                           </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">محصول ویژه</label>
+                              <label class="col-sm-2 col-sm-2 control-label">ویژه :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="special" name="special" onblur="CheckEmpty();" class="form-control round-form" type="number" placeholder="ویژه">
+                                  <select id="special" name="special" class="form-control round-form" onblur="CheckEmpty();">
+                                      <option value="0">خیر</option>
+                                      <option value="1">بله</option>
+                                  </select>
                               </div>
                           </div>
                           <div class="form-group">
