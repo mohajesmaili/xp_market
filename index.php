@@ -617,12 +617,13 @@ session_start();
 		<div class="row">
 		    <div class="span12">
 		    	<div class="brands carouFredSel" data-nav="brands" data-autoplay="true">
-                    <img src="images/dummy/brands/brands_01.jpg" alt="" width="203" height="104" />
-                    <img src="images/dummy/brands/brands_02.jpg" alt="" width="203" height="104" />
-                    <img src="images/dummy/brands/brands_03.jpg" alt="" width="203" height="104" />
-                    <img src="images/dummy/brands/brands_04.jpg" alt="" width="203" height="104" />
-                    <img src="images/dummy/brands/brands_05.jpg" alt="" width="203" height="104" />
-                    <img src="images/dummy/brands/brands_06.jpg" alt="" width="203" height="104" />
+                    <?php
+                    $category_brand="SELECT * FROM `categoryb`";
+                    $result=mysqli_query($sql,$category_brand);
+                    while($row=mysqli_fetch_assoc($result)) {
+                        echo '<img src="images/brand/'.$row["id"].'.png" alt="" width="203" height="104" />';
+                    }
+                    ?>
                 </div>
 		    </div>
 		</div> <!-- /logos -->

@@ -147,28 +147,26 @@ if(!$_SESSION['login']){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نمایش دسته</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>نمایش دسته ها</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
-                                  <th>id</th>
                                   <th>نام دسته</th>                                  
                                   <th>تنظیمات</th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php                 
-                                require('connect.php');
-                                $show_posts=("SELECT * FROM `blog_category`");
-                                $result=mysqli_query($sql,$show_posts);
+                                require('inc/connect.php');
+                                $show_category=("SELECT * FROM `categoryp` ORDER BY id DESC");
+                                $result=mysqli_query($sql,$show_category);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                echo'<form method="post" action="inc/dlblog_category.php" id="frm"   onSubmit="return dl()">
+                                echo'<form method="post" action="inc/dl-categoryp.php" id="frm"   onSubmit="return dl()">
                                       <tr style="font-family:roya;">
-                                      <td>'.$row["id"].'</a></td>
                                       <td>'.$row["name"].'</td>
                                       <td>
-									                    <a href="edit-category.php?categoryid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									  <a href="edit-categoryp.php?categoryp_id='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'>
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                       </td>

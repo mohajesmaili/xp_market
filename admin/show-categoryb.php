@@ -5,13 +5,6 @@ $_SESSION['login'];
 if(!$_SESSION['login']){
   echo "<script>document.location.href='login.php'</script>";
   }
-$_SESSION["permission"];
-if($_SESSION["permission"]!=1){
-  echo "<script>
-        alert('شما اجازه ورود به این قسمت را ندارید');
-        document.location.href='index.php';
-        </script>";
-  }
   
 ?>
 <!DOCTYPE html>
@@ -23,7 +16,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>XP_Market | نمایش کالا</title>
+    <title>Mr.Developer | show_category</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -42,12 +35,9 @@ if($_SESSION["permission"]!=1){
         function dl()
          {
             a=confirm('آیا برای حذف مطمئنید؟');
-            if(a==false) {
-                return false;
-            }
-            else {
-                return true;
-            }
+            if(a==false)
+            return false
+            else return true;
          }
     </script>
 
@@ -59,7 +49,7 @@ if($_SESSION["permission"]!=1){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <?php require('inc/header.php') ?> 
+<?php require('inc/header.php') ?> 
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
@@ -78,14 +68,13 @@ if($_SESSION["permission"]!=1){
                   </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a href="javascript:;" >
                           <i class="fa fa-desktop"></i>
-                          <span>کالا</span>
+                          <span>دوره ها</span>
                       </a>
                       <ul class="sub">
-                          <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
-                          <li><a  href="add-product.php">اضافه کردن کالا</a></li>
-                          <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
+                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
+                          <li><a  href="add-tutorails.php">شروع دوره جدید</a></li>
                       </ul>
                   </li> 
 
@@ -114,12 +103,12 @@ if($_SESSION["permission"]!=1){
                   </li> 
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a class="active" href="javascript:;" >
                           <i class="fa fa-list"></i>
                           <span>دسته بندی</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-category.php">مشاهده دسته ها</a></li>
+                          <li class="active"><a  href="show-category.php">مشاهده دسته ها</a></li>
                           <li><a  href="add-category.php">اضافه کردن دسته</a></li>
                       </ul>
                   </li> 
@@ -143,6 +132,7 @@ if($_SESSION["permission"]!=1){
                   </li>
 
               </ul>
+
               <!-- sidebar menu end-->
           </div>
       </aside>
@@ -157,57 +147,28 @@ if($_SESSION["permission"]!=1){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نمایش کالا</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>نمایش دسته ها</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
-                                  <th>نام کالا</th>
-                                  <th>کد</th>
-                                  <th>دسته بندی</th>
-                                  <th>برند</th>
-                                  <th>قیمت</th>
-                                  <th>تعداد</th>
-                                  <th>عکس</th> 
-                                  <th>تنظیمات</th>                               
+                                  <th>نام دسته</th>
+                                  <th>عکس</th>
+                                  <th>تنظیمات</th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php                 
-                              require('inc/connect.php');
-
-                              $page=$_GET["pageid"];
-                              $per_page =10;
-                              $start = ($page-1)*$per_page;
-                              $show_pages=("SELECT * FROM `product`");
-                              $resu=mysqli_query($sql,$show_pages);
-                              $coun = mysqli_num_rows($resu);
-
-                               $show_product=("SELECT * FROM `product` ORDER BY id DESC limit $start,$per_page");
-                                $result=mysqli_query($sql,$show_product);
+                                require('inc/connect.php');
+                                $show_category=("SELECT * FROM `categoryb` ORDER BY id DESC");
+                                $result=mysqli_query($sql,$show_category);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                    $id=$row["id"];
-                                echo'<form method="post" action="inc/dl-product.php" id="frm"   onSubmit="return dl()">
+                                echo'<form method="post" action="inc/dl-categoryb.php" id="frm"   onSubmit="return dl()">
                                       <tr style="font-family:roya;">
                                       <td>'.$row["name"].'</td>
-                                      <td>'.$row["code"].'</td>';
-                                       //category product
-                                       $categoryp="SELECT categoryp.name as categoryp FROM `categoryp`,`product` WHERE categoryp.id=product.categoryp and product.id='$id'";
-                                       $re=mysqli_query($sql,$categoryp);
-                                       $r=mysqli_fetch_assoc($re);
-                                       //category brand
-                                       $categoryb="SELECT categoryb.name as categoryb FROM `categoryb`,`product` WHERE categoryb.id=product.categoryb and product.id='$id'";
-                                       $res=mysqli_query($sql,$categoryb);
-                                       $ro=mysqli_fetch_assoc($res);
-                                      echo '
-                                      <td>'.$r["categoryp"].'</td>
-                                      <td>'.$ro["categoryb"].'</td>
-                                      <td>'.$row["price"].'</td>
-                                      <td>'.$row["number"].'</td>
-                                      <td><img src="../images/product_s/'.$row["id"].'.png" width="60" height="60" style="border-radius:8px;"/></td>
+                                      <td><img src="../images/brand/'.$row["id"].'.png" width="101" height="52" style="border-radius:8px;"/></td>
                                       <td>
-                                       <a href="add-picture.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-image"></i></a>
-									   <a href="edit-product.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									  <a href="edit-categoryb.php?categoryb_id='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'>
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                       </td>
@@ -218,14 +179,6 @@ if($_SESSION["permission"]!=1){
                               ?>
                               </tbody>
                           </table>
-                          <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
-                              <?php
-                              $allpages = ceil($coun / $per_page);
-                              for($i = 1 ; $i <= $allpages ; $i++){
-                                  echo '<a style="margin-right:2px;" href="show-product.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
-                              }
-                              ?>
-                          </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               

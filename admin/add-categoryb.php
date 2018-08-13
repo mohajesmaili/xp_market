@@ -16,7 +16,7 @@ if(!$_SESSION['login']){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | edit_category</title>
+    <title>Mr.Developer | add_category</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -32,49 +32,49 @@ if(!$_SESSION['login']){
 
     <script src="assets/js/chart-master/Chart.js"></script>
     <script src="assets/js/ckeditor/ckeditor.js" type="text/javascript"></script>
-    <script src="assets/js/ckfinder/ckfinder.js" type="text/javascript"></script>
+    <script src="assets/js/ckfinder/ckfinder.js"type="text/javascript"></script>
     <script>
-    function dl()
-    {
-    a=confirm('آیا برای حذف مطمئنید؟');
-    if(a==false)
-    return false
-    else return true;
-    }
-    function validateForm(){
-    var name = document.forms["form"]["name"].value;
-    var captcha = document.forms["form"]["captcha"].value;
-    if (name == null || name == ""){
+        function dl()
+         {
+            a=confirm('آیا برای حذف مطمئنید؟');
+            if(a==false)
+            return false
+            else return true;
+         }
+function validateForm(){
+var name = document.forms["form"]["name"].value;
+var captcha = document.forms["form"]["captcha"].value;
+if (name == null || name == ""){
     document.getElementById('name').style="border:1px solid #D40000";
-    return false;
-    }
-    else if (captcha == null || captcha == ""){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-    return false;
-    }
-    return true
-    }
+  return false;
+  }
+else if (captcha == null || captcha == ""){
+  document.getElementById('captcha').style="border:1px solid #D40000";
+  return false;
+  }
+  return true
+}
 
-    function CheckEmpty(){
-    name=document.getElementById('name').value;
-    captcha=document.getElementById('captcha').value; 
+function CheckEmpty(){
+  name=document.getElementById('name').value;
+  captcha=document.getElementById('captcha').value; 
     if(name === ''){
-    document.getElementById('name').style="border:1px solid #D40000";
-    return false;
-    }
+        document.getElementById('name').style="border:1px solid #D40000";
+        return false;
+        }
     else{
-    document.getElementById('name').style="";
-    }
+        document.getElementById('name').style="";
+    }  
     if(captcha === ''){
     document.getElementById('captcha').style="border:1px solid #D40000";
     return false;
     }
     else{
     document.getElementById('captcha').style="";
-    }  
+    }      
     return true;
-   } 
-  </script>
+}
+</script>
   </head>
 
   <body>
@@ -83,8 +83,7 @@ if(!$_SESSION['login']){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
- <?php require("inc/header.php") ?>
-      
+<?php require('inc/header.php') ?>       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -143,7 +142,7 @@ if(!$_SESSION['login']){
                       </a>
                       <ul class="sub">
                           <li><a  href="show-category.php">مشاهده دسته ها</a></li>
-                          <li><a  href="add-category.php">اضافه کردن دسته</a></li>
+                          <li class="active"><a  href="add-category.php">اضافه کردن دسته</a></li>
                       </ul>
                   </li> 
 
@@ -166,6 +165,7 @@ if(!$_SESSION['login']){
                   </li>
 
               </ul>
+
               <!-- sidebar menu end-->
           </div>
       </aside>
@@ -179,46 +179,36 @@ if(!$_SESSION['login']){
           <section class="wrapper">
           
                   <div class="form-panel">
-                      <h4 class="mb"><i class="fa fa-angle-left"></i> ویرایش دسته</h4>
-                      <form class="form-horizontal style-form" method="post" action="inc/edit-category.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
-                        <?php
-                          $id=$_REQUEST['categoryid'];                                
-                          $id = htmlentities($id, ENT_QUOTES, "UTF-8");   
-                          $id = str_replace("<", "&lt;", $id);
-                          $id = str_replace(">", "&gt;", $id);
-                          $id = str_replace("script", "", $id);                   
-                          $id=filter_var($id, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                          require("connect.php");
-                          $id=mysqli_escape_string($sql,$id);
-                          $edit_category=("SELECT * FROM `blog_category` where id='$id'");
-                          $result=mysqli_query($sql,$edit_category);
-                          if(mysqli_num_rows($result) > 0){
-                          $row=mysqli_fetch_array($result);
-                          echo '<div class="form-group">
+                      <h4 class="mb"><i class="fa fa-angle-left"></i> ایجاد برند</h4>
+                      <form class="form-horizontal style-form" method="post" action="inc/add-categoryb.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
+                          <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">نام:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="name" name="name" class="form-control round-form" type="text" placeholder="نام" onblur="CheckEmpty();" value="'.$row['name'].'">
+                                  <input id="name" name="name" class="form-control round-form" type="text" placeholder="نام دسته را وارد کنید" onblur="CheckEmpty();">
                               </div>
-                          </div>                           
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">ارسال عکس:</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <input id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
+                              </div>
+                          </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">کد امنیتی:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">';
-                                  
-                                  $sa_captchaDIR="assets/sc/sa-captcha";  
-                                  require("assets/sc/sa-captcha/captcha.php");  
-                                                                
-                            echo'<input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <?php
+                                  $sa_captchaDIR='assets/sc/sa-captcha';  
+                                  require('assets/sc/sa-captcha/captcha.php');  
+                                  ?>                              
+                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
                               </div>
-                          </div>                        
-                          <input type="hidden" value="'.filter_var($id, FILTER_SANITIZE_NUMBER_INT).'" name="hiddenid"/>
+                          </div>                         
                           <button type="submit" name="submit" class="btn btn-success">ارسال</button>
                           <button type="button" type="reset" class="btn btn-danger">حذف</button>
                       </form>
                      </div> 
-                  </div>';
-                   }
-                  ?>
-       
+                  </div>
+                            
           </section>
       </section>
 

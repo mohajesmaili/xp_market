@@ -68,19 +68,29 @@ if(!$_SESSION['login']){
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
                       </ul>
-                  </li> 
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>آموزش ها</span>
+                          <i class="fa fa-list-alt"></i>
+                          <span>دسته بندی کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-learns.php?pageid=1">نمایش آموزش دوره ها</a></li>
-                          <li><a  href="add-learns.php">اضافه کردن آموزش جدید</a></li>
-                          <li><a  href="show-comment-learn.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-categoryp.php">مشاهده دسته ها</a></li>
+                          <li><a  href="add-categoryp.php">اضافه کردن دسته</a></li>
                       </ul>
-                  </li> 
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th-list"></i>
+                          <span>دسته بندی برند</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="show-categoryb.php">مشاهده دسته ها</a></li>
+                          <li><a  href="add-categoryb.php">اضافه کردن دسته</a></li>
+                      </ul>
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
