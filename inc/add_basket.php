@@ -21,7 +21,7 @@
 
 
     if($result){
-        echo "<script>alert('ok');
+        echo "<script>
               document.location.href='../index.php';
               </script>";
 

@@ -9,7 +9,7 @@ if(a==true){
 return false
 }
 }
-</script>      
+</script>
 <!--header start-->
       <header class="header black-bg">
             <!--logo start-->
@@ -105,7 +105,7 @@ return false
                             <li>
                               <p class="green">شما '.$l["id"].' پیام جدید دارید</p>';
                             }
-                            ?>    
+                            ?>
                             </li>
                             <?php
                             $contact=("SELECT * FROM `contact`");
@@ -114,13 +114,13 @@ return false
                             while($row=mysqli_fetch_assoc($result)){
                             echo'<li>
                                 <a href="contact.php">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/avatar/marco.jpeg"></span>
+                                    <span class="photo"><img alt="avatar" src="../images/dummy/avatars/avatar-1.jpg"></span>
                                     <span class="subject">
                                     <span class="from">'.$row["name"].'</span>
                                     <span class="time">23 دقیقه قبل</span>
                                     </span>
                                     <span class="message">
-                                        '.$row["email"].' 
+                                        '.$row["email"].'
                                     </span>
                                 </a>
                             </li>';

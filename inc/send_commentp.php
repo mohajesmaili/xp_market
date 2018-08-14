@@ -1,5 +1,8 @@
 <?php
 if(isset($_POST['submit'])) {
+    require("connect.php");
+    require ("jalali-date.php");
+
     $userid = $_GET['userid'];
 
     $product_id = $_GET['productid'];
@@ -8,8 +11,11 @@ if(isset($_POST['submit'])) {
 
     $comment = $_POST['comment'];
 
-    require("connect.php");
-    $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment')";
+    $date=jdate("Y-m-d",'','','',"en");
+
+    $time=jdate("H:i:s",'','','',"en");
+
+    $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time')";
 
     $result = mysqli_query($sql, $insert);
     if(!$result){

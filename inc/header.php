@@ -9,7 +9,7 @@ $_SESSION["user"];
     <header id="header">
         <div class="container">
             <div class="row">
-                
+
                 <!--  ==========  -->
                 <!--  = Logo =  -->
                 <!--  ==========  -->
@@ -17,9 +17,9 @@ $_SESSION["user"];
                     <a href="index.php">
                     <img src="images/xp-logo.png" width="300" height="100" style="padding: 20px 0;"/>
                     </a>
-                    
+
                 </div>
-                
+
                 <!--  ==========  -->
                 <!--  = Social Icons =  -->
                 <!--  ==========  -->
@@ -58,7 +58,7 @@ $_SESSION["user"];
             </div>
         </div>
     </header>
-    
+
     <!--  ==========  -->
     <!--  = Main Menu / navbar =  -->
     <!--  ==========  -->
@@ -72,7 +72,7 @@ $_SESSION["user"];
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                
+
                 <!--  ==========  -->
                 <!--  = Menu =  -->
                 <!--  ==========  -->
@@ -81,25 +81,25 @@ $_SESSION["user"];
                     <li class="dropdown">
                         <a href="index.php" class="dropdown-toggle"> خانه </a>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="shop.php?pageid=1" class="dropdown-toggle"> فروشگاه</a>
-                    </li> 
+                    </li>
                     <li class="dropdown">
                         <a href="blog.php?pageid=1" class="dropdown-toggle">اخبار</a>
                     </li>
                     <li class="dropdown">
                         <a href="about-us.php" class="dropdown-toggle">درباره ما</a>
-                    
+
                     </li>
-                    
+
                     <li class="dropdown">
                         <a href="contact.php" class="dropdown-toggle">تماس با ما</a>
-                    
+
                     </li>
-                    
+
                   </ul>
-                  
+
                   <!--  ==========  -->
                   <!--  = Search form =  -->
                   <!--  ==========  -->
@@ -109,7 +109,7 @@ $_SESSION["user"];
                   </form>
                 </div><!-- /.nav-collapse -->
             </div>
-            
+
             <!--  ==========  -->
             <!--  = Cart =  -->
             <!--  ==========  -->
@@ -169,13 +169,15 @@ $_SESSION["user"];
                         }
                         }
                   else {
-                      echo '<p>کالا وجود ندارد</p>';
+                      echo '<div class="alert in fade" >
+                            <p style="text-align:center;direction:rtl;">سبد خرید شما خالی است</p>
+                            </div>';
                   }
                         echo'<div class="summary">
                             <div class="line">
                                 <div class="row-fluid">
                                     <div class="span6 align-right">20000 تومان</div>
-                                    <div class="span6">هزینه ارسال :</div>      
+                                    <div class="span6">هزینه ارسال :</div>
                                 </div>
                             </div>
                             <div class="line">

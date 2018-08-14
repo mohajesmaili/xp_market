@@ -244,7 +244,7 @@
                                     while ($row3 = mysqli_fetch_assoc($result3)) {
                                         echo '<div class="single-comment clearfix">
                                     <div class="avatar-container">
-                                        <img src="images/dummy/avatars/avatar-2.jpg" alt="avatar" class="avatar" width="184" height="184" />
+                                        <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
                                     </div>
                                     <div class="comment-content">
                                         <div class="comment-inner">
@@ -252,7 +252,7 @@
                                                 <span class="light">'.$row3["username"].'</span>
                                             </cite>
                                             <div class="metadata">
-                                                26 فروردین 1392 در 12:30 بعد از ظهر  /  <a href="#">پاسخ</a>
+                                                    '.$row3["date"].' در '.$row3["time"].'   /  <a href="#">پاسخ</a>
                                             </div>
                                             <div class="comment-text">
                                             <p>'.$row3["comment"].'</p>

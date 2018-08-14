@@ -7,13 +7,13 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>MR Developer - Login</title>
+    <title>XP-Market | ورود ادمین</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
+
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
@@ -41,14 +41,14 @@ function CheckEmpty(){
         }
     else{
         document.getElementById('us').style="";
-    }    
+    }
     if(pw === ''){
         document.getElementById('pw').style="border:1px solid #D40000";
         return false;
         }
     else{
         document.getElementById('pw').style="";
-    }  
+    }
 
     return true;
 }
@@ -63,9 +63,9 @@ function CheckEmpty(){
 
 	  <div id="login-page">
 	  	<div class="container">
-	  	
+
 		      <form class="form-login" method="post" action="inc/login.php" name="form" onsubmit="return validateForm();">
-		        <h2 class="form-login-heading" style="padding:20px;"><img style="width:200px" class="form-login-heading" src="assets/img/logo.png"/></h2>
+		        <h2 class="form-login-heading" style="padding:20px;"><img style="width:200px" class="form-login-heading" src="../Images/xp-logo.png"/></h2>
 		        <div class="login-wrap">
 		            <input type="text" id="us" name="us" class="form-control" placeholder="نام کاربری" autofocus onblur="CheckEmpty();">
 		            <br>
@@ -73,12 +73,12 @@ function CheckEmpty(){
 		            <label class="checkbox">
 		                <span class="pull-right" style="float: right;">
 		                    <a data-toggle="modal" href="login.php#myModal">پسورد خود را فراموش کرده اید؟</a>
-		
+
 		                </span>
 		            </label>
 		            <button class="btn btn-theme btn-block" name="submit" type="submit"><i class="fa fa-lock"></i> ورود</button>
 		           </div>
-		
+
 		          <!-- Modal -->
 		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
@@ -90,7 +90,7 @@ function CheckEmpty(){
 		                      <div class="modal-body">
 		                          <p>لطفا ایمیل خود را وارد کنید.</p>
 		                          <input type="email" name="email" placeholder="ایمیل" autocomplete="off" class="form-control placeholder-no-fix">
-		
+
 		                      </div>
 		                      <div class="modal-footer">
 		                          <button data-dismiss="modal" class="btn btn-default" type="button">برگشت</button>
@@ -100,9 +100,9 @@ function CheckEmpty(){
 		              </div>
 		          </div>
 		          <!-- modal -->
-		
-		      </form>	  	
-	  	
+
+		      </form>
+
 	  	</div>
 	  </div>
 
