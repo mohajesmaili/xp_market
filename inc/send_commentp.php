@@ -1,13 +1,17 @@
 <?php
 if(isset($_POST['submit'])) {
-    require("connect.php");
-    require ("jalali-date.php");
-
-    $userid = $_GET['userid'];
+    session_start();
 
     $product_id = $_GET['productid'];
 
     $category_id = $_GET['categoryid'];
+
+    if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
+
+    require("connect.php");
+    require ("jalali-date.php");
+
+    $userid = $_GET['userid'];
 
     $comment = $_POST['comment'];
 
@@ -30,4 +34,12 @@ if(isset($_POST['submit'])) {
 			        document.location.href='../product.php?productid=".$product_id."&categoryid=".$category_id."';
 			</script>";
     }
+    }else{
+        echo "
+		<script>
+			    alert('کد اشتباه است');
+		        document.location.href='../product.php?productid=".$product_id."&categoryid=".$category_id."';
+		</script>";
+    }
+
 }

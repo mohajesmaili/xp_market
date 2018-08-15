@@ -160,6 +160,15 @@
                                         <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
                                     </p>
                                     <p>
+                                      <label class="col-sm-2 col-sm-2 control-label">کد امنیتی:</label><br/>';
+
+                                          $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                          require("admin/assets/sc/sa-captcha/captcha.php");
+
+                                       echo'<br/>
+                                            <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی"">
+                                     </p>
+                                    <p>
                                         <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>
                                     </p>
                                 </form>';
