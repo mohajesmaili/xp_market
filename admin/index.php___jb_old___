@@ -142,32 +142,32 @@ if(!$_SESSION['login']){
                   		<a href="contact.php?pageid=1">
                       <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="box1">
-                            <span class="li_bubble"></span>
-                            <h3>نظرات</h3>
+					  			        <span class="li_bubble"></span>
+					  			        <h3>نظرات</h3>
                   			</div>
                   		</div>
                       </a>
                       <a href="show-user.php">
-                          <div class="col-md-2 col-sm-2 box0">
-                              <div class="box1">
-                                  <span class="li_user"></span>
-                                  <h3>کاربران</h3>
-                              </div>
-                          </div>
+                  		<div class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			        <span class="li_user"></span>
+					  			        <h3>کاربران</h3>
+                  			</div>
+                  		</div>
                       </a>
-                      <a href="show-news.php?pageid=1">
-                          <div class="col-md-2 col-sm-2 box0">
-                              <div class="box1">
-                                  <span class="li_news"></span>
-                                  <h3>اخبار</h3>
-                              </div>
-                          </div>
-                      </a>
-                      <a href="show-categoryb.php">
+                      <a href="show-learns.php?pageid=1">
                       <div class="col-md-2 col-sm-2 box0">
                         <div class="box1">
-                          <span class="li_photo"></span>
-                          <h3>برند</h3>
+                          <span class="li_clip"></span>
+                          <h3>آموزش ها</h3>
+                        </div>
+                      </div>
+                      </a>
+                      <a href="show-tutorails.php">
+                      <div class="col-md-2 col-sm-2 box0">
+                        <div class="box1">
+                          <span class="li_display"></span>
+                          <h3>دسته ها</h3>
                         </div>
                       </div>
                       </a>

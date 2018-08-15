@@ -138,12 +138,12 @@ if(!$_SESSION['login']){
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-pencil"></i>
-                          <span>مقالات</span>
+                          <span>اخبار</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-post.php?pageid=1">مشاهده مقالات</a></li>
-                          <li><a  href="add-post.php">اضافه کردن مقاله</a></li>
-                          <li><a  href="show-comment-post.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-news.php?pageid=1">مشاهده اخبار</a></li>
+                          <li><a  href="add-news.php">اضافه کردن خبر</a></li>
+                          <li><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 

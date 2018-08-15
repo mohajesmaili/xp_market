@@ -5,7 +5,7 @@ $_SESSION['login'];
 if(!$_SESSION['login']){
   echo "<script>document.location.href='login.php'</script>";
   }
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ if(!$_SESSION['login']){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | show_comment_post</title>
+    <title>XP-Market | نمایش اخبار</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -24,8 +24,8 @@ if(!$_SESSION['login']){
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
-    
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
+
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
@@ -49,8 +49,8 @@ if(!$_SESSION['login']){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-<?php require('inc/header.php') ?> 
-      
+<?php require('inc/header.php') ?>
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -59,59 +59,58 @@ if(!$_SESSION['login']){
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-                  <?php require("inc/admin-right.php") ?> 
+                  <?php require("inc/admin-right.php") ?>
                   <li class="mt">
-                      <a  href="index.php">
+                      <a href="index.php">
                           <i class="fa fa-dashboard"></i>
                           <span>داشبورد</span>
                       </a>
                   </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-shopping-cart"></i>
+                          <span>کالا</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="add-product.php">اضافه کردن کالا</a></li>
+                          <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
+                      </ul>
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>دوره ها</span>
+                          <i class="fa fa-list-alt"></i>
+                          <span>دسته بندی کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
-                          <li><a  href="add-tutorails.php">شروع دوره جدید</a></li>
+                          <li><a  href="show-categoryp.php">مشاهده دسته ها</a></li>
+                          <li><a  href="add-categoryp.php">اضافه کردن دسته</a></li>
                       </ul>
-                  </li> 
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>آموزش ها</span>
+                          <i class="fa fa-th-list"></i>
+                          <span>دسته بندی برند</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-learns.php?pageid=1">نمایش آموزش دوره ها</a></li>
-                          <li><a  href="add-learns.php">اضافه کردن آموزش جدید</a></li>
-                          <li><a  href="show-comment-learn.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-categoryb.php">مشاهده برند</a></li>
+                          <li><a  href="add-categoryb.php">اضافه کردن برند</a></li>
                       </ul>
-                  </li> 
+                  </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a class="active"  href="javascript:;" >
                           <i class="fa fa-pencil"></i>
-                          <span>مقالات</span>
+                          <span>اخبار</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-post.php?pageid=1">مشاهده مقالات</a></li>
-                          <li><a  href="add-post.php">اضافه کردن مقاله</a></li>
-                          <li class="active"><a  href="show-comment-post.php?pageid=1">مشاهده نظرات</a></li>
+                          <li class="active"><a  href="show-news.php?pageid=1">مشاهده اخبار</a></li>
+                          <li><a  href="add-news.php">اضافه کردن خبر</a></li>
+                          <li><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
-                  </li> 
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-list"></i>
-                          <span>دسته بندی</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="show-category.php">مشاهده دسته ها</a></li>
-                          <li><a  href="add-category.php">اضافه کردن دسته</a></li>
-                      </ul>
-                  </li> 
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
@@ -122,7 +121,7 @@ if(!$_SESSION['login']){
                           <li><a  href="show-user.php">نمایش کاربران</a></li>
                           <li><a  href="add-user.php">اضافه کردن کاربر</a></li>
                       </ul>
-                  </li>   
+                  </li>
 
                   <li class="sub-menu">
                       <a href="contact.php?pageid=1" >
@@ -137,7 +136,7 @@ if(!$_SESSION['login']){
           </div>
       </aside>
       <!--sidebar end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
@@ -147,74 +146,60 @@ if(!$_SESSION['login']){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نظرات کاربران</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>نمایش اخبار</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
-                                  <th>نام</th>
-                                  <th class="hidden-phone">ایمیل</th>
-                                  <th>پیغام</th>
-                                  <th>تیتر مقاله</th>
+                                  <th>تیتر</th>
+                                  <th>تاریخ انتشار</th>
                                   <th>تنظیمات</th>
                               </tr>
                               </thead>
                               <tbody>
-                              <?php                 
-                                require('connect.php');
-                                $page=$_GET["pageid"];                           
+                              <?php
+                                require('inc/connect.php');
+                                $page=$_GET["pageid"];
                                 $per_page = 10;
-                                $start = ($page-1)*$per_page; 
-                                $show_pages=("SELECT * FROM `comment_blog`");
-                                $comment_blog=("SELECT *,comment_blog.id as cbi FROM `comment_blog`,`blog_post` WHERE comment_blog.postid=blog_post.id ORDER BY comment_blog.id DESC LIMIT $start,$per_page");
-                                $change=mysqli_query($sql,"SELECT * FROM `comment_blog` WHERE vaziat=0");
-                                $result=mysqli_query($sql,$comment_blog);
+                                $start = ($page-1)*$per_page;
+                                $show_pages=("SELECT * FROM `news`");
                                 $resu=mysqli_query($sql,$show_pages);
                                 $coun = mysqli_num_rows($resu);
+
+                                $show_news=("SELECT * FROM `news` ORDER BY id DESC limit $start,$per_page");
+                                $result=mysqli_query($sql,$show_news);
                                 if(mysqli_num_rows($result) > 0){
-                                for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                echo'<form method="post" action="inc/dlcomment_post.php" id="frm"   onSubmit="return dl()">
-                                      <tr>
-                                      <td>'.$row["name"].'</a></td>
-                                      <td class="hidden-phone">'.$row["email"].'</td>
-                                      <td>'.$row["comment"].'</td>
-                                      <td>'.$row["title"].'</td>
-                                      <td>';
-                                      if($row["vaziat"]==0){
-                                      echo'
-                                      <a href="inc/ca0.php?ca0='.$row["cbi"].'"style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
-                                    }else{
-                                      echo'
-                                      <a href="inc/ca1.php?ca1='.$row["cbi"].'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
-                                    }
-                                    
-                                    echo '<input type="hidden" name="inputhidden" value="'.$row["cbi"].'">
+                                while($row=mysqli_fetch_assoc($result)){
+                                echo'<form method="post" action="inc/dl-news.php" id="frm"   onSubmit="return dl()">
+                                      <tr style="font-family:roya;">
+                                      <a href="../blog-single.php?newsid='.$row["id"].'"><td>'.$row["subject"].'</td></a>
+                                      <td>'.$row["date"].'</td>
+                                      <td>
+									                    <a href="edit-news.php?postid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <input type="hidden" name="inputhidden" value='.$row["id"].'>
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-
-
                                       </td>
                                     </tr>
-                                    </form>';
+                                  </form>';
                                   }
                                 }
                               ?>
                               </tbody>
                           </table>
-                          <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
-                            <?php 
-                            $allpages = ceil($coun / $per_page); 
-                            for($i = 1 ; $i <= $allpages ; $i++){
-                            echo '<a style="margin-right:2px;" href="show-comment-post.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
-                             }
-                            ?>
-                          </div>
+                    <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
+                    <?php
+                    $allpages = ceil($coun / $per_page);
+                    for($i = 1 ; $i <= $allpages ; $i++){
+                    echo '<a style="margin-right:2px;" href="show-news.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                     }
+                    ?>
+                    </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
-              
+
           </section>
       </section>
 
       <!--main content end-->
-
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -229,14 +214,14 @@ if(!$_SESSION['login']){
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
-    
+
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
 
     <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
-	
+    <script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
@@ -244,7 +229,7 @@ if(!$_SESSION['login']){
             $("#date-popover").click(function (e) {
                 $(this).hide();
             });
-        
+
             $("#my-calendar").zabuto_calendar({
                 action: function () {
                     return myDateFunction(this.id, false);
@@ -262,8 +247,8 @@ if(!$_SESSION['login']){
                 ]
             });
         });
-        
-        
+
+
         function myNavFunction(id) {
             $("#date-popover").hide();
             var nav = $("#" + id).data("navigation");
@@ -271,7 +256,7 @@ if(!$_SESSION['login']){
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+
 
   </body>
 </html>

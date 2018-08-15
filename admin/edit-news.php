@@ -5,7 +5,7 @@ $_SESSION['login'];
 if(!$_SESSION['login']){
   echo "<script>document.location.href='login.php'</script>";
   }
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ if(!$_SESSION['login']){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Mr.Developer | add_post</title>
+    <title>XP-Market | ویرایش خبر</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -24,9 +24,8 @@ if(!$_SESSION['login']){
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
 
-    
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
@@ -34,6 +33,7 @@ if(!$_SESSION['login']){
     <script src="assets/js/chart-master/Chart.js"></script>
     <script src="assets/js/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script src="assets/js/ckfinder/ckfinder.js" type="text/javascript"></script>
+
     <script>
         function dl()
          {
@@ -50,7 +50,6 @@ var category = document.forms["form"]["category"].value;
 var content = document.forms["form"]["content"].value;
 var picture = document.forms["form"]["picture"].value;
 var captcha = document.forms["form"]["captcha"].value;
-
 if (title == null || title == ""){
     document.getElementById('title').style="border:1px solid #D40000";
   return false;
@@ -69,10 +68,6 @@ else if (category == null || category == ""){
   }
 else if (content == null || content == ""){
   document.getElementById('content').style="border:1px solid #D40000";
-  return false;
-  }
-else if (picture == null || picture == ""){
-  document.getElementById('picture').style="border:1px solid #D40000";
   return false;
   }
 else if (captcha == null || captcha == ""){
@@ -118,22 +113,14 @@ function CheckEmpty(){
         }
     else{
         document.getElementById('category').style="";
-    }    
-    if(picture === ''){
-        document.getElementById('picture').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('picture').style="";
     }
-
     if(captcha === ''){
     document.getElementById('captcha').style="border:1px solid #D40000";
     return false;
     }
     else{
     document.getElementById('captcha').style="";
-    }  
+    }
 
     return true;
 }
@@ -146,8 +133,9 @@ function CheckEmpty(){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-<?php require('inc/header.php') ?> 
-      
+      <?php require("inc/header.php") ?>
+
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -156,7 +144,7 @@ function CheckEmpty(){
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-                  <?php require("inc/admin-right.php") ?> 
+                  <?php require("inc/admin-right.php") ?>
                   <li class="mt">
                       <a  href="index.php">
                           <i class="fa fa-dashboard"></i>
@@ -166,49 +154,50 @@ function CheckEmpty(){
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>دوره ها</span>
+                          <i class="fa fa-shopping-cart"></i>
+                          <span>کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-tutorails.php">نمایش دوره ها</a></li>
-                          <li><a  href="add-tutorails.php">شروع دوره جدید</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="add-product.php">اضافه کردن کالا</a></li>
+                          <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
                       </ul>
-                  </li> 
+                  </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>آموزش ها</span>
+                          <i class="fa fa-list-alt"></i>
+                          <span>دسته بندی کالا</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-learns.php?pageid=1">نمایش آموزش دوره ها</a></li>
-                          <li><a  href="add-learns.php">اضافه کردن آموزش جدید</a></li>
-                          <li><a  href="show-comment-learn.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-categoryp.php">مشاهده دسته ها</a></li>
+                          <li><a  href="add-categoryp.php">اضافه کردن دسته</a></li>
                       </ul>
-                  </li> 
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th-list"></i>
+                          <span>دسته بندی برند</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="show-categoryb.php">مشاهده برند</a></li>
+                          <li><a  href="add-categoryb.php">اضافه کردن برند</a></li>
+                      </ul>
+                  </li>
 
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
                           <i class="fa fa-pencil"></i>
-                          <span>مقالات</span>
+                          <span>اخبار</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-post.php?pageid=1">مشاهده مقالات</a></li>
-                          <li class="active"><a  href="add-post.php">اضافه کردن مقاله</a></li>
-                          <li><a  href="show-comment-post.php?pageid=1">مشاهده نظرات</a></li>
+                          <li class="active"><a  href="show-news.php?pageid=1">مشاهده اخبار</a></li>
+                          <li><a  href="add-news.php">اضافه کردن خبر</a></li>
+                          <li><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
-                  </li> 
+                  </li>
 
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-list"></i>
-                          <span>دسته بندی</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="show-category.php">مشاهده دسته ها</a></li>
-                          <li><a  href="add-category.php">اضافه کردن دسته</a></li>
-                      </ul>
-                  </li> 
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
@@ -219,7 +208,7 @@ function CheckEmpty(){
                           <li><a  href="show-user.php">نمایش کاربران</a></li>
                           <li><a  href="add-user.php">اضافه کردن کاربر</a></li>
                       </ul>
-                  </li>   
+                  </li>
 
                   <li class="sub-menu">
                       <a href="contact.php?pageid=1" >
@@ -233,99 +222,68 @@ function CheckEmpty(){
           </div>
       </aside>
       <!--sidebar end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          
+
                   <div class="form-panel">
-                      <h4 class="mb"><i class="fa fa-angle-left"></i> اضافه کردن مقاله</h4>
-                      <form class="form-horizontal style-form" method="post" action="inc/add-post.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">   
-                          <div class="form-group">
+                      <h4 class="mb"><i class="fa fa-angle-left"></i> ویرایش خبر </h4>
+                      <form class="form-horizontal style-form" method="post" action="inc/edit-news.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
+                        <?php
+                          $id=$_REQUEST['postid'];
+                          $id = htmlentities($id, ENT_QUOTES, "UTF-8");
+                          $id = str_replace("<", "&lt;", $id);
+                          $id = str_replace(">", "&gt;", $id);
+                          $id = str_replace("script", "", $id);
+                          $id=filter_var($id, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                          require("inc/connect.php");
+                          $id=mysqli_escape_string($sql,$id);
+                          $edit_post=("SELECT * FROM `news` where id='$id'");
+                          $result=mysqli_query($sql,$edit_post);
+                          if(mysqli_num_rows($result) > 0){
+                          $row=mysqli_fetch_array($result);
+                          echo '<div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">تیتر:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="title" name="title" class="form-control round-form" type="text" placeholder="تیتر" onblur="CheckEmpty();">
+                                  <input id="title" name="title" class="form-control round-form" type="text" placeholder="تیتر" onblur="CheckEmpty();" value="'.$row["subject"].'">
                               </div>
-                          </div>                          
+                          </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تاریخ انتشار:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="date" name="date" class="form-control round-form" type="text" placeholder="تاریخ" onblur="CheckEmpty();">
-                              </div>
-                          </div>                          
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">نوشته از:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <select id="admins" name="admins" class="form-control round-form" onblur="CheckEmpty();">
-                                    <?php 
-                                    require('connect.php');
-                                    $admin=("Select * from `admin`");
-                                    $result=mysqli_query($sql,$admin);
-                                    while($row=mysqli_fetch_assoc($result)){
-                                      echo'<option>'.$row["name"].'</option>';
-                                    }
-                                    ?>
-                                  </select>
-                              </div>
-                          </div> 
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">دسته بندی:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <select id="category" name="category" class="form-control round-form" onblur="CheckEmpty();">
-                                    <?php 
-                                    require('connect.php');
-                                    $blogcategory=("Select * from `blog_category`");
-                                    $result=mysqli_query($sql,$blogcategory);
-                                    while($row=mysqli_fetch_assoc($result)){
-                                      echo'<option>'.$row["name"].'</option>';
-                                    }
-                                    ?>
-                                  </select>
-                              </div>
-                          </div>   
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">سر متن مقاله:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;width: 900px">
-                                  <textarea style="height:200px;width:600px;"  id="firs_content" name="first_content">
-                                  </textarea>
-                              </div>
-                          </div>                          
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">متن مقاله:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">متن خبر :</label>
                               <div class="col-sm-10" style="margin-right: -100px;width: 900px">
                                   <textarea  id="content" name="content">
+                                  '.$row["content"].'
                                   </textarea>
                                   <script>
-                                     CKEDITOR.replace( 'content', {
-                                     customConfig: 'custom/editor_full_config.js',});
-                                     CKFinder.setupCKEditor(null, 'assets/js/ckfinder/');
+                                     CKEDITOR.replace( "content", {
+                                     customConfig: "custom/editor_full_config.js",});
+                                     CKFinder.setupCKEditor(null, "assets/js/ckfinder/");
                                   </script>
                               </div>
                           </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ارسال عکس:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                <input accept="image/*" id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل"/>
-                              </div>
-                          </div>
-                          <div class="form-group">
+                         <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">کد امنیتی:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <?php
-                                  $sa_captchaDIR='assets/sc/sa-captcha';  
-                                  require('assets/sc/sa-captcha/captcha.php');  
-                                  ?>                              
-                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                              <div class="col-sm-10" style="margin-right: -100px;">';
+
+                                  $sa_captchaDIR="assets/sc/sa-captcha";
+                                  require("assets/sc/sa-captcha/captcha.php");
+
+                            echo'<input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
                               </div>
-                          </div> 
-                          <button type="submit" name="submit" class="btn btn-success">ارسال</button>
-                          <button type="button" type="reset" class="btn btn-danger">حذف</button>
+                              <input type="hidden" value="'.filter_var($id, FILTER_SANITIZE_NUMBER_INT).'" name="hiddenid"/>
+                              <button type="submit" name="submit" class="btn btn-success">ارسال</button>
+                              <button type="button" type="reset" class="btn btn-danger">حذف</button>
+                          </div>
                       </form>
-                     </div> 
-                  </div>
+                     </div>
+                  </div>';
+                   }
+                  ?>
+
           </section>
       </section>
 
@@ -345,14 +303,14 @@ function CheckEmpty(){
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
-    
+
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
 
     <!--script for this page-->
-    <script src="assets/js/sparkline-chart.js"></script>    
-	<script src="assets/js/zabuto_calendar.js"></script>	
-	
+    <script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
@@ -360,7 +318,7 @@ function CheckEmpty(){
             $("#date-popover").click(function (e) {
                 $(this).hide();
             });
-        
+
             $("#my-calendar").zabuto_calendar({
                 action: function () {
                     return myDateFunction(this.id, false);
@@ -378,8 +336,8 @@ function CheckEmpty(){
                 ]
             });
         });
-        
-        
+
+
         function myNavFunction(id) {
             $("#date-popover").hide();
             var nav = $("#" + id).data("navigation");
@@ -387,7 +345,7 @@ function CheckEmpty(){
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+
 
   </body>
 </html>

@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `subject` varchar(200) COLLATE utf8_persian_ci NOT NULL,
   `content` text COLLATE utf8_persian_ci NOT NULL,
   `date` date NOT NULL,
-  `time` date DEFAULT NULL,
+  `time` time NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
