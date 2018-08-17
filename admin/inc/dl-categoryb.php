@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['delete']))
-{ 
+{
 	require('connect.php');
 
 	$id=$_POST["inputhidden"];
@@ -18,6 +18,8 @@ if(isset($_POST['delete']))
         echo"<script>alert('برند حذف نشد');
         document.location.href='../show-categoryb.php';</script>";
     }else{
+				unlink("../../images/brand/$id.png");
+
         echo"<script>document.location.href='../show-categoryb.php';</script>";
     }
 
