@@ -99,7 +99,7 @@ if(isset($_POST['submit']))
         echo '
 		<script>
 			    alert("کد اشتباه است")
-		        document.location.href="../edit-product.php?productid='.$hiddenid.'";
+		        document.location.href="../add-picture.php?productid='.$hiddenid.'";
 		</script>';
     }
 }

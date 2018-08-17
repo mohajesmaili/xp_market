@@ -217,7 +217,7 @@
                     	                </div>
                     	            </div>
                     	            <div class="main-titles no-margin">
-                    	                <h4 class="title">'.$row["name"].'</h4>
+                    	                <h4 class="title" style="font-size:18px;">'.$row["name"].'</h4>
                     	                <h5 class="no-margin isotope--title">'.$row["price"].' تومان</h5>
                     	            </div>
                     	            <p class="center-align stars">
