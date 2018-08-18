@@ -129,7 +129,7 @@ function CheckEmpty(){
                           <span>دسته بندی برند</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-categoryb.php">مشاهده برند</a></li>
+                          <li><a  href="show-categoryb.php?pageid=1">مشاهده برند</a></li>
                           <li><a  href="add-categoryb.php">اضافه کردن برند</a></li>
                       </ul>
                   </li>
