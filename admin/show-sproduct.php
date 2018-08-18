@@ -176,9 +176,11 @@ if($_SESSION["permission"]!=1){
                               $page=$_GET["pageid"];
                               $per_page =10;
                               $start = ($page-1)*$per_page;
-                              $show_pages=("SELECT * FROM `basket`");
+                              $show_pages=("SELECT distinct(product.code),product.* FROM `product`,`basket` where product.id=basket.product_id and basket.sell=1 ORDER BY basket.id DESC");
                               $resu=mysqli_query($sql,$show_pages);
                               $coun = mysqli_num_rows($resu);
+
+
                                $show_sproduct=("SELECT distinct(product.code),product.* FROM `product`,`basket` where product.id=basket.product_id and basket.sell=1 ORDER BY basket.id DESC limit $start,$per_page");
                                 $result=mysqli_query($sql,$show_sproduct);
                                 if(mysqli_num_rows($result) > 0){
@@ -221,7 +223,7 @@ if($_SESSION["permission"]!=1){
                               <?php
                               $allpages = ceil($coun / $per_page);
                               for($i = 1 ; $i <= $allpages ; $i++){
-                                  echo '<a style="margin-right:2px;" href="show-product.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                                  echo '<a style="margin-right:2px;" href="show-sproduct.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
                               }
                               ?>
                           </div>
