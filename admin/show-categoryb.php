@@ -159,7 +159,15 @@ if(!$_SESSION['login']){
                               <tbody>
                               <?php
                                 require('inc/connect.php');
-                                $show_category=("SELECT * FROM `categoryb` ORDER BY id DESC");
+
+                                $page=$_GET["pageid"];
+                                $per_page =10;
+                                $start = ($page-1)*$per_page;
+                                $show_pages=("SELECT * FROM `categoryb`");
+                                $resu=mysqli_query($sql,$show_pages);
+                                $coun = mysqli_num_rows($resu);
+
+                                $show_category=("SELECT * FROM `categoryb` ORDER BY id DESC limit $start,$per_page");
                                 $result=mysqli_query($sql,$show_category);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
@@ -179,6 +187,14 @@ if(!$_SESSION['login']){
                               ?>
                               </tbody>
                           </table>
+                          <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
+                              <?php
+                              $allpages = ceil($coun / $per_page);
+                              for($i = 1 ; $i <= $allpages ; $i++){
+                                  echo '<a style="margin-right:2px;" href="show-categoryb.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                              }
+                              ?>
+                          </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
 
