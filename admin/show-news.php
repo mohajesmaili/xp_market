@@ -172,7 +172,15 @@ if(!$_SESSION['login']){
                                 echo'<form method="post" action="inc/dl-news.php" id="frm"   onSubmit="return dl()">
                                       <tr style="font-family:roya;">
                                       <a href="../blog-single.php?newsid='.$row["id"].'"><td>'.$row["subject"].'</td></a>
-                                      <td>'.$row["date"].'</td>
+                                      <td>'.$row["date"].'</td>';
+                                      //for comment counter
+                                      $n_id=$row["id"];
+                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_news` WHERE news_id='$n_id'";
+                                      $result_counter=mysqli_query($sql,$comment_count);
+                                      $row_counter=mysqli_fetch_assoc($result_counter);
+                                      //end comment counter
+                                      echo'
+                                      <td>'.$row_counter["counter"].'</td>
                                       <td>
 									                    <a href="edit-news.php?postid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'>

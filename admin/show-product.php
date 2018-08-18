@@ -166,6 +166,7 @@ if($_SESSION["permission"]!=1){
                                   <th>برند</th>
                                   <th>قیمت</th>
                                   <th>تعداد</th>
+                                  <th>تعداد نظرات</th>
                                   <th>عکس</th>
                                   <th>تنظیمات</th>
                               </tr>
@@ -202,7 +203,15 @@ if($_SESSION["permission"]!=1){
                                       <td>'.$r["categoryp"].'</td>
                                       <td>'.$ro["categoryb"].'</td>
                                       <td>'.$row["price"].'</td>
-                                      <td>'.$row["number"].'</td>
+                                      <td>'.$row["number"].'</td>';
+                                      //for comment counter
+                                      $p_id=$row["id"];
+                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_product` WHERE product_id='$p_id'";
+                                      $result_counter=mysqli_query($sql,$comment_count);
+                                      $row_counter=mysqli_fetch_assoc($result_counter);
+                                      //end comment counter
+                                    echo'
+                                      <td>'.$row_counter["counter"].'</td>
                                       <td><img src="../images/product_s/'.$row["id"].'.png" width="62" height="62" style="border-radius:8px;"/></td>
                                       <td>
                                        <a href="add-picture.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-image"></i></a>
