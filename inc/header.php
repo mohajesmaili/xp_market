@@ -131,9 +131,13 @@ $_SESSION["user"];
                   echo '<div class="span3">
                 <div class="cart-container" id="cartContainer">
                     <div class="cart">
-                        <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>
-                            <p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>
-                            <a href="checkout-step-1.php" class="btn btn-danger">
+                        <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>';
+                            if($row2["sum"]!=0 || $row2["sum"]!=NULL){
+                            echo '<p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>';
+                          }else{
+                            echo '<p class="dark-clr hidden-tablet">0 T</p>';
+                          }
+                            echo '<a href="checkout-step-1.php" class="btn btn-danger">
                             <!-- <span class="icon icons-cart"></span> -->
                             <i class="icon-shopping-cart"></i>
                         </a>
@@ -181,9 +185,13 @@ $_SESSION["user"];
                                 </div>
                             </div>
                             <div class="line">
-                                <div class="row-fluid">
-                                 <div class="span6 align-right size-16">' . $row2["sum"] . '  تومان </div>
-                                  <div class="span6">جمع کل :</div>
+                                <div class="row-fluid">';
+                                if($row2["sum"]!=0 || $row2["sum"]!=NULL){
+                                 echo'<div class="span6 align-right size-16">' . $row2["sum"] . '  تومان </div>';
+                               }else{
+                                 echo'<div class="span6 align-right size-16">0 تومان</div>';
+                               }
+                                 echo'<div class="span6">جمع کل :</div>
                                 </div>
                             </div>
                         </div>

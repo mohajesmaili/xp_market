@@ -163,7 +163,7 @@ if(!$_SESSION['login']){
                               </div>
                           </div>
                       </a>
-                      <a href="show-categoryb.php">
+                      <a href="show-categoryb.php?pageid=1">
                       <div class="col-md-2 col-sm-2 box0">
                         <div class="box1">
                           <span class="li_photo"></span>
