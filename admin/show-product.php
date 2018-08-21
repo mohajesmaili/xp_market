@@ -189,9 +189,13 @@ if($_SESSION["permission"]!=1){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
                                     $id=$row["id"];
                                 echo'<form method="post" action="inc/dl-product.php" id="frm"   onSubmit="return dl()">
-                                      <tr style="font-family:roya;">
-                                      <td>'.$row["name"].'</td>
-                                      <td>'.$row["code"].'</td>';
+                                      <tr style="font-family:roya;">';
+                                       if($row["number"]==0){
+                                        echo'<td><del style="color:red">'.$row["name"].'</del></td>';
+                                      }else if($row["number"]>=0){
+                                        echo'<td>'.$row["name"].'</td>';
+                                       }
+                                       echo '<td>'.$row["code"].'</td>';
                                        //category product
                                        $categoryp="SELECT categoryp.name as categoryp FROM `categoryp`,`product` WHERE categoryp.id=product.categoryp and product.id='$id'";
                                        $re=mysqli_query($sql,$categoryp);
