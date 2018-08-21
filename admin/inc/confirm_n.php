@@ -3,9 +3,13 @@
 
 	$id=$_REQUEST["id"];
 
+  $page=$_REQUEST["page_id_hidden"];
+
 	$vaziat=$_REQUEST["vaziat"];
 
     $id=mysqli_escape_string($sql,$id);
+
+		$page=mysqli_escape_string($sql,$page);
 
 		$vaziat=mysqli_escape_string($sql,$vaziat);
 
@@ -20,14 +24,14 @@
 		$update=mysqli_query($sql,"UPDATE `comment_news` SET `vaziat`=0 WHERE `id`='$id' and `vaziat`=1");
 
 		}else {
-        echo"<script>document.location.href='../show-comment-news.php?pageid=1';</script>";
+        echo"<script>document.location.href='../show-comment-news.php?pageid=".$page."';</script>";
     }
 
     if(!$vaziat){
         echo"<script>
-        document.location.href='../show-comment-news.php?pageid=1.php';</script>";
+        document.location.href='../show-comment-news.php?pageid=".$page."';</script>";
     }else{
-        echo"<script>document.location.href='../show-comment-news.php?pageid=1';</script>";
+        echo"<script>document.location.href='../show-comment-news.php?pageid=".$page."';</script>";
     }
 
 ?>

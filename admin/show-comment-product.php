@@ -180,13 +180,14 @@ if(!$_SESSION['login']){
                                       <td>'.$row["date"].'</td>
                                       <td>
                                       <input type="hidden" name="inputhidden" value="'.$row["id"].'">
+                                      <input type="hidden" name="page_id_hidden" value="'.$page.'">
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';
                                       if($row["vaziat"]==0){
                                       echo'
-                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'"style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
+                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
                                     }else if($row["vaziat"]==1){
                                         echo'
-                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
+                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
                                       }
                                     echo'</td>
                                     </tr>

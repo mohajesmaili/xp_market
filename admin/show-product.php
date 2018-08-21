@@ -220,8 +220,9 @@ if($_SESSION["permission"]!=1){
                                       <td><img src="../images/product_s/'.$row["id"].'.png" width="62" height="62" style="border-radius:8px;"/></td>
                                       <td>
                                        <a href="add-picture.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-image"></i></a>
-									   <a href="edit-product.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									                     <a href="edit-product.php?productid='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'>
+                                      <input type="hidden" name="page_id_hidden" value="'.$page.'">
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                       </td>
                                     </tr>

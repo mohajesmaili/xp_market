@@ -76,7 +76,7 @@ if(!$_SESSION['login']){
                           <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
-                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>    
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -179,6 +179,7 @@ if(!$_SESSION['login']){
                                       <td>
 									  <a href="edit-categoryb.php?categoryb_id='.$row['id'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'>
+                                      <input type="hidden" name="page_id_hidden" value="'.$page.'">
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                       </td>
                                     </tr>
