@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
 
     $time=jdate("H:i:s",'','','',"en");
 
-    $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time')";
+    $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time',0)";
 
     $result = mysqli_query($sql, $insert);
     if(!$result){

@@ -228,7 +228,7 @@
                         <div class="fade tab-pane" id="tab-3">
                             <section id="comments" class="comments-container">
                                 <?php
-                                $counter="SELECT count(id) as counter from comment_product where product_id='$id'";
+                                $counter="SELECT count(id) as counter from comment_product where product_id='$id' and vaziat=1";
                                 $res=mysqli_query($sql,$counter);
                                 $row=mysqli_fetch_assoc($res);
                                 echo '<h3 class="push-down-25"><span class="light">'.$row["counter"].'</span> نظر</h3>';
@@ -237,7 +237,7 @@
                                 <!--  = Single Comment =  -->
                                 <!--  ==========  -->
                                 <?php
-                                $sel_comment=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id' ORDER BY comment_product.id DESC ");
+                                $sel_comment=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id' and comment_product.vaziat=1 ORDER BY comment_product.id DESC ");
                                 $result3=mysqli_query($sql,$sel_comment);
 
                                 if(mysqli_num_rows($result3) >0) {

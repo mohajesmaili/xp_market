@@ -86,6 +86,7 @@ if($_SESSION["permission"]!=1){
                           <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li class="active"><a  href="add-product.php">نمایش کالا فروخته شده</a></li>
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 

@@ -76,6 +76,7 @@ if(!$_SESSION['login']){
                           <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -163,7 +164,7 @@ if(!$_SESSION['login']){
                                 $page=$_GET["pageid"];
                                 $per_page = 10;
                                 $start = ($page-1)*$per_page;
-                                $show_pages=("SELECT * FROM `comment_blog`");
+                                $show_pages=("SELECT * FROM `comment_news`");
                                 $resu=mysqli_query($sql,$show_pages);
                                 $coun = mysqli_num_rows($resu);
 
@@ -179,9 +180,15 @@ if(!$_SESSION['login']){
                                       <td>'.$row["date"].'</td>
                                       <td>
                                       <input type="hidden" name="inputhidden" value="'.$row["id"].'">
-                                      <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-
-                                      </td>
+                                      <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';
+                                      if($row["vaziat"]==0){
+                                      echo'
+                                      <a href="inc/confirm_n.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
+                                    }else if($row["vaziat"]==1){
+                                        echo'
+                                        <a href="inc/confirm_n.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
+                                      }
+                                    echo'</td>
                                     </tr>
                                     </form>';
                                   }
@@ -193,7 +200,7 @@ if(!$_SESSION['login']){
                             <?php
                             $allpages = ceil($coun / $per_page);
                             for($i = 1 ; $i <= $allpages ; $i++){
-                            echo '<a style="margin-right:2px;" href="show-comment-post.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                            echo '<a style="margin-right:2px;" href="show-comment-news.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
                              }
                             ?>
                           </div>

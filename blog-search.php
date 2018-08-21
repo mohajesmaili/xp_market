@@ -12,7 +12,7 @@
 
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
+
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -23,13 +23,13 @@
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -39,11 +39,11 @@
     <link rel="shortcut icon" href="images/apple-touch/57.png">
   </head>
 
-   
+
   <body class="">
-    
+
     <div class="master-wrapper">
-     
+
     <!--  ==========  -->
     <!--  = Header =  -->
     <!--  ==========  -->
@@ -54,24 +54,24 @@
     <div class="container">
         <div class="push-up top-equal blocks-spacer">
             <div class="row">
-                
+
                 <!--  ==========  -->
                 <!--  = Main Title =  -->
                 <!--  ==========  -->
-                
+
                 <div class="span12">
                     <div class="title-area">
                         <h1 class="inline"><span class="light">بلاگ</span> وبمارکت</h1>
                         <h2 class="inline tagline">- جایی که آدمهای باهوش، حرفهای احمقانه میزنند!</h2>
                     </div>
                 </div>
-                
+
                 <!--  ==========  -->
                 <!--  = Main content =  -->
                 <!--  ==========  -->
                 <section class="span8 blog">
-                    
-                     
+
+
                     <!--  ==========  -->
                     <!--  = Single Result =  -->
                     <!--  ==========  -->
@@ -90,7 +90,7 @@
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $idc=$row["id"];
-                                $counter="SELECT count(id) as counter from `comment_news` where news_id='$idc'";
+                                $counter="SELECT count(id) as counter from `comment_news` where news_id='$idc' and comment_news.vaziat=1";
                                 $re=mysqli_query($sql,$counter);
                                 $r=mysqli_fetch_assoc($re);
                                 echo '<article class="post format-standard">
@@ -103,7 +103,7 @@
                             	    ارسال شده در : <a rel="category tag" title="View all posts in aciform" href="#">Webmarket</a>
                             	</div>
                             </div>
-                            
+
                             <p class="push-down-0">
                             ' . substr($row["content"], 0, 500) . '
                             </p>
@@ -120,7 +120,7 @@
                     ?>
 
                     <hr />
-                    
+
                     <!--  ==========  -->
                     <!--  = Pagination =  -->
                     <!--  ==========  -->
@@ -135,14 +135,14 @@
                             <li><a href="#" class="btn btn-primary"><span class="icon-chevron-right"></span></a></li>
                         </ul>
                     </div> <!-- /pagination -->
-                    
+
                 </section> <!-- /main content -->
 
                 <!--  ==========  -->
                 <!--  = Sidebar =  -->
                 <!--  ==========  -->
                 <aside class="span4 right-sidebar">
-                    
+
                     <!--  ==========  -->
                     <!--  = Search Widget =  -->
                     <!--  ==========  -->
@@ -150,7 +150,7 @@
                         <!-- <div class="underlined">
                             <h3><span class="light">Search</span></h3>
                         </div> -->
-                        
+
                         <form class="form" action="blog-search.php" id="searchform" method="get" role="search">
                             <input type="text" id="appendedInputButton" class="input-block-level" name="search" placeholder="جستجو در نوشته ها ...">
                             <button type="submit">
@@ -158,7 +158,7 @@
                             </button>
                         </form>
                     </div>
-                    
+
                     <!--  ==========  -->
                     <!--  = Archive =  -->
                     <!--  ==========  -->
@@ -166,7 +166,7 @@
                         <div class="underlined">
                             <h3><span class="light">آرشیو</span>نوشته های بلاگ</h3>
                         </div>
-                        
+
                         <ul>
                             <li><a title="بهمن 92" href="http://localhost/themeforest/wp-theme/2013/02/">بهمن 92</a>&nbsp;(2)</li>
                             <li><a title="شهریور 92" href="http://localhost/themeforest/wp-theme/2008/09/">شهریور 92</a>&nbsp;(3)</li>
@@ -177,8 +177,8 @@
                         </ul>
                     </div>
 
-                </aside> <!-- /sidebar --> 
-                
+                </aside> <!-- /sidebar -->
+
             </div>
         </div>
     </div> <!-- /container -->
@@ -190,9 +190,9 @@
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -201,8 +201,8 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
-    
+
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -210,42 +210,39 @@
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-    
+
     <!--  = Google Maps API =  -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/goMap/js/jquery.gomap-1.3.2.min.js"></script>
-    
+
     <!--  = Custom JS =  -->
     <script src="js/custom.js" type="text/javascript"></script>
 
   </body>
 </html>
-
-    
-    

@@ -5,13 +5,6 @@ $_SESSION['login'];
 if(!$_SESSION['login']){
   echo "<script>document.location.href='login.php'</script>";
   }
-$_SESSION["permission"];
-if($_SESSION["permission"]!=1){
-  echo "<script>
-        alert('شما اجازه ورود به این قسمت را ندارید');
-        document.location.href='index.php';
-        </script>";
-  }
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +16,7 @@ if($_SESSION["permission"]!=1){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>XP_Market | اضافه کردن تصاویر</title>
+    <title>XP_Market | نمایش نظرات</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -38,8 +31,6 @@ if($_SESSION["permission"]!=1){
     <link href="assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="assets/js/chart-master/Chart.js"></script>
-    <script src="assets/js/ckeditor/ckeditor.js" type="text/javascript"></script>
-    <script src="assets/js/ckfinder/ckfinder.js"type="text/javascript"></script>
     <script>
         function dl()
          {
@@ -48,74 +39,8 @@ if($_SESSION["permission"]!=1){
             return false
             else return true;
          }
-function validateForm(){
-var title = document.forms["form"]["title"].value;
-var content = document.forms["form"]["content"].value;
-var content = document.forms["form"]["picture"].value;
-var captcha = document.forms["form"]["captcha"].value;
-var date = document.forms["form"]["date"].value;
-if (title == null || title == ""){
-    document.getElementById('title').style="border:1px solid #D40000";
-  return false;
-  }
-else if (content == null || content == ""){
-  document.getElementById('content').style="border:1px solid #D40000";
-  return false;
-  }
-else if (picture == null || picture == ""){
-  document.getElementById('picture').style="border:1px solid #D40000";
-  return false;
-  }
-else if (captcha == null || captcha == ""){
-  document.getElementById('captcha').style="border:1px solid #D40000";
-  return false;
-  }
-  else if (date == null || date == ""){
-  document.getElementById('date').style="border:1px solid #D40000";
-  return false;
-  }
-  return true
-}
+    </script>
 
-function CheckEmpty(){
-  title=document.getElementById('title').value;
-  content=document.getElementById('content').value;
-  picture=document.getElementById('picture').value;
-  captcha=document.getElementById('captcha').value;
-  date=document.getElementById('date').value;
-
-    if(title === ''){
-        document.getElementById('title').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('title').style="";
-    }
-    if(picture === ''){
-        document.getElementById('picture').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('picture').style="";
-    }
-    if(captcha === ''){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('captcha').style="";
-    }
-    if(date === ''){
-    document.getElementById('date').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('date').style="";
-    }
-
-    return true;
-}
-</script>
   </head>
 
   <body>
@@ -125,6 +50,7 @@ function CheckEmpty(){
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
 <?php require('inc/header.php') ?>
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -143,14 +69,14 @@ function CheckEmpty(){
 
                   <li class="sub-menu">
                       <a class="active" href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
+                          <i class="fa fa-shopping-cart"></i>
                           <span>کالا</span>
                       </a>
                       <ul class="sub">
-                          <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
+                          <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
-                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>      
+                          <li class="active"><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -177,14 +103,14 @@ function CheckEmpty(){
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a  href="javascript:;" >
                           <i class="fa fa-pencil"></i>
                           <span>اخبار</span>
                       </a>
                       <ul class="sub">
                           <li><a  href="show-news.php?pageid=1">مشاهده اخبار</a></li>
                           <li><a  href="add-news.php">اضافه کردن خبر</a></li>
-                          <li><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
+                          <li ><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -220,53 +146,66 @@ function CheckEmpty(){
       <section id="main-content">
           <section class="wrapper">
 
-                  <div class="form-panel">
-                      <h4 class="mb"><i class="fa fa-angle-left"></i> اضافه کردن تصاویر</h4>
-                      <form class="form-horizontal style-form" method="post" action="inc/add-picture.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تصویر 1 :</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="picture-1" name="picture-1" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
-                              </div>
+                  <div class="col-md-12" style="margin-top: 20px;">
+                      <div class="content-panel">
+                          <h4></i>نظرات کاربران</h4><hr><table class="table table-striped table-advance table-hover">
+                              <thead>
+
+                              <tr>
+                                  <th>نام</th>
+                                  <th class="hidden-phone">کالا</th>
+                                  <th>تاریخ</th>
+                                  <th>تنظیمات</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <?php
+                                require('inc/connect.php');
+                                $page=$_GET["pageid"];
+                                $per_page = 10;
+                                $start = ($page-1)*$per_page;
+                                $show_pages=("SELECT * FROM `comment_product`");
+                                $resu=mysqli_query($sql,$show_pages);
+                                $coun = mysqli_num_rows($resu);
+
+                                $comment_news=("SELECT product.name as 'product_name' , user.username as 'user_name' , comment_product.* FROM `comment_product`,`product`,`user` WHERE comment_product.product_id=product.id and comment_product.user_id=user.id ORDER BY comment_product.id DESC LIMIT $start,$per_page");
+                                $result=mysqli_query($sql,$comment_news);
+
+                                if(mysqli_num_rows($result) > 0){
+                                for($i=1;$row=mysqli_fetch_assoc($result);$i++){
+                                echo'<form method="post" action="inc/dl-comment_product.php" id="frm"   onSubmit="return dl()">
+                                      <tr>
+                                      <td>'.$row["user_name"].'</td>
+                                      <td>'.$row["product_name"].'</td>
+                                      <td>'.$row["date"].'</td>
+                                      <td>
+                                      <input type="hidden" name="inputhidden" value="'.$row["id"].'">
+                                      <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';
+                                      if($row["vaziat"]==0){
+                                      echo'
+                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'"style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
+                                    }else if($row["vaziat"]==1){
+                                        echo'
+                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
+                                      }
+                                    echo'</td>
+                                    </tr>
+                                    </form>';
+                                  }
+                                }
+                              ?>
+                              </tbody>
+                          </table>
+                          <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
+                            <?php
+                            $allpages = ceil($coun / $per_page);
+                            for($i = 1 ; $i <= $allpages ; $i++){
+                            echo '<a style="margin-right:2px;" href="show-comment-product.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                             }
+                            ?>
                           </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تصویر 2 :</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="picture-2" name="picture-2" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
-                              </div>
-                          </div>                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تصویر 3 :</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="picture-3" name="picture-3" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تصویر 4 :</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="picture-4" name="picture-4" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
-                              </div>
-                          </div>                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">تصویر 5 :</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="picture-5" name="picture-5" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">کد امنیتی:</label>
-                              <div class="col-sm-10" style="margin-right: -100px;">
-                                  <?php
-                                  $sa_captchaDIR='assets/sc/sa-captcha';
-                                  require('assets/sc/sa-captcha/captcha.php');
-                                  ?>
-                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
-                              </div>
-                          </div>
-                          <button type="submit" name="submit" class="btn btn-success">ارسال</button>
-                          <button type="button" type="reset" class="btn btn-danger">حذف</button>
-                          <input type="hidden" name="inputhidden" value='<?php echo $_GET["productid"];?>'>
-                      </form>
-                     </div>
-                  </div>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
 
           </section>
       </section>

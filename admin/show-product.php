@@ -86,6 +86,7 @@ if($_SESSION["permission"]!=1){
                           <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -206,7 +207,7 @@ if($_SESSION["permission"]!=1){
                                       <td>'.$row["number"].'</td>';
                                       //for comment counter
                                       $p_id=$row["id"];
-                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_product` WHERE product_id='$p_id'";
+                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_product` WHERE product_id='$p_id' and comment_product.vaziat=1";
                                       $result_counter=mysqli_query($sql,$comment_count);
                                       $row_counter=mysqli_fetch_assoc($result_counter);
                                       //end comment counter

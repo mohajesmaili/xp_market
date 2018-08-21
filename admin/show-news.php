@@ -152,6 +152,7 @@ if(!$_SESSION['login']){
                               <tr>
                                   <th>تیتر</th>
                                   <th>تاریخ انتشار</th>
+                                  <th>تعداد نظرات</th>
                                   <th>تنظیمات</th>
                               </tr>
                               </thead>
@@ -175,7 +176,7 @@ if(!$_SESSION['login']){
                                       <td>'.$row["date"].'</td>';
                                       //for comment counter
                                       $n_id=$row["id"];
-                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_news` WHERE news_id='$n_id'";
+                                      $comment_count="SELECT count(id) as `counter` FROM  `comment_news` WHERE news_id='$n_id' and comment_news.vaziat=1";
                                       $result_counter=mysqli_query($sql,$comment_count);
                                       $row_counter=mysqli_fetch_assoc($result_counter);
                                       //end comment counter

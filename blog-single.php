@@ -83,7 +83,7 @@
                         $row = mysqli_fetch_assoc($result);
 
                         $idc=$row["id"];
-                        $counter="SELECT count(id) as counter from `comment_news` where news_id='$idc'";
+                        $counter="SELECT count(id) as counter from `comment_news` where news_id='$idc' and comment_news.vaziat=1";
                         $re=mysqli_query($sql,$counter);
                         $r=mysqli_fetch_assoc($re);
                         echo '<article class="post format-video">
@@ -113,7 +113,7 @@
 
                     <section id="comments" class="comments-container">
                         <?php
-                        $counter="SELECT count(id) as counter from comment_news where news_id='$id'";
+                        $counter="SELECT count(id) as counter from comment_news where news_id='$id' and comment_news.vaziat=1";
                         $res=mysqli_query($sql,$counter);
                         $row=mysqli_fetch_assoc($res);
                         echo '<h3 class="push-down-25"><span class="light">'.$row["counter"].'</span> نظر</h3>';
@@ -122,7 +122,7 @@
                         <!--  = Single Comment =  -->
                         <!--  ==========  -->
                         <?php
-                        $sel_comment=("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id' ORDER BY comment_news.id DESC ");
+                        $sel_comment=("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id' and comment_news.vaziat=1 ORDER BY comment_news.id DESC ");
                         $result3=mysqli_query($sql,$sel_comment);
 
                         if(mysqli_num_rows($result3) >0) {
