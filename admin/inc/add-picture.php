@@ -4,7 +4,6 @@ if(isset($_POST['submit']))
 {
     $hiddenid=$_POST['inputhidden'];
     $hiddenid=htmlentities($hiddenid,ENT_QUOTES);
-    echo $hiddenid;
     session_start();
     if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
 

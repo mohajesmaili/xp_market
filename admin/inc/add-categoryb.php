@@ -1,11 +1,11 @@
 <?php
-if(isset($_POST['submit'])){	
+if(isset($_POST['submit'])){
 	session_start();
 	if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
-		$name=$_POST['name'];	
+		$name=$_POST['name'];
 		require('connect.php');
 
-		$name = htmlentities($name,ENT_QUOTES);              
+		$name = htmlentities($name,ENT_QUOTES);
 
 		$result=mysqli_query($sql,"INSERT INTO `categoryb` VALUES (NULL,'$name')");
 
@@ -31,19 +31,19 @@ if(isset($_POST['submit'])){
 
 		if($result){
 		echo "<script>alert('برند جدید اضافه شد');
-		document.location.href='../show-categoryb.php';
+		document.location.href='../show-categoryb.php?pageid=1';
 		</script>";
 
-			}else{	
+			}else{
 		echo "<script>alert('برند جدید اضافه نشد');
 		document.location.href='../add-categoryb.php';
 		</script>";
 		}
-	}else{			
+	}else{
 	    echo '
 		<script>
 			    alert("کد اشتباه است")
-		        document.location.href="../add-categoryp.php";
+		        document.location.href="../add-categoryb.php";
 		</script>';
 	}
 }
