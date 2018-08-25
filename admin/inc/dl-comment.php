@@ -1,11 +1,11 @@
 <?php
 if(isset($_POST['delete']))
-{ 
-	require('../connect.php');
+{
+	require('connect.php');
 
 	$id=$_POST["inputhidden"];
 
-    $id=mysqli_escape_string($sql,$id);    
+    $id=mysqli_escape_string($sql,$id);
 
     session_start();
     if($_SESSION['login'] == true){
