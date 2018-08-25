@@ -223,6 +223,13 @@ function CheckEmpty(){
                   <div class="form-panel">
                       <h4 class="mb"><i class="fa fa-angle-left"></i> اضافه کردن تصاویر</h4>
                       <form class="form-horizontal style-form" method="post" action="inc/add-picture.php" name="form" onsubmit="return validateForm();" enctype="multipart/form-data">
+
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">تصویر124x2 :</label>
+                              <div class="col-sm-10" style="margin-right: -100px;">
+                                  <input id="picture-s" name="picture-s" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
+                              </div>
+                          </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">تصویر 1 :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">

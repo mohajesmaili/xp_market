@@ -141,23 +141,15 @@ if(!$_SESSION['login']){
 
                   <div class="row mtbox">
                   		<a href="contact.php?pageid=1">
-                      <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                      <div class="col-md-2 col-sm-2 col-md-offset-1 box0" style="width: 20.666667%;">
                   			<div class="box1">
                             <span class="li_bubble"></span>
                             <h3>نظرات</h3>
                   			</div>
                   		</div>
                       </a>
-                      <a href="show-user.php">
-                          <div class="col-md-2 col-sm-2 box0">
-                              <div class="box1">
-                                  <span class="li_user"></span>
-                                  <h3>کاربران</h3>
-                              </div>
-                          </div>
-                      </a>
                       <a href="show-news.php?pageid=1">
-                          <div class="col-md-2 col-sm-2 box0">
+                          <div class="col-md-2 col-sm-2 box0" style="width: 20.666667%;">
                               <div class="box1">
                                   <span class="li_news"></span>
                                   <h3>اخبار</h3>
@@ -165,7 +157,7 @@ if(!$_SESSION['login']){
                           </div>
                       </a>
                       <a href="show-categoryb.php?pageid=1">
-                      <div class="col-md-2 col-sm-2 box0">
+                      <div class="col-md-2 col-sm-2 box0" style="width: 20.666667%;">
                         <div class="box1">
                           <span class="li_photo"></span>
                           <h3>برند</h3>
@@ -173,7 +165,7 @@ if(!$_SESSION['login']){
                       </div>
                       </a>
                   		<a href="show-product.php?pageid=1">
-                      <div class="col-md-2 col-sm-2 box0">
+                      <div class="col-md-2 col-sm-2 box0" style="width: 20.666667%;">
                   			<div class="box1">
                           <span class="li_shop"></span>
                           <h3>کالا</h3>

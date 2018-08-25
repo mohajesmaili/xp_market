@@ -12,6 +12,21 @@ if(isset($_POST['submit']))
         $query=mysqli_query($sql,"SELECT `id` FROM `product`");
         $row=mysqli_fetch_array($query);
         $id=$row['id'];
+        $ferror=$_FILES['picture-s']['error'];
+        if(!$ferror)
+        {
+            $fname=$_FILES['picture-s']['name'];
+            $ftype=$_FILES['picture-s']['type'];
+            $fsize=$_FILES['picture-s']['size'];
+            $ftemp=$_FILES['picture-s']['tmp_name'];
+            if($ftype == "image/jpg" || $ftype == "image/jpeg" || $ftype == "image/png" ){
+                move_uploaded_file($ftemp,"../../images/product_s/$hiddenid.png");
+            }elseif ($ftype != "image/jpg" || $ftype != "image/jpeg" || $ftype != "image/png"){
+                echo "<script>alert('فایل مشکل دارد');
+			          document.location.href='../add-picture.php?productid=".$hiddenid."';
+			          </script>";
+            }
+        }
         $ferror=$_FILES['picture-1']['error'];
         if(!$ferror)
         {
