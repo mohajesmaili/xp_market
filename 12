@@ -1,0 +1,476 @@
+[33mcommit 326e7d24e437c2f0dbd6e61e8119b37af4dd51b6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 27 23:23:33 2018 +0430
+
+    add reply comment for product
+
+[33mcommit 7dd611ace0ea9a35c813d65b27a01600c286924f[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 27 22:44:45 2018 +0430
+
+    reply comment of blog updated and send comment to db
+
+[33mcommit 88a31b41a6bf117f1c0e2361efcd83288c841b56[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 27 21:59:40 2018 +0430
+
+    reply_comment and add form comment for reply
+
+[33mcommit 3ff117097f53f5af725d7db43869a4d204214c78[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 25 19:25:46 2018 +0430
+
+    works updated
+
+[33mcommit fd542c03605f8c7ee9ca1cb58af298b75ceb45b3[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 25 19:22:40 2018 +0430
+
+    add 124x124 picture upload panel
+
+[33mcommit 102de36a23fdd9deba2c05e1e3ca18e9a58838f5[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 25 19:00:52 2018 +0430
+
+    user panel deleted
+
+[33mcommit 4bf05d92065007b12b3170026356bc7bf08eab47[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 25 18:56:10 2018 +0430
+
+    fix contact
+
+[33mcommit a27085359dc28fb87e829dc2f6c5a5119ef9cd6f[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 21 21:29:16 2018 +0430
+
+    add product,bug fixed
+
+[33mcommit acbe01c726506971da608ee512a1052677e021e3[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 21 19:17:38 2018 +0430
+
+    delete product , comment ,news and back to current page
+
+[33mcommit c661ea0b52ac7af8021daf95940f59e55e5fcd39[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 21 14:44:14 2018 +0430
+
+    alert for 0 - number product
+
+[33mcommit 8dd8e33b2d25098a9cf9fa1f5826fefe37b5a81f[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 21 14:20:45 2018 +0430
+
+    show comment adedd,confirm comment added
+
+[33mcommit bdca9a21bd68ef1d8bdcdcd3db86d229565280ff[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 18 21:07:05 2018 +0430
+
+    price counter fixded
+
+[33mcommit 20d03e78e6f8ae15cc6ac79e0142cfd229cb5d82[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 18 20:49:56 2018 +0430
+
+    links updated
+
+[33mcommit d3c66bc81a182314ce1fabadb41eba1be1be5ce5[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 18 20:44:46 2018 +0430
+
+    add pagination for brand
+
+[33mcommit 59eec74bb683d0d8afc25c38a1f4df0acf6b820f[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 18 20:07:36 2018 +0430
+
+    show-sproduct pagination fixed
+
+[33mcommit 9b16429b1017bdc062531972662fc772e8e65592[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 18 19:54:02 2018 +0430
+
+    comment counter for product and news
+
+[33mcommit 7504acddfdd0b06ac15ab1df30df008df0624664[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 23:15:58 2018 +0430
+
+    remove junks
+
+[33mcommit 1f14f72d54e4fa69a69141ed8cb36b9f1489f77e[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 23:14:37 2018 +0430
+
+    db updated
+
+[33mcommit 47e78f99bb11b989de7d75a5374c7df354ea6026[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 22:49:47 2018 +0430
+
+    more pic and product added,new works for tomaroww
+
+[33mcommit 960e66bf3fbffd5ea82561375c7d22062a6d4c07[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 19:20:12 2018 +0430
+
+    delete pic after delete product :)
+
+[33mcommit c743315013ac75997ac1c45e239138d65c83f4d1[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 19:14:23 2018 +0430
+
+    news works
+
+[33mcommit 8b7f116b95c7cbc2f928b12e482cbb3bcd7d1323[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Aug 17 13:47:11 2018 +0430
+
+    Negative count for product
+
+[33mcommit 6e722324555e9fbe13c69501ccd1b42a782177ad[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 15 22:40:08 2018 +0430
+
+    works updated
+
+[33mcommit 495a19361d9a2bc92371d9ed36d3f9ea39c60969[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 15 22:29:32 2018 +0430
+
+    CAPTCHA for comment product and news added
+
+[33mcommit 59ec2a318825a1e99b1fe8dc321f2c6251e5c8bb[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 15 21:46:22 2018 +0430
+
+    panel news added
+
+[33mcommit ebb342c8f6f70d8f1ae14fdeba07053a7f4966f2[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 22:32:36 2018 +0430
+
+    db updated
+
+[33mcommit 39bb8c8d1e04ea2f01090db9f9d20384b29eacb0[m
+Author: mo.hajesmaili <38654089+mohajesmaili@users.noreply.github.com>
+Date:   Tue Aug 14 21:56:19 2018 +0430
+
+    Update undone work.txt
+
+[33mcommit 9ffdaebb37fe0cf25d67768b7bf9246c7c4fc18e[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 21:54:26 2018 +0430
+
+    new works
+
+[33mcommit b185aaef78f19cc06feeeea7325d17ecc6b1189e[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 21:49:35 2018 +0430
+
+    date and time added
+
+[33mcommit 7462b2c22fbc18033b3e4c2c52d413a6315b0485[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 12:28:59 2018 +0430
+
+    broken link fixed
+
+[33mcommit a88622dab2693b5de942b72f2fb5053a92d3ea72[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 02:07:32 2018 +0430
+
+    new works
+
+[33mcommit caf72c2377682b18d38e953c39eb5fd83477263f[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 14 01:46:44 2018 +0430
+
+    create categorey & brand panel
+
+[33mcommit f7303773c53b18fd6aaf249e0efac2adcaccf4d5[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 8 22:23:41 2018 +0430
+
+    header updated
+
+[33mcommit f47b1aab8154a4cedb59ead1d5acb5e7008f15da[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 8 22:21:56 2018 +0430
+
+    more product,show sell product added
+
+[33mcommit 1708998c3788d539006065eb36f0483423772b2c[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 8 22:19:59 2018 +0430
+
+    db updated
+
+[33mcommit cc735d81d62a6a6461e5fc26df57e83d4bfe92c3[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 8 01:29:05 2018 +0430
+
+    db updated
+
+[33mcommit 475df7c2c0737bd39c1996a5fad70f838e6a7c98[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 8 01:25:52 2018 +0430
+
+    more_p picture added
+
+[33mcommit cda3deb05633c36838671f5076c3db08baea8e11[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Aug 7 23:37:00 2018 +0430
+
+    new product
+
+[33mcommit 49c07a51a62717c86412976286a106dad1016a93[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 6 20:01:35 2018 +0430
+
+    show latest pictures
+
+[33mcommit 950ddc376ab1cfd6fd9eb937f64f341b23893bc6[m
+Merge: 48ca3b7 5b28c63
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 6 19:40:16 2018 +0430
+
+    Merge branch 'master' of https://github.com/mohajesmaili/xp_market
+
+[33mcommit 48ca3b7897e8be115ce999a0d3313e1e18137466[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 6 19:37:52 2018 +0430
+
+    updated
+
+[33mcommit 5b28c6360b4f93878aabccd1e50b79962a3a386e[m
+Author: mo.hajesmaili <38654089+mohajesmaili@users.noreply.github.com>
+Date:   Mon Aug 6 19:12:22 2018 +0430
+
+    Delete CNAME
+
+[33mcommit 0b2013dfebe0dccca2d0bcbe92c9e2b0e181931c[m
+Author: mo.hajesmaili <38654089+mohajesmaili@users.noreply.github.com>
+Date:   Mon Aug 6 19:11:12 2018 +0430
+
+    Create CNAME
+
+[33mcommit 1f98370bd4d64d66e96e7ecfef57e11b71af5c5e[m
+Author: mo.hajesmaili <38654089+mohajesmaili@users.noreply.github.com>
+Date:   Mon Aug 6 19:10:55 2018 +0430
+
+    Set theme jekyll-theme-time-machine
+
+[33mcommit 91826e1e237646fe75ae27d421bb0ce22e4106ac[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Mon Aug 6 18:48:11 2018 +0430
+
+    admin files updated
+
+[33mcommit 7d9c3c661b567ea86975859a4bca1484a876f539[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Aug 5 22:40:39 2018 +0430
+
+    updating
+
+[33mcommit 1166ea328713605c7a33c5e00ee738f1ed69b83c[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Aug 5 19:07:53 2018 +0430
+
+    updated
+
+[33mcommit 0598067bf562e8c148c35ee5924262b22c45418e[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Aug 5 19:06:21 2018 +0430
+
+    updated
+
+[33mcommit 19f31f68dffbd619b20337eb28636ff9198cbf14[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Aug 5 17:02:48 2018 +0430
+
+    cpanel added
+
+[33mcommit 6498f1906da549cf397880f0cfa3fe1c427e9a73[m[33m ([m[1;33mtag: v0.5[m[33m)[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 4 14:17:58 2018 +0430
+
+    updated
+
+[33mcommit 958c872fdf38481c7ad2b2b8719d9ede8653c8b0[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Aug 4 00:04:32 2018 +0430
+
+    sell update
+
+[33mcommit c70926d187e1d199deb3b39208064363c3ec68ab[m
+Merge: 3d85a86 fd626f8
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 1 18:27:57 2018 +0430
+
+    Merge branch 'master' of https://github.com/mohajesmaili/xp_market
+
+[33mcommit 3d85a86fdd8cffdfa7c6441251be18253bc986e4[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 1 18:26:47 2018 +0430
+
+    database updated
+
+[33mcommit fd626f83123d85273b4dbb898fb9dc6fcfe5e366[m
+Merge: 8788dc2 0b397d7
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 1 18:18:10 2018 +0430
+
+     this is merging
+
+[33mcommit 0b397d770755a61ed254bf0be8dfffe92372fcb0[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 1 17:20:45 2018 +0430
+
+    updated
+
+[33mcommit d29ef69a072340500ccc52b61b6755e6c78b6bbe[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Wed Aug 1 17:16:39 2018 +0430
+
+    jucks removed
+
+[33mcommit 8788dc24255a23aa5d7da42f39f461b694e7a41b[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Jul 31 19:07:53 2018 +0430
+
+    small file updated :)
+
+[33mcommit fec862295aab77d87d9455b377082612adccc02e[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Tue Jul 31 19:05:47 2018 +0430
+
+    files updated
+
+[33mcommit ce30eaf1ff7dbe56fc0330a6eb20cfca5abaa208[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Jul 29 19:31:52 2018 +0430
+
+    files updated,comments fixed
+
+[33mcommit 27fa33c4b6f90be3b7dfb2f0ffb2089687fb7f5a[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Jul 29 19:24:24 2018 +0430
+
+    updated
+
+[33mcommit 32f8422826ef1103d2612a6b93bb43ebdf572cdb[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 27 00:53:10 2018 +0430
+
+    deleted admin
+
+[33mcommit 8054a09dee4cc24ad96ba880b52e8c8bc0a33306[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 27 00:50:52 2018 +0430
+
+    deleted idea
+
+[33mcommit 92e1d5f88b1abbd2e55bb10ac4ebe8cd42ccbdbb[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 27 00:46:45 2018 +0430
+
+    updated
+
+[33mcommit 3ace5e0aab11d71439b1c986191d3e6cba78e96c[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Thu Jul 26 18:56:52 2018 +0430
+
+    sell updated
+
+[33mcommit d5e08cfcf3c6783a7ef6e6ccc87fb5822a1e1837[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Sun Jul 22 13:23:37 2018 +0430
+
+    updated
+
+[33mcommit 12d34ebf5dd4aa71c0618f00df7d292b807eb19b[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Sun Jul 22 13:02:12 2018 +0430
+
+    updte works
+
+[33mcommit 3ec764ecdbb49d430762c9f0b74316386fed6bf7[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sun Jul 22 01:32:49 2018 +0430
+
+    updated
+
+[33mcommit e7b739540f20c07da6afed0bbcf05085ea8f1ddf[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Sat Jul 21 18:36:13 2018 +0430
+
+    new files,updated
+
+[33mcommit df082dd5862b6d6eeb2ba93425a5b07c396b17fe[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Sat Jul 21 17:37:15 2018 +0430
+
+    undone
+
+[33mcommit 6acc811525badf38661f9a37cc57e17c27d3e4f3[m
+Author: mohammad <mo.hajesmaili@gmail.com>
+Date:   Sat Jul 21 01:13:39 2018 +0430
+
+    updated
+
+[33mcommit 12ca691fdc6ecb44c1441737820cd69d6eed41fa[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Sat Jul 21 00:00:43 2018 +0430
+
+    files
+
+[33mcommit 5a4e431614e4ca01865e9a08b3b4e0dd00ab3c30[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 23:59:33 2018 +0430
+
+    Signed-off-by: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+
+[33mcommit 2f8b4955fbcf94d8b5a3ccb414f7ff3c4135f2c8[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 17:58:04 2018 +0430
+
+    database updated
+
+[33mcommit 4823dadc28b89b766539b1e568de4b66d01de654[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 17:56:37 2018 +0430
+
+    project upgrated,add comment for porudcts,bug fixed
+
+[33mcommit d007ec0e06a2a6be304ffa761a6c6d15b9e7984b[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 11:40:05 2018 +0430
+
+    change title
+
+[33mcommit 13db7efd8a9d52312859c58cf57386029d4e6c9f[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 01:40:27 2018 +0430
+
+    bugs removed
+
+[33mcommit 7af0ab1733f01086701d161dd6e2ac217cff1242[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 01:06:08 2018 +0430
+
+    files
+
+[33mcommit d04aadb4bb93a15f4eda801b62354207351b57c2[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 01:00:01 2018 +0430
+
+    edit header
+
+[33mcommit ad5ad9381a11584d96fca3afff0e77578e215cb1[m
+Author: mohammad hajesmaili <mo.hajesmaili@gmail.com>
+Date:   Fri Jul 20 00:55:51 2018 +0430
+
+    files
