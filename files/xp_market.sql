@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 21, 2018 at 04:56 PM
+-- Generation Time: Aug 27, 2018 at 06:50 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -137,6 +137,7 @@ CREATE TABLE IF NOT EXISTS `comment_news` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `vaziat` tinyint(1) NOT NULL DEFAULT '0',
+  `reply` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
@@ -154,7 +155,8 @@ CREATE TABLE IF NOT EXISTS `comment_product` (
   `comment` text COLLATE utf8_persian_ci NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `vaziat` tinyint(1) DEFAULT '0',
+  `vaziat` tinyint(1) NOT NULL DEFAULT '0',
+  `reply` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 

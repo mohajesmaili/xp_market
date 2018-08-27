@@ -71,6 +71,18 @@
       <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shLegacy.js"></script>
       <script type="text/javascript">SyntaxHighlighter.all();</script>
       <!-- syntaxhighlighter-->
+      <script>
+          function show_hide(id) {
+              if (document.getElementById) {
+                  object = document.getElementById(id);
+                  if (object.style.display == "none") {
+                      object.style.display = "";
+                  } else {
+                      object.style.display = "none";
+                  }
+              }
+          }
+      </script>
   </head>
 
 
@@ -237,11 +249,12 @@
                                 <!--  = Single Comment =  -->
                                 <!--  ==========  -->
                                 <?php
-                                $sel_comment=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id' and comment_product.vaziat=1 ORDER BY comment_product.id DESC ");
+                                $sel_comment=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id' and comment_product.vaziat=1 and comment_product.reply=0 ORDER BY comment_product.id DESC ");
                                 $result3=mysqli_query($sql,$sel_comment);
 
                                 if(mysqli_num_rows($result3) >0) {
                                     while ($row3 = mysqli_fetch_assoc($result3)) {
+                                        $comment_id=$row3["id"];
                                         echo '<div class="single-comment clearfix">
                                     <div class="avatar-container">
                                         <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
@@ -252,14 +265,64 @@
                                                 <span class="light">'.$row3["username"].'</span>
                                             </cite>
                                             <div class="metadata">
-                                                    '.$row3["date"].' در '.$row3["time"].'   /  <a href="#">پاسخ</a>
-                                            </div>
+                                                    '.$row3["date"].' در '.$row3["time"].'';?>   /  <a href="#script" onclick="show_hide('script<?php echo $comment_id?>');return(false);">پاسخ</a>
+                                            <?php
+                                            echo '</div>
                                             <div class="comment-text">
                                             <p>'.$row3["comment"].'</p>
                                             </div>
                                         </div>
+                                        <hr>';
+                                        if($_SESSION["user"]==true){
+                                        echo' 
+                                        <form id="script'.$comment_id.'" style="display: none;" method="POST" action="inc/send_commentp.php?userid='.$_SESSION["user_id"].'&productid='.$id.'&categoryid='.$category.'" class="form form-inline form-comments">
+                                        <p class="push-down-20">
+                                            <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
+                                        </p>
+                                        <p>
+                                          <label class="col-sm-2 col-sm-2 control-label">کد امنیتی:</label><br/>';
 
-                                    </div>
+                                              $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                              require("admin/assets/sc/sa-captcha/captcha.php");
+
+                                           echo'<br/>
+                                                <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی"">
+                                         </p>
+                                        <p>
+                                            <input type="hidden" value="'.filter_var($comment_id, FILTER_SANITIZE_NUMBER_INT).'" name="hiddenid"/>
+                                            <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>
+                                        </p>
+                                        </form>';
+                                        }else{
+                                        echo' <button id="script'.$comment_id.'" style="display: none;" class="btn btn-primary bold" tabindex="5">ابتدا باید ثبت نام کنید یا وارد شوید</button>';
+                                        }
+                                        $sel_comment_reply=("SELECT * FROM `user`,`comment_product` where user.id=comment_product.user_id and comment_product.product_id='$id' and comment_product.vaziat=1 and comment_product.reply='$comment_id'");
+
+                                        $result4 = mysqli_query($sql, $sel_comment_reply);
+
+                                        if (mysqli_num_rows($result4) > 0) {
+                                        while ($row4 = mysqli_fetch_assoc($result4)) {
+                                            echo'<div class="single-comment nested clearfix">
+                                        <div class="avatar-container">
+                                            <img src="images/dummy/avatars/avatar-1.jpg" alt="avatar" class="avatar" width="184" height="184" />
+                                        </div>
+                                        <div class="comment-content">
+                                            <div class="comment-inner">
+                                                <cite class="author-name">
+                                                   ' . $row4["username"] .'
+                                                </cite>
+                                                <div class="metadata">
+                                                    ' . $row4["date"] . ' در ' . $row4["time"] . ' بعد از ظهر  /  <a href="#">پاسخ</a>
+                                                </div>
+                                                <div class="comment-text">
+                                                <p>' . $row4["comment"] .'</p>
+                                                </div> 
+                                            </div>
+                                        </div>    
+                                    </div> ';
+                                        }
+                                    }
+                                echo '</div>
                                 </div>';
                                     }
                                 }

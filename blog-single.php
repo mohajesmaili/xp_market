@@ -33,6 +33,39 @@
     <!-- Modernizr -->
     <script src="js/modernizr.custom.56918.js"></script>
 
+      <!-- syntaxhighlighter-->
+      <link rel="stylesheet" type="text/css" href="admin/assets/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shCore.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushAppleScript.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushAS3.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushBash.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushColdFusion.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushCss.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushDelphi.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushDiff.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushErlang.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushGroovy.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJava.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJavaFX.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushPython.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushRuby.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushSass.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushScala.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushSql.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushVb.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+      <script type="text/javascript" src="admin/assets/js/syntaxhighlighter/scripts/shLegacy.js"></script>
+      <script type="text/javascript">SyntaxHighlighter.all();</script>
+      <!-- syntaxhighlighter-->
+
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch/114.png">

@@ -9,7 +9,10 @@ if(isset($_POST['submit'])) {
     if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
 
     require("connect.php");
+
     require ("jalali-date.php");
+
+    $comment_id=$_POST["hiddenid"];
 
     $userid = $_GET['userid'];
 
@@ -19,7 +22,12 @@ if(isset($_POST['submit'])) {
 
     $time=jdate("H:i:s",'','','',"en");
 
-    $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time',0,0)";
+    if($comment_id==null || $comment_id=="") {
+
+        $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time',0,0)";
+    }else{
+        $insert = "INSERT INTO `comment_product` VALUES (NULL,'$product_id','$userid','$comment','$date','$time',0,'$comment_id')";
+    }
 
     $result = mysqli_query($sql, $insert);
     if(!$result){
