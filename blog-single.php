@@ -160,7 +160,9 @@
                                             </div>
                                             
                                         </div>
-                                        <hr>
+                                        <hr>';
+                                        if($_SESSION["user"]==true){
+                                        echo' 
                                         <form id="script'.$comment_id.'" style="display: none;" method="POST" action="inc/send_commentn.php?userid='.$_SESSION["user_id"].'&newsid='.$id.'" class="form form-inline form-comments">
                                         <p class="push-down-20">
                                             <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
@@ -175,11 +177,14 @@
                                                 <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی"">
                                          </p>
                                         <p>
+                                            <input type="hidden" value="'.filter_var($comment_id, FILTER_SANITIZE_NUMBER_INT).'" name="hiddenid"/>
                                             <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>
                                         </p>
-                                        </form>
-                                        ';
-                                    $sel_comment_reply = ("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id' and comment_news.vaziat=1 and comment_news.reply='$comment_id' ORDER BY comment_news.id DESC ");
+                                        </form>';
+                                        }else{
+                                        echo' <button id="script'.$comment_id.'" style="display: none;" class="btn btn-primary bold" tabindex="5">ابتدا باید ثبت نام کنید یا وارد شوید</button>';
+                                    }
+                                    $sel_comment_reply = ("SELECT * FROM `user`,`comment_news` where user.id=comment_news.user_id and comment_news.news_id='$id' and comment_news.vaziat=1 and comment_news.reply='$comment_id'");
 
                                     $result4 = mysqli_query($sql, $sel_comment_reply);
 
@@ -192,7 +197,7 @@
                                         <div class="comment-content">
                                             <div class="comment-inner">
                                                 <cite class="author-name">
-                                                   ' . $row4["name"] . '
+                                                   ' . $row4["username"] . '
                                                 </cite>
                                                 <div class="metadata">
                                                     ' . $row4["date"] . ' در ' . $row4["time"] . ' بعد از ظهر  /  <a href="#">پاسخ</a>
