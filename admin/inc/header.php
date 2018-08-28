@@ -93,7 +93,7 @@ return false
                             <i class="fa fa-envelope-o"></i>
                             <?php
                             require('connect.php');
-                            $count_contact=("SELECT count(id) as id FROM `contact`");
+                            $count_contact=("SELECT count(id) as id FROM `contact` WHERE `vaziat`=0");
                             $result=mysqli_query($sql,$count_contact);
                             if(mysqli_num_rows($result) > 0){
                             $l=mysqli_fetch_assoc($result);
@@ -108,7 +108,7 @@ return false
                             ?>
                             </li>
                             <?php
-                            $contact=("SELECT * FROM `contact`");
+                            $contact=("SELECT * FROM `contact` WHERE `vaziat`=0 ORDER BY id DESC ");
                             $result=mysqli_query($sql,$contact);
                             if(mysqli_num_rows($result) > 0){
                             while($row=mysqli_fetch_assoc($result)){

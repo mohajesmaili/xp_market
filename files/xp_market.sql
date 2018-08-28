@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 27, 2018 at 06:50 PM
+-- Generation Time: Aug 28, 2018 at 03:00 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -172,15 +172,9 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `name` varchar(50) COLLATE utf8_persian_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_persian_ci NOT NULL,
   `content` text COLLATE utf8_persian_ci NOT NULL,
+  `vaziat` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `contact`
---
-
-INSERT INTO `contact` (`id`, `name`, `email`, `content`) VALUES
-(1, 'محمد رضا حاج اسماعیلی کهکی ', '123@gmail.com', 'تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست تست ');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 -- --------------------------------------------------------
 

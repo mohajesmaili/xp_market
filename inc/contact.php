@@ -9,7 +9,7 @@ if(isset($_POST['submit'])) {
 
     require("connect.php");
 
-    $insert = "INSERT INTO `contact` VALUES (NULL,'$name','$email','$comment')";
+    $insert = "INSERT INTO `contact` VALUES (NULL,'$name','$email','$comment',0)";
 
     $result = mysqli_query($sql, $insert);
 
