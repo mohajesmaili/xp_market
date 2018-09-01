@@ -65,7 +65,7 @@
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                                        <a href="index.html"><img src="images/xp logo.png" alt="Xp market Logo" width="300" height="150"/></a>
+                                        <a href="index.php"><img src="images/xp-logo.png" alt="Xp market Logo" width="300" height="150"/></a>
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">

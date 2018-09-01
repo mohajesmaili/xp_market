@@ -49,7 +49,8 @@ $_SESSION["user"];
                              echo   '<a href="#loginModal" role="button" data-toggle="modal"><button class="btn btn-success btn-large push-down-10">ورود</button></a>
                                     <a href="#registerModal" role="button" data-toggle="modal"><button class="btn btn-success btn-large push-down-10">ثبت نام</button></a>';
                             }else if($_SESSION["user"]==true){
-                              echo   '<a href="inc/exit.php" role="button" data-toggle="modal"><button class="btn btn-danger btn-large push-down-10">خروج</button></a>';
+                              echo   '<span><b>'.$_SESSION["user_name"].' خوش آمدید</b></span>&nbsp;&nbsp;&nbsp;
+                                      <a href="inc/exit.php" role="button" data-toggle="modal"><button class="btn btn-danger btn-large push-down-10">خروج</button></a>';
                             }
                             ?>
                         </div>
@@ -133,14 +134,26 @@ $_SESSION["user"];
                     <div class="cart">
                         <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>';
                             if($row2["sum"]!=0 || $row2["sum"]!=NULL){
-                            echo '<p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>';
-                          }else{
-                            echo '<p class="dark-clr hidden-tablet">0 T</p>';
-                          }
-                            echo '<a href="checkout-step-1.php" class="btn btn-danger">
-                            <!-- <span class="icon icons-cart"></span> -->
-                            <i class="icon-shopping-cart"></i>
-                        </a>
+                            echo '<p class="dark-clr hidden-tablet">'.$row2["sum"].' T</p>
+                                  <a href="checkout-step-1.php" class="btn btn-danger">';
+                          }else {
+                                echo '<p class="dark-clr hidden-tablet">0 T</p>
+                                      <a href="#" class="btn btn-danger">';
+                            }
+                            echo '<!-- <span class="icon icons-cart"></span> -->
+                            <i class="icon-shopping-cart"></i>';
+                          //sum product
+                          $sell_counter="SELECT count(id) as 'counter' FROM basket WHERE  basket.user_id='$id' AND basket.sell=1";
+                          $result3=mysqli_query($sql,$sell_counter);
+                          $row3= mysqli_fetch_assoc($result3);
+                          //end sum
+                            if($row3["counter"]!=0) {
+                              echo '<a href = "receipts.php" class="btn btn-danger" style = "margin-right: 5px;" >
+                                    <i class="icon-money" ></i >';
+                                }else{
+
+                            }
+                    echo'</a>
                     </div>
                     <div class="open-panel">';
                   //for show
@@ -167,7 +180,7 @@ $_SESSION["user"];
                                 </span>
                             </div>
                             <div class="price">
-                                <strong>'.$row["price"].'</strong>
+                                <strong>T'.$row["price"].'</strong>
                             </div>
                         </div>';
                         }
@@ -195,9 +208,13 @@ $_SESSION["user"];
                                 </div>
                             </div>
                         </div>
-                        <div class="proceed">
-                            <a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
-                            <small>هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a></small>
+                        <div class="proceed">';
+                        if($row2["sum"]!=0 || $row2["sum"]!=NULL) {
+                         echo'<a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher" > تصویه حساب <i class="icon-shopping-cart"></i></a>';
+                            }else{
+                         echo'<a href="#" class="btn btn-danger pull-right bold higher" > تصویه حساب <i class="icon-shopping-cart"></i></a>';
+                            }
+                        echo '<small>هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a></small>
                         </div>
                     </div>
                 </div>

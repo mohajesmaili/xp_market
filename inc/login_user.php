@@ -19,6 +19,7 @@ if(isset($_POST['submit'])){
     if($row["id"]){
         $_SESSION["user"]=true;
         $_SESSION["user_id"]=$row["id"];
+        $_SESSION["user_name"]=$row["username"];
         echo "<script>
 			        document.location.href='../index.php';
 			</script>";

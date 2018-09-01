@@ -3,15 +3,15 @@
 
 	$id=$_REQUEST["id"];
 
-  $page=$_REQUEST["page_id_hidden"];
+    $page=$_REQUEST["page_id_hidden"];
 
 	$vaziat=$_REQUEST["vaziat"];
 
     $id=mysqli_escape_string($sql,$id);
 
-		$page=mysqli_escape_string($sql,$page);
+    $page=mysqli_escape_string($sql,$page);
 
-		$vaziat=mysqli_escape_string($sql,$vaziat);
+    $vaziat=mysqli_escape_string($sql,$vaziat);
 
     session_start();
 

@@ -68,7 +68,7 @@ session_start();
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                    		    		<a href="index.html"><img src="images/xp logo.png" alt="Xp market Logo" width="300" height="150"/></a>
+                    		    		<a href="index.php"><img src="images/xp-logo.png" alt="Xp market Logo" width="300" height="150"/></a>
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">
@@ -135,7 +135,7 @@ session_start();
                                         $r=mysqli_query($sql,$counter);
                                         if(mysqli_num_rows($r) >0){
                                             $ro=(mysqli_fetch_assoc($r));
-                                            echo'<input type="text" class="tiny-size" value="'.$ro["counter"].'" />';
+                                            echo'<input type="text" class="tiny-size" value="'.$ro["counter"].'" disabled="true" />';
                                         }
 					            	    echo'</td>
 							        	<td class="price">

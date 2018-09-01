@@ -9,7 +9,7 @@ session_start();
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-      <title>XP Market - تایید و پرداخت</title>
+    <title>XP Market - پیگیری کالا خریداری شده</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -43,16 +43,16 @@ session_start();
     <link rel="shortcut icon" href="images/apple-touch/57.png">
   </head>
 
-   
+
   <body class=" checkout-page">
     
     <div class="master-wrapper">
-     
-    
-    
+
+
+
     <div class="container">
         <div class="row">
-            
+
             <!--  ==========  -->
             <!--  = Main content =  -->
             <!--  ==========  -->
@@ -61,68 +61,42 @@ session_start();
                 <div class="checkout-container">
                     <div class="row">
                     	<div class="span10 offset1">
-                    	    
+
                     	    <!--  ==========  -->
 							<!--  = Header =  -->
 							<!--  ==========  -->
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                                        <a href="index.php""><img src="images/xp-logo.png" alt="Xp market Logo" width="300" height="150"/></a>
+                    		    		<a href="index.php"><img src="images/xp-logo.png" alt="Xp market Logo" width="300" height="150"/></a>
                     		    	</div>
-                    		    	<div class="span6">
-                    		    	    <div class="center-align">
-                    		    	        <h1><span class="light">تاييد</span> و پرداخت</h1>
-                    		    	    </div>
-                    		    	</div>
-                    		    	<div class="span2">
-                    		    	    <div class="right-align">
-                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />
-                    		    	    </div>
-                    		    	</div>
+                                    <div class="span6">
+                                        <div class="center-align">
+                                            <h1>پیگیری کالا خریداری شده</h1>
+                                        </div>
+                                    </div>
                     		    </div>
                     		</header>
-                    		
-                    		<!--  ==========  -->
-							<!--  = Steps =  -->
-							<!--  ==========  -->
-                    		<div class="checkout-steps">
-                    		    <div class="clearfix">
-                    		    	<div class="step done">
-                    		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-1.php">سبد خريد</a>
-                    		    	</div>
-                    		    	<div class="step done">
-                                        <div class="step-badge"><i class="icon-ok"></i></div>
-                                        <a href="checkout-step-2.php">آدرس ارسال</a>
-                                    </div>
-                    		    	<div class="step done">
-                    		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-3.php">درگاه خرید</a>
-                    		    	</div>
-                    		    	<div class="step active">
-                    		    	    <div class="step-badge">4</div>
-                    		    	    تاييد و پرداخت
-                    		    	</div>
-                    		    </div>
-                    		</div> <!-- /steps -->
-                    		
+                            <hr>
+
                     		<!--  ==========  -->
 							<!--  = Selected Items =  -->
 							<!--  ==========  -->
 							<table class="table table-items">
 							    <thead>
 							    	<tr>
-							    		<th colspan="2">آيتم</th>
-							    		<th><div class="align-center">تعداد</div></th>
-							    		<th><div class="align-right">قيمت</div></th>
+                                        <th colspan="2">آیتم</th>
+							    		<th><div class="align-right" style="margin-right: 35px">تعداد</div></th>
+							    		<th><div class="align-right" style="margin-right: 25px">قیمت</div></th>
+                                        <th><div class="align-right" style="margin-right: 10px">تاریخ خرید</div></th>
+                                        <th><div class="align-right" style="margin-right: 10px">تاریخ دریافت</div></th>
 							    	</tr>
 							    </thead>
 							    <tbody>
                                 <?php
                                 require ("inc/connect.php");
                                 $id=$_SESSION["user_id"];
-                                $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
+                                $show="SELECT distinct(code),product.*,basket.product_id,basket.user_id,basket.date from product,basket where product.id=basket.product_id AND basket.user_id='$id' AND basket.sell=1 ORDER BY basket.id desc ";
                                 $result=mysqli_query($sql,$show);
                                 if(mysqli_num_rows($result) >0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -131,44 +105,51 @@ session_start();
 							        	<td class="image"><img src="images/product_s/'.$row["id"].'.png" alt="" width="124" height="124" /></td>
 							        	<td class="desc">'.$row["name"].' <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">';
-                                        $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
+                                        $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell=1";
                                         $r=mysqli_query($sql,$counter);
                                         if(mysqli_num_rows($r) >0){
                                             $ro=(mysqli_fetch_assoc($r));
-                                            echo'<input type="text" class="tiny-size" value="'.$ro["counter"].'" disabled="true" />';
+                                            echo'<input type="text" class="tiny-size" value="'.$ro["counter"].'" disabled="true"/>';
                                         }
-                                        echo'</td>
+					            	    echo'</td>
 							        	<td class="price">
 							        	   '.$row["price"].' T
-							        	</td>
+							        	</td>							        	
+							        	<td class="price">
+							        	   '.$row["date"].' 
+							        	</td>								        	
+							        	<td class="price">
+							        	   '.$row["date"].' 
+							        	</td>							        								        	
 							           </tr>';
                                     }
                                 }
                                 ?>
-							        							        <tr>
-							        	<td colspan="2" rowspan="2">
-							        	    &nbsp;
+							     <tr>
+							        	<td colspan="4" rowspan="2">
+							        	    <div class="alert alert-info">
+                                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                                هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a>
+                                            </div>
 							        	</td>
-							        	<td class="stronger">هزينه ارسال :</td>
+							        	<td class="stronger">هزینه ارسال :</td>
 							        	<td class="stronger"><div class="align-right">20000 تومان</div></td>
 							        </tr>
 							        <tr>
 							        	<td class="stronger">جمع کل :</td>
-                                        <?php
-                                        //sum product
-                                        $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id' AND basket.sell!=1";
-                                        $result2=mysqli_query($sql,$sum);
-                                        $row2= mysqli_fetch_assoc($result2);
-                                        //end sum
-                                        echo '<td class="stronger"><div class="size-16 align-right">'.$row2["sum"].' تومان </div></td>';
-                                        ?>
+                                       <?php
+                                          //sum product
+                                          $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id' AND basket.sell=1";
+                                          $result2=mysqli_query($sql,$sum);
+                                          $row2= mysqli_fetch_assoc($result2);
+                                          //end sum
+							        	  echo '<td class="stronger"><div class="size-16 align-right">'.$row2["sum"].' تومان </div></td>';
+	                                ?>
 							        </tr>
 							    </tbody>
 							</table>
 							
-							<p class="right-align">
-							    <a href="inc/sell.php" class="btn btn-primary higher bold">تاييد و پرداخت</a>
-							</p>
+							<hr />
                     	</div>
                     </div>
                 </div>
