@@ -236,9 +236,9 @@ session_start();
                     <!--  ==========  -->
                     <div class="row">
                         <div class="span4">
-                            <a href="#" class="btn btn-block banner">
-                                <span class="title"><span class="light">فروش</span> تابستانی</span>
-                                <em>تا 60% تخفیف روی کفش ها</em>
+                            <a href="#special_product" class="btn btn-block banner">
+                                <span class="title"><span class="light">فروش</span>ویژه</span>
+                                <em>تا 50 درصد تخفیف</em>
                             </a>
                         </div>
                         <div class="span4">
@@ -248,7 +248,7 @@ session_start();
                             </a>
                         </div>
                         <div class="span4">
-                            <a href="#" class="btn btn-block banner">
+                            <a href="#new_product" class="btn btn-block banner">
                                 <span class="title"><span class="light">محصولات</span> جدید</span>
                                 <em>از محصولات جدید دیدن کنید.</em>
                             </a>
@@ -267,7 +267,7 @@ session_start();
                 <!--  ==========  -->
                 <!--  = Title =  -->
                 <!--  ==========  -->
-            	<div class="main-titles lined">
+            	<div class="main-titles lined" id="special_product">
             	    <h2 class="title"><span class="light">محصولات</span> ویژه</h2>
             	    <div class="arrows">
                         <a href="#" class="icon-chevron-right" id="featuredItemsRight"></a>
@@ -352,7 +352,7 @@ session_start();
     	            	        	echo '</div>
     	            	            </div>
     	            	        </div>
-    	            	        <div class="main-titles">
+    	            	        <div class="main-titles" >
                                         <h3 class="no-margin" style="font-size:18px;">'.$row["name"].'</h3>
                                         <h5>'.$row["price"].' تومان </h5>
     	            	        </div>
@@ -382,7 +382,7 @@ session_start();
             <!--  ==========  -->
             <!--  = Title =  -->
             <!--  ==========  -->
-            <div class="row">
+            <div class="row" >
                 <div class="span12">
                     <div class="main-titles lined">
                     	<h2 class="title"><span class="light">محصولات</span> جدید فروشگاه</h2>
@@ -402,7 +402,7 @@ session_start();
                 $result=mysqli_query($sql,$product);
                 if(mysqli_num_rows($result) >0){
                 while($row= mysqli_fetch_assoc($result)){
-            	echo'<div class="span3">
+            	echo'<div class="span3" id="new_product">
             	    <div class="product">
             	        <div class="product-img">
                             <div class="picture">
