@@ -25,23 +25,7 @@ $_SESSION["user"];
                 <!--  ==========  -->
                 <div class="span5">
                     <div class="topmost-line">
-                        <div class="lang-currency">
-                            <div class="dropdown js-selectable-dropdown">
-                                <a data-toggle="dropdown" class="selected" href="#"><span class="js-change-text"><i class="famfamfam-flag-ir"></i> فارسی (FA)</span> <b class="caret"></b></a>
-                                <!-- for all available country flags look the styles in lib/components/_flags.scss -->
-                                <ul class="dropdown-menu js-possibilities" role="menu" aria-labelledby="dLabel">
-                                    <li><a href="#"><i class="famfamfam-flag-ir"></i> فارسی (FA)</a></li>
-                                    <li><a href="#"><i class="famfamfam-flag-gb"></i> انگلیسی (EN)</a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown js-selectable-dropdown">
-                                <a data-toggle="dropdown" class="selected" href="#"><span class="js-change-text">RIAL (R)</span> <b class="caret"></b></a>
-                                <ul class="dropdown-menu js-possibilities" role="menu" aria-labelledby="dLabel">
-                                    <li><a href="#">RIAL (R)</a></li>
-                                </ul>
-                            </div>
                         </div>
-                    </div>
                     <div class="top-right">
                         <div class="register">
 						    <?php
@@ -238,6 +222,15 @@ $_SESSION["user"];
                               <label class="control-label hidden shown-ie8" for="inputPassword">رمز عبور</label>
                               <div class="controls">
                                   <input type="password" class="input-block-level" id="inputPassword" name="inputPassword" placeholder="Password">
+                              </div>
+                          </div>
+                          <div class="control-group">
+                              <div class="col-sm-10" >
+                              <?php
+                                    $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                    require("admin/assets/sc/sa-captcha/captcha.php");
+                              ?>
+                              <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
                               </div>
                           </div>
                           <div class="control-group">
