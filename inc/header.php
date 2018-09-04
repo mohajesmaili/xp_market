@@ -271,6 +271,15 @@ $_SESSION["user"];
                                   <input type="password" class="input-block-level" id="inputPasswordRegister" name="inputPasswordRegister" placeholder="Password">
                               </div>
                           </div>
+                          <div class="control-group">
+                              <div class="col-sm-10" >
+                                  <?php
+                                  $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                  require("admin/assets/sc/sa-captcha/captcha.php");
+                                  ?>
+                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                              </div>
+                          </div>
                           <button type="submit" name="submit" class="btn btn-danger input-block-level bold higher">
                               عضویت
                           </button>
