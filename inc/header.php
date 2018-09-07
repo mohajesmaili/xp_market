@@ -274,7 +274,7 @@ $_SESSION["user"];
                           <div class="control-group">
                               <div class="col-sm-10" >
                                   <?php
-                                  $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                  $sa_captcha="admin/assets/sc/sa-captcha";
                                   require("admin/assets/sc/sa-captcha/captcha.php");
                                   ?>
                                   <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">

@@ -10,7 +10,7 @@ if(isset($_POST['delete']))
 
     $id=mysqli_escape_string($sql,$id);
 
-		$page=mysqli_escape_string($sql,$page);
+	$page=mysqli_escape_string($sql,$page);
 
     session_start();
     if($_SESSION['login'] == true){

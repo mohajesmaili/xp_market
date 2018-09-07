@@ -16,7 +16,7 @@ if(!$_SESSION['login']){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>XP_Market | نمایش نظرات</title>
+    <title>XP_Market | نمایش کاربران</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -68,7 +68,7 @@ if(!$_SESSION['login']){
                   </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a  href="javascript:;" >
                           <i class="fa fa-shopping-cart"></i>
                           <span>کالا</span>
                       </a>
@@ -76,7 +76,7 @@ if(!$_SESSION['login']){
                           <li><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
-                          <li class="active"><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -115,12 +115,12 @@ if(!$_SESSION['login']){
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a class="active" href="javascript:;" >
                           <i class="li_user"></i>
                           <span>کاربران</span>
                       </a>
                       <ul class="sub">
-                          <li ><a  href="show-users.php?pageid=1">نمایش کاربران</a></li>
+                          <li class="active"><a  href="show-users.php?pageid=1">نمایش کاربران</a></li>
                       </ul>
                   </li>
 
@@ -151,9 +151,8 @@ if(!$_SESSION['login']){
                               <thead>
 
                               <tr>
-                                  <th>نام</th>
-                                  <th class="hidden-phone">کالا</th>
-                                  <th>تاریخ</th>
+                                  <th>نام کاربری</th>
+                                  <th class="hidden-phone">تعداد کالا خریداری شده</th>
                                   <th>تنظیمات</th>
                               </tr>
                               </thead>
@@ -163,30 +162,35 @@ if(!$_SESSION['login']){
                                 $page=$_GET["pageid"];
                                 $per_page = 10;
                                 $start = ($page-1)*$per_page;
-                                $show_pages=("SELECT * FROM `comment_product`");
+                                $show_pages=("SELECT * FROM `user`");
                                 $resu=mysqli_query($sql,$show_pages);
                                 $coun = mysqli_num_rows($resu);
 
-                                $comment_news=("SELECT product.name as 'product_name' , user.username as 'user_name' , comment_product.* FROM `comment_product`,`product`,`user` WHERE comment_product.product_id=product.id and comment_product.user_id=user.id ORDER BY comment_product.id DESC LIMIT $start,$per_page");
-                                $result=mysqli_query($sql,$comment_news);
-
+                                $show_user=("SELECT * FROM user ORDER BY id DESC LIMIT $start,$per_page");
+                                $result=mysqli_query($sql,$show_user);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                echo'<form method="post" action="inc/dl-comment_product.php" id="frm"   onSubmit="return dl()">
+                                $id=$row["id"];
+                                echo'<form method="post" action="inc/dl-user.php" id="frm"   onSubmit="return dl()">
                                       <tr>
-                                      <td>'.$row["user_name"].'</td>
-                                      <td>'.$row["product_name"].'</td>
-                                      <td>'.$row["date"].'</td>
-                                      <td>
+                                      <td>'.$row["username"].'</td>';
+
+                                    $counter="SELECT COUNT(user_id) as counter FROM basket WHERE user_id='$id' AND basket.sell!=0";
+                                    $r=mysqli_query($sql,$counter);
+                                    if(mysqli_num_rows($r) >0) {
+                                        $ro = (mysqli_fetch_assoc($r));
+                                        echo '<td>' . $ro["counter"] . '</td>';
+                                    }
+                                    echo '<td>
                                       <input type="hidden" name="inputhidden" value="'.$row["id"].'">
                                       <input type="hidden" name="page_id_hidden" value="'.$page.'">
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';
-                                      if($row["vaziat"]==0){
+                                      if($row["status"]==1){
                                       echo'
-                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-lock" ></i></a>';
-                                    }else if($row["vaziat"]==1){
+                                        <a href="inc/ban.php?id='.$row["id"].'&status='.$row["status"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-ban" ></i></a>';
+                                    }else if($row["status"]==0){
                                         echo'
-                                        <a href="inc/confirm_p.php?id='.$row["id"].'&vaziat='.$row["vaziat"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-unlock" ></i></a>';
+                                        <a href="inc/ban.php?id='.$row["id"].'&status='.$row["status"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-ban" ></i></a>';
                                       }
                                     echo'</td>
                                     </tr>
@@ -200,7 +204,7 @@ if(!$_SESSION['login']){
                             <?php
                             $allpages = ceil($coun / $per_page);
                             for($i = 1 ; $i <= $allpages ; $i++){
-                            echo '<a style="margin-right:2px;" href="show-comment-product.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                            echo '<a style="margin-right:2px;" href="show-users.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
                              }
                             ?>
                           </div>

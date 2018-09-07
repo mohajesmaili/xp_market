@@ -154,8 +154,7 @@ if(!$_SESSION['login']){
                           <span>کاربران</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="show-user.php">نمایش کاربران</a></li>
-                          <li><a  href="add-user.php">اضافه کردن کاربر</a></li>
+                          <li ><a  href="show-users.php?pageid=1">نمایش کاربران</a></li>
                       </ul>
                   </li>
 
