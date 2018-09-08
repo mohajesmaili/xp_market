@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("connect.php");
 if($_POST['captcha'] == $_SESSION['sacaptchaCode']) {
     if (isset($_POST['submit'])) {
 
@@ -7,26 +8,35 @@ if($_POST['captcha'] == $_SESSION['sacaptchaCode']) {
 
         $password = $_POST['inputPasswordRegister'];
 
-        $insert = "INSERT INTO `user` VALUES (NULL,'$username','$password')";
+        $insert2 = "SELECT * FROM `user` WHERE username='$username'";
 
-        require("connect.php");
+        $result2 = mysqli_query($sql, $insert2);
+        if (mysqli_num_rows($result2) == 0) {
 
-        $result = mysqli_query($sql, $insert);
+            $insert = "INSERT INTO `user` VALUES (NULL,'$username','$password',0)";
 
-        if (!$result) {
-            echo "<script>alert('ثبت نام با مشکل مواجه شد');
+            $result = mysqli_query($sql, $insert);
+
+            if (!$result) {
+                echo "<script>alert('ثبت نام با مشکل مواجه شد');
               document.location.href='../index.php';
               </script>";
 
-        } else {
+            } else {
 
-            echo "<script>
+                echo "<script>
 			        alert('ثبت نام موفقیت آمیز بود');
+			        document.location.href='../index.php';
+			</script>";
+            }
+        } else {
+            echo "<script>
+			        alert('این نام کاربری قبلا ثبت شده است');
 			        document.location.href='../index.php';
 			</script>";
         }
     }
-}else {
+    } else {
         echo '
 			<script>
 				    alert("کد اشتباه است");
