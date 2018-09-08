@@ -176,9 +176,13 @@ $_SESSION["user"];
                   }
                         echo'<div class="summary">
                             <div class="line">
-                                <div class="row-fluid">
-                                    <div class="span6 align-right">20000 تومان</div>
-                                    <div class="span6">هزینه ارسال :</div>
+                                <div class="row-fluid">';
+                                  if($row2["sum"]<=500000) {
+                                      echo '<div class="span6 align-right">20000 تومان</div>';
+                                  }else{
+                                      echo '<div class="span6 align-right">رایگان</div>';
+                                  }
+                                    echo'<div class="span6">هزینه ارسال :</div>
                                 </div>
                             </div>
                             <div class="line">
@@ -274,7 +278,7 @@ $_SESSION["user"];
                           <div class="control-group">
                               <div class="col-sm-10" >
                                   <?php
-                                  $sa_captchaDIR="admin/assets/sc/sa-captcha";
+                                  $sa_captcha="admin/assets/sc/sa-captcha";
                                   require("admin/assets/sc/sa-captcha/captcha.php");
                                   ?>
                                   <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">

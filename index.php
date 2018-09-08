@@ -244,7 +244,7 @@ session_start();
                         <div class="span4">
                             <a href="#" class="btn btn-block colored banner">
                                 <span class="title"><span class="light">ارسال</span> رایگان</span>
-                                <em>برای خرید های بیش از 69000 تومان</em>
+                                <em>برای خرید های بیش از 500 هزار تومان</em>
                             </a>
                         </div>
                         <div class="span4">
