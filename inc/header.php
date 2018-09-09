@@ -322,7 +322,7 @@ $_SESSION["user"];
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputEmail">نام کاربری</label>
                               <div class="controls">
-                                  <input type="text" onblur="CheckEmptyLogin();" class="input-block-level" id="inputEmail" name="inputEmail" placeholder="Email">
+                                  <input type="email" onblur="CheckEmptyLogin();" class="input-block-level" id="inputEmail" name="inputEmail" placeholder="Email">
                               </div>
                           </div>
                           <div class="control-group">
@@ -369,7 +369,7 @@ $_SESSION["user"];
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام کاربری</label>
                               <div class="controls">
-                                  <input type="text" class="input-block-level" onblur="CheckEmptyRegister();" id="inputUsernameRegister" name="inputUsernameRegister" placeholder="Email">
+                                  <input type="email" class="input-block-level" onblur="CheckEmptyRegister();" id="inputUsernameRegister" name="inputUsernameRegister" placeholder="Email">
                               </div>
                           </div>
                           <div class="control-group">

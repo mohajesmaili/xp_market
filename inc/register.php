@@ -4,16 +4,16 @@ require("connect.php");
 if($_POST['captcha2'] == $_SESSION['sacaptchaCode']) {
     if (isset($_POST['submit'])) {
 
-        $username = $_POST['inputUsernameRegister'];
+        $email = $_POST['inputUsernameRegister'];
 
         $password = $_POST['inputPasswordRegister'];
 
-        $insert2 = "SELECT * FROM `user` WHERE username='$username'";
+        $insert2 = "SELECT * FROM `user` WHERE email='$email'";
 
         $result2 = mysqli_query($sql, $insert2);
         if (mysqli_num_rows($result2) == 0) {
 
-            $insert = "INSERT INTO `user` VALUES (NULL,'$username','$password',0)";
+            $insert = "INSERT INTO `user` VALUES (NULL,'$email','$password',0)";
 
             $result = mysqli_query($sql, $insert);
 
@@ -31,7 +31,7 @@ if($_POST['captcha2'] == $_SESSION['sacaptchaCode']) {
             }
         } else {
             echo "<script>
-			        alert('این نام کاربری قبلا ثبت شده است');
+			        alert('این ایمیل قبلا ثبت شده است');
 			        document.location.href='../index.php';
 			</script>";
         }

@@ -150,16 +150,23 @@ session_start();
 							        	    &nbsp;
 							        	</td>
 							        	<td class="stronger">هزينه ارسال :</td>
-							        	<td class="stronger"><div class="align-right">20000 تومان</div></td>
-							        </tr>
-							        <tr>
-							        	<td class="stronger">جمع کل :</td>
                                         <?php
                                         //sum product
                                         $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id' AND basket.sell!=1";
                                         $result2=mysqli_query($sql,$sum);
                                         $row2= mysqli_fetch_assoc($result2);
                                         //end sum
+
+                                        if($row2["sum"]<=500000) {
+                                            echo '<td class="stronger"><div class="align-right">20000 تومان</div></td>';
+                                        }else{
+                                            echo '<td class="stronger"><div class="align-right">رایگان</div></td>';
+                                        }
+                                        ?>
+							        </tr>
+							        <tr>
+							        	<td class="stronger">جمع کل :</td>
+                                        <?php
                                         echo '<td class="stronger"><div class="size-16 align-right">'.$row2["sum"].' تومان </div></td>';
                                         ?>
 							        </tr>
