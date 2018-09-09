@@ -228,8 +228,17 @@ if($_SESSION["permission"]!=1){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">محصول ویژه</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="special" name="special" onblur="CheckEmpty();" class="form-control round-form" value="'.$row["special"].'" type="number" placeholder="ویژه">
-                              </div>
+                                  <select id="special" name="special" class="form-control round-form" onblur="CheckEmpty();">';
+                                  if($row["special"]==1){
+                                   echo '<option value="1" selected>بله</option>
+                                         <option value="0" >خیر</option>';
+                                  }elseif($row["special"]==0){
+                                  echo'<option value="0" selected>خیر</option>
+                                       <option value="1">بله</option>';
+                                  }
+
+                              echo '</select>                                     
+                          </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">تعداد</label>
