@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("connect.php");
-if($_POST['captcha'] == $_SESSION['sacaptchaCode']) {
+if($_POST['captcha2'] == $_SESSION['sacaptchaCode']) {
     if (isset($_POST['submit'])) {
 
         $username = $_POST['inputUsernameRegister'];

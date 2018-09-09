@@ -209,23 +209,126 @@ $_SESSION["user"];
             </div> <!-- /cart -->';
               }
               ?>
+              <script>
+                  function validateLoginForm(){
+                      var username = document.forms["LoginForm"]["inputEmail"].value;
+                      var password = document.forms["LoginForm"]["inputPassword"].value;
+                      var captcha = document.forms["LoginForm"]["captcha"].value;
+                      if (username == null || username == ""){
+                          document.getElementById('inputEmail').style="border:1px solid #D40000";
+                          document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
+                          return false;
+                      }else if (password == null || password == ""){
+                          document.getElementById('inputPassword').style="border:1px solid #D40000";
+                          document.getElementById('inputPassword').placeholder="لطفا پسورد را وارد کنید";
+                          return false;
+                      }else if (captcha == null || captcha == ""){
+                          document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+                          document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
+                          return false;
+                      }
+                      return true
+                  }
+
+                  function CheckEmptyLogin(){
+                      var username=document.getElementById('inputEmail').value;
+                      var password=document.getElementById('inputPassword').value;
+                      var captcha=document.getElementById('captcha').value;
+                      if(username === ''){
+                          document.getElementById('inputEmail').style="border:1px solid #D40000";
+                          document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('inputEmail').style="";
+                      }
+                      if(password === ''){
+                          document.getElementById('inputPassword').style="border:1px solid #D40000";
+                          document.getElementById('inputPassword').placeholder="لطفا پسورد  را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('inputPassword').style="";
+                      }
+                      if(captcha === ''){
+                          document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+                          document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('captcha').style="margin-top:10px;width:169px";
+                      }
+                      return true;
+                  }
+
+                  function validateRegisterForm(){
+                      var username = document.forms["RegisterForm"]["inputUsernameRegister"].value;
+                      var password = document.forms["RegisterForm"]["inputPasswordRegister"].value;
+                      var captcha = document.forms["RegisterForm"]["captcha2"].value;
+                      if (username == null || username == ""){
+                          document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
+                          document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
+                          return false;
+                      }else if (password == null || password == ""){
+                          document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+                          document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
+                          return false;
+                      }else if (captcha == null || captcha == ""){
+                          document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
+                          document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
+                          return false;
+                      }
+                      return true
+                  }
+
+                  function CheckEmptyRegister(){
+                      var username=document.getElementById('inputUsernameRegister').value;
+                      var password=document.getElementById('inputPasswordRegister').value;
+                      var captcha=document.getElementById('captcha2').value;
+                      if(username === ''){
+                          document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
+                          document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('inputUsernameRegister').style="";
+                      }
+                      if(password === ''){
+                          document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+                          document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('inputPasswordRegister').style="";
+                      }
+                      if(captcha === ''){
+                          document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
+                          document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
+                          return false;
+                      }
+                      else{
+                          document.getElementById('captcha2').style="margin-top:10px;width:169px";
+                      }
+                      return true;
+                  }
+              </script>
               <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                       <h3 id="loginModalLabel"><span class="light">ورود</span> به XP Market</h3>
                   </div>
                   <div class="modal-body">
-                      <form method="post" action="inc/login_user.php">
+                      <form method="post" action="inc/login_user.php" name="LoginForm" onsubmit="return validateLoginForm();">
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputEmail">نام کاربری</label>
                               <div class="controls">
-                                  <input type="text" class="input-block-level" id="inputEmail" name="inputEmail" placeholder="Username">
+                                  <input type="text" onblur="CheckEmptyLogin();" class="input-block-level" id="inputEmail" name="inputEmail" placeholder="Email">
                               </div>
                           </div>
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputPassword">رمز عبور</label>
                               <div class="controls">
-                                  <input type="password" class="input-block-level" id="inputPassword" name="inputPassword" placeholder="Password">
+                                  <input type="password" onblur="CheckEmptyLogin();" class="input-block-level" id="inputPassword" name="inputPassword" placeholder="Password">
                               </div>
                           </div>
                           <div class="control-group">
@@ -234,7 +337,7 @@ $_SESSION["user"];
                                   $sa_captchaDIR = "admin/assets/sc/sa-captcha";
                                   require("admin/assets/sc/sa-captcha/captcha.php");
                               ?>
-                              <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                              <input id="captcha" name="captcha" onblur="CheckEmptyLogin();" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی">
                               </div>
                           </div>
                           <div class="control-group">
@@ -262,17 +365,17 @@ $_SESSION["user"];
                       <h3 id="registerModalLabel"><span class="light">عضویت</span> به XP Market</h3>
                   </div>
                   <div class="modal-body">
-                      <form method="post" action="inc/register.php">
+                      <form method="post" action="inc/register.php" name="RegisterForm" onsubmit="return validateRegisterForm();">
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام کاربری</label>
                               <div class="controls">
-                                  <input type="text" class="input-block-level" id="inputUsernameRegister" name="inputUsernameRegister" placeholder="Username">
+                                  <input type="text" class="input-block-level" onblur="CheckEmptyRegister();" id="inputUsernameRegister" name="inputUsernameRegister" placeholder="Email">
                               </div>
                           </div>
                           <div class="control-group">
                               <label class="control-label hidden shown-ie8" for="inputPasswordRegister">رمز عبور</label>
                               <div class="controls">
-                                  <input type="password" class="input-block-level" id="inputPasswordRegister" name="inputPasswordRegister" placeholder="Password">
+                                  <input type="password" class="input-block-level" onblur="CheckEmptyRegister();" id="inputPasswordRegister" name="inputPasswordRegister" placeholder="Password">
                               </div>
                           </div>
                           <div class="control-group">
@@ -281,7 +384,7 @@ $_SESSION["user"];
                                   $sa_captcha="admin/assets/sc/sa-captcha";
                                   require("admin/assets/sc/sa-captcha/captcha.php");
                                   ?>
-                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                                  <input id="captcha2" name="captcha2" onblur="CheckEmptyRegister();" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی">
                               </div>
                           </div>
                           <button type="submit" name="submit" class="btn btn-danger input-block-level bold higher">
