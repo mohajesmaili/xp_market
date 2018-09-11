@@ -3,6 +3,113 @@ error_reporting(0);
 session_start();
 $_SESSION["user"];
 ?>
+<script>
+    function validateLoginForm(){
+        var username = document.forms["LoginForm"]["inputEmail"].value;
+        var password = document.forms["LoginForm"]["inputPassword"].value;
+        var captcha = document.forms["LoginForm"]["captcha"].value;
+        if (username == null || username == ""){
+            document.getElementById('inputEmail').style="border:1px solid #D40000";
+            document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
+            return false;
+        }else if (password == null || password == ""){
+            document.getElementById('inputPassword').style="border:1px solid #D40000";
+            document.getElementById('inputPassword').placeholder="لطفا پسورد را وارد کنید";
+            return false;
+        }else if(password.length<8){
+            document.getElementById('inputPassword').style="border:1px solid #D40000";
+            document.getElementById('inputPassword').placeholder="پسورد باید 8 رقمی باشد";
+            return false;
+        }else if (captcha == null || captcha == ""){
+            document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+            document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
+            return false;
+        }
+        return true
+    }
+
+    function CheckEmptyLogin(){
+        var username=document.getElementById('inputEmail').value;
+        var password=document.getElementById('inputPassword').value;
+        var captcha=document.getElementById('captcha').value;
+        if(username === ''){
+            document.getElementById('inputEmail').style="border:1px solid #D40000";
+            document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('inputEmail').style="";
+        }
+        if(password === ''){
+            document.getElementById('inputPassword').style="border:1px solid #D40000";
+            document.getElementById('inputPassword').placeholder="لطفا پسورد  را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('inputPassword').style="";
+        }
+        if(captcha === ''){
+            document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+            document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('captcha').style="margin-top:10px;width:169px";
+        }
+        return true;
+    }
+
+    function validateRegisterForm(){
+        var username = document.forms["RegisterForm"]["inputUsernameRegister"].value;
+        var password = document.forms["RegisterForm"]["inputPasswordRegister"].value;
+        var captcha = document.forms["RegisterForm"]["captcha2"].value;
+        if (username == null || username == ""){
+            document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
+            document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
+            return false;
+        }else if (password == null || password == ""){
+            document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+            document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
+            return false;
+        }else if (captcha == null || captcha == ""){
+            document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
+            document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
+            return false;
+        }
+        return true
+    }
+
+    function CheckEmptyRegister(){
+        var username=document.getElementById('inputUsernameRegister').value;
+        var password=document.getElementById('inputPasswordRegister').value;
+        var captcha=document.getElementById('captcha2').value;
+        if(username === ''){
+            document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
+            document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('inputUsernameRegister').style="";
+        }
+        if(password === ''){
+            document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+            document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('inputPasswordRegister').style="";
+        }
+        if(captcha === ''){
+            document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
+            document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
+            return false;
+        }
+        else{
+            document.getElementById('captcha2').style="margin-top:10px;width:169px";
+        }
+        return true;
+    }
+</script>
     <!--  ==========  -->
     <!--  = Header =  -->
     <!--  ==========  -->
@@ -209,109 +316,6 @@ $_SESSION["user"];
             </div> <!-- /cart -->';
               }
               ?>
-              <script>
-                  function validateLoginForm(){
-                      var username = document.forms["LoginForm"]["inputEmail"].value;
-                      var password = document.forms["LoginForm"]["inputPassword"].value;
-                      var captcha = document.forms["LoginForm"]["captcha"].value;
-                      if (username == null || username == ""){
-                          document.getElementById('inputEmail').style="border:1px solid #D40000";
-                          document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
-                          return false;
-                      }else if (password == null || password == ""){
-                          document.getElementById('inputPassword').style="border:1px solid #D40000";
-                          document.getElementById('inputPassword').placeholder="لطفا پسورد را وارد کنید";
-                          return false;
-                      }else if (captcha == null || captcha == ""){
-                          document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
-                          document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
-                          return false;
-                      }
-                      return true
-                  }
-
-                  function CheckEmptyLogin(){
-                      var username=document.getElementById('inputEmail').value;
-                      var password=document.getElementById('inputPassword').value;
-                      var captcha=document.getElementById('captcha').value;
-                      if(username === ''){
-                          document.getElementById('inputEmail').style="border:1px solid #D40000";
-                          document.getElementById('inputEmail').placeholder="لطفا ایمیل را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('inputEmail').style="";
-                      }
-                      if(password === ''){
-                          document.getElementById('inputPassword').style="border:1px solid #D40000";
-                          document.getElementById('inputPassword').placeholder="لطفا پسورد  را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('inputPassword').style="";
-                      }
-                      if(captcha === ''){
-                          document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
-                          document.getElementById('captcha').placeholder="کپتچا را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('captcha').style="margin-top:10px;width:169px";
-                      }
-                      return true;
-                  }
-
-                  function validateRegisterForm(){
-                      var username = document.forms["RegisterForm"]["inputUsernameRegister"].value;
-                      var password = document.forms["RegisterForm"]["inputPasswordRegister"].value;
-                      var captcha = document.forms["RegisterForm"]["captcha2"].value;
-                      if (username == null || username == ""){
-                          document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
-                          document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
-                          return false;
-                      }else if (password == null || password == ""){
-                          document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
-                          document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
-                          return false;
-                      }else if (captcha == null || captcha == ""){
-                          document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
-                          document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
-                          return false;
-                      }
-                      return true
-                  }
-
-                  function CheckEmptyRegister(){
-                      var username=document.getElementById('inputUsernameRegister').value;
-                      var password=document.getElementById('inputPasswordRegister').value;
-                      var captcha=document.getElementById('captcha2').value;
-                      if(username === ''){
-                          document.getElementById('inputUsernameRegister').style="border:1px solid #D40000";
-                          document.getElementById('inputUsernameRegister').placeholder="لطفا ایمیل را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('inputUsernameRegister').style="";
-                      }
-                      if(password === ''){
-                          document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
-                          document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('inputPasswordRegister').style="";
-                      }
-                      if(captcha === ''){
-                          document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
-                          document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
-                          return false;
-                      }
-                      else{
-                          document.getElementById('captcha2').style="margin-top:10px;width:169px";
-                      }
-                      return true;
-                  }
-              </script>
               <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
