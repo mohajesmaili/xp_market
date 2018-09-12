@@ -151,7 +151,7 @@ if(!$_SESSION['login']){
                               <thead>
 
                               <tr>
-                                  <th>نام کاربری</th>
+                                  <th>ایمیل</th>
                                   <th class="hidden-phone">تعداد کالا خریداری شده</th>
                                   <th>تنظیمات</th>
                               </tr>
@@ -173,13 +173,13 @@ if(!$_SESSION['login']){
                                 $id=$row["id"];
                                 echo'<form method="post" action="inc/dl-user.php" id="frm"   onSubmit="return dl()">
                                       <tr>
-                                      <td>'.$row["username"].'</td>';
+                                      <td>'.$row["email"].'</td>';
 
                                     $counter="SELECT COUNT(user_id) as counter FROM basket WHERE user_id='$id' AND basket.sell!=0";
                                     $r=mysqli_query($sql,$counter);
                                     if(mysqli_num_rows($r) >0) {
                                         $ro = (mysqli_fetch_assoc($r));
-                                        echo '<td>' . $ro["counter"] . '</td>';
+                                        echo '<td><a href="#">' . $ro["counter"] . '</a></td>';
                                     }
                                     echo '<td>
                                       <input type="hidden" name="inputhidden" value="'.$row["id"].'">

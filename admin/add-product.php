@@ -48,73 +48,49 @@ if($_SESSION["permission"]!=1){
             return false
             else return true;
          }
-function validateForm(){
-var title = document.forms["form"]["title"].value;
-var content = document.forms["form"]["content"].value;
-var content = document.forms["form"]["picture"].value;
-var captcha = document.forms["form"]["captcha"].value;
-var date = document.forms["form"]["date"].value;
-if (title == null || title == ""){
-    document.getElementById('title').style="border:1px solid #D40000";
-  return false;
-  }
-else if (content == null || content == ""){
-  document.getElementById('content').style="border:1px solid #D40000";
-  return false;
-  }
-else if (picture == null || picture == ""){
-  document.getElementById('picture').style="border:1px solid #D40000";
-  return false;
-  }
-else if (captcha == null || captcha == ""){
-  document.getElementById('captcha').style="border:1px solid #D40000";
-  return false;
-  }
-  else if (date == null || date == ""){
-  document.getElementById('date').style="border:1px solid #D40000";
-  return false;
-  }
-  return true
-}
-
-function CheckEmpty(){
-  title=document.getElementById('title').value;
-  content=document.getElementById('content').value;
-  picture=document.getElementById('picture').value;
-  captcha=document.getElementById('captcha').value;
-  date=document.getElementById('date').value;
-
-    if(title === ''){
-        document.getElementById('title').style="border:1px solid #D40000";
-        return false;
+        function validateForm(){
+        var name = document.forms["form"]["name"].value;
+        var code = document.forms["form"]["code"].value;
+        var categoryp = document.forms["form"]["categoryp"].value;
+        var categoryb = document.forms["form"]["categoryb"].value;
+        var price = document.forms["form"]["price"].value;
+        var special = document.forms["form"]["special"].value;
+        var number = document.forms["form"]["number"].value;
+        var picture = document.forms["form"]["picture"].value;
+        var captcha = document.forms["form"]["captcha"].value;
+        if (name == null || name == ""){
+            document.getElementById('name').style="border:1px solid #D40000";
+          return false;
+          }
+        else if (code == null || code == ""){
+          document.getElementById('code').style="border:1px solid #D40000";
+          return false;
+          }else if (categoryp== null || categoryp == ""){
+          document.getElementById('categoryp').style="border:1px solid #D40000";
+          return false;
+          }else if (categoryb== null || categoryb == ""){
+            document.getElementById('categoryb').style="border:1px solid #D40000";
+            return false;
+            }else if (price== null || price== ""){
+                document.getElementById('price').style="border:1px solid #D40000";
+                return false;
+            }else if (special== null || special == ""){
+                document.getElementById('special').style="border:1px solid #D40000";
+                return false;
+            }else if (number== null || number == ""){
+                document.getElementById('number').style="border:1px solid #D40000";
+                return false;
+            }
+          else if (picture == null || picture == ""){
+            document.getElementById('picture').style="border:1px solid #D40000";
+            return false;
         }
-    else{
-        document.getElementById('title').style="";
-    }
-    if(picture === ''){
-        document.getElementById('picture').style="border:1px solid #D40000";
-        return false;
+        else if (captcha == null || captcha == ""){
+            document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+            return false;
         }
-    else{
-        document.getElementById('picture').style="";
-    }
-    if(captcha === ''){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('captcha').style="";
-    }
-    if(date === ''){
-    document.getElementById('date').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('date').style="";
-    }
-
-    return true;
-}
+          return true
+        }
 </script>
   </head>
 
@@ -225,19 +201,19 @@ function CheckEmpty(){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">نام :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="name" name="name" class="form-control round-form" type="text" placeholder="نام" onblur="CheckEmpty();">
+                                  <input id="name" name="name" class="form-control round-form" type="text" placeholder="نام" >
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">کد :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="code" name="code" class="form-control round-form" type="number" placeholder="کد" onblur="CheckEmpty();">
+                                  <input id="code" name="code" class="form-control round-form" type="number" placeholder="کد" >
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">دسته بندی :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <select id="categoryp" name="categoryp" class="form-control round-form" onblur="CheckEmpty();">
+                                  <select id="categoryp" name="categoryp" class="form-control round-form" >
                                       <?php
                                       require('inc/connect.php');
                                       $categoryp=("Select * from `categoryp`");
@@ -252,7 +228,7 @@ function CheckEmpty(){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label"> برند :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <select id="categoryb" name="categoryb" class="form-control round-form" onblur="CheckEmpty();">
+                                  <select id="categoryb" name="categoryb" class="form-control round-form" >
                                       <?php
                                       $categoryb=("Select * from `categoryb`");
                                       $resu=mysqli_query($sql,$categoryb);
@@ -266,7 +242,7 @@ function CheckEmpty(){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">قیمت :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="price" name="price" class="form-control round-form" type="number" placeholder="قیمت" onblur="CheckEmpty();">
+                                  <input id="price" name="price" class="form-control round-form" type="number" placeholder="قیمت" >
                               </div>
                           </div>
                           <div class="form-group">
@@ -284,7 +260,7 @@ function CheckEmpty(){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ویژه :</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <select id="special" name="special" class="form-control round-form" onblur="CheckEmpty();">
+                                  <select id="special" name="special" class="form-control round-form" >
                                       <option value="0">خیر</option>
                                       <option value="1">بله</option>
                                   </select>
@@ -293,13 +269,13 @@ function CheckEmpty(){
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">تعداد</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                  <input id="number" name="number" onblur="CheckEmpty();" class="form-control round-form" type="number" placeholder="تعداد">
+                                  <input id="number" name="number"  class="form-control round-form" type="number" placeholder="تعداد">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">ارسال عکس:</label>
                               <div class="col-sm-10" style="margin-right: -100px;">
-                                <input id="picture" name="picture" onblur="CheckEmpty();" class="round-form" type="file" placeholder="ارسال فایل">
+                                <input id="picture" name="picture"  class="round-form" type="file" placeholder="ارسال فایل">
                               </div>
                           </div>
                           <div class="form-group">
@@ -309,7 +285,7 @@ function CheckEmpty(){
                                   $sa_captchaDIR='assets/sc/sa-captcha';
                                   require('assets/sc/sa-captcha/captcha.php');
                                   ?>
-                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی" onblur="CheckEmpty();">
+                                  <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی">
                               </div>
                           </div>
                           <button type="submit" name="submit" class="btn btn-success">ارسال</button>

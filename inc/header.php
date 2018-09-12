@@ -44,8 +44,11 @@ $_SESSION["user"];
             document.getElementById('inputPassword').style="border:1px solid #D40000";
             document.getElementById('inputPassword').placeholder="لطفا پسورد  را وارد کنید";
             return false;
-        }
-        else{
+        }else if(password.length<8){
+            document.getElementById('inputPassword').style="border:1px solid #D40000";
+            document.getElementById('inputPassword').placeholder="پسورد باید 8 رقمی باشد";
+            return false;
+        } else{
             document.getElementById('inputPassword').style="";
         }
         if(captcha === ''){
@@ -71,6 +74,10 @@ $_SESSION["user"];
             document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
             document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
             return false;
+        } else if(password.length<8){
+            document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+            document.getElementById('inputPasswordRegister').placeholder="پسورد باید 8 رقمی باشد";
+            return false;
         }else if (captcha == null || captcha == ""){
             document.getElementById('captcha2').style="border:1px solid #D40000;margin-top:10px;width:169px";
             document.getElementById('captcha2').placeholder="لطفا کپتچا را وارد کنید";
@@ -95,8 +102,11 @@ $_SESSION["user"];
             document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
             document.getElementById('inputPasswordRegister').placeholder="لطفا پسورد را وارد کنید";
             return false;
-        }
-        else{
+        }else if(password.length<8){
+            document.getElementById('inputPasswordRegister').style="border:1px solid #D40000";
+            document.getElementById('inputPasswordRegister').placeholder="پسورد باید 8 رقمی باشد";
+            return false;
+        } else{
             document.getElementById('inputPasswordRegister').style="";
         }
         if(captcha === ''){

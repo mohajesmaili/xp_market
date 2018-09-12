@@ -42,87 +42,41 @@ if(!$_SESSION['login']){
             return false
             else return true;
          }
-function validateForm(){
-var title = document.forms["form"]["title"].value;
-var date = document.forms["form"]["date"].value;
-var admins = document.forms["form"]["admins"].value;
-var category = document.forms["form"]["category"].value;
-var content = document.forms["form"]["content"].value;
-var picture = document.forms["form"]["picture"].value;
-var captcha = document.forms["form"]["captcha"].value;
-if (title == null || title == ""){
-    document.getElementById('title').style="border:1px solid #D40000";
-  return false;
-  }
-else if (date == null || date == ""){
-    document.getElementById('date').style="border:1px solid #D40000";
-  return false;
-  }
-else if (admins == null || admins == ""){
-    document.getElementById('admins').style="border:1px solid #D40000";
-  return false;
-  }
-else if (category == null || category == ""){
-  document.getElementById('category').style="border:1px solid #D40000";
-  return false;
-  }
-else if (content == null || content == ""){
-  document.getElementById('content').style="border:1px solid #D40000";
-  return false;
-  }
-else if (captcha == null || captcha == ""){
-  document.getElementById('captcha').style="border:1px solid #D40000";
-  return false;
-  }
-  return true
-}
+         function validateForm(){
+         var title = document.forms["form"]["title"].value;
+         var captcha = document.forms["form"]["captcha"].value;
 
-function CheckEmpty(){
-  title=document.getElementById('title').value;
-  date=document.getElementById('date').value;
-  admins=document.getElementById('admins').value;
-  category=document.getElementById('category').value;
-  content=document.getElementById('content').value;
-  picture=document.getElementById('picture').value;
-  captcha=document.getElementById('captcha').value;
-    if(title === ''){
-        document.getElementById('title').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('title').style="";
-    }
-    if(date === ''){
-        document.getElementById('date').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('date').style="";
-    }
-  if(admins === ''){
-        document.getElementById('admins').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('admins').style="";
-    }
+         if (title == null || title == ""){
+             document.getElementById('title').style="border:1px solid #D40000";
+           return false;
+           }else if (captcha == null || captcha == ""){
+           document.getElementById('captcha').style="border:1px solid #D40000";
+           return false;
+           }
+           return true
+         }
 
-    if(category === ''){
-        document.getElementById('category').style="border:1px solid #D40000";
-        return false;
-        }
-    else{
-        document.getElementById('category').style="";
-    }
-    if(captcha === ''){
-    document.getElementById('captcha').style="border:1px solid #D40000";
-    return false;
-    }
-    else{
-    document.getElementById('captcha').style="";
-    }
+         function CheckEmpty(){
+           title=document.getElementById('title').value;
+           content=document.getElementById('content').value;
+           captcha=document.getElementById('captcha').value;
+             if(title === ''){
+                 document.getElementById('title').style="border:1px solid #D40000";
+                 return false;
+                 }
+             else{
+                 document.getElementById('title').style="";
+             }
+             if(captcha === ''){
+             document.getElementById('captcha').style="border:1px solid #D40000";
+             return false;
+             }
+             else{
+             document.getElementById('captcha').style="";
+             }
 
-    return true;
+             return true;
+
 }
 </script>
   </head>

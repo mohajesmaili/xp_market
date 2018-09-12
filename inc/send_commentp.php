@@ -6,7 +6,7 @@ if(isset($_POST['submit'])) {
 
     $category_id = $_GET['categoryid'];
 
-    if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
+    if($_POST['captcha1'] == $_SESSION['sacaptchaCode']){
 
     require("connect.php");
 

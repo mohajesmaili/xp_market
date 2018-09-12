@@ -151,7 +151,7 @@ if(!$_SESSION['login']){
                               <thead>
 
                               <tr>
-                                  <th>نام</th>
+                                  <th>ایمیل</th>
                                   <th class="hidden-phone">خبر</th>
                                   <th>تاریخ</th>
                                   <th>تنظیمات</th>
@@ -167,7 +167,7 @@ if(!$_SESSION['login']){
                                 $resu=mysqli_query($sql,$show_pages);
                                 $coun = mysqli_num_rows($resu);
 
-                                $comment_news=("SELECT news.subject as 'news_name',user.username as 'user_name',comment_news.* FROM `comment_news`,`news`,`user` WHERE comment_news.news_id=news.id and comment_news.user_id=user.id ORDER BY comment_news.id DESC LIMIT $start,$per_page");
+                                $comment_news=("SELECT news.subject as 'news_name',user.email as 'user_name',comment_news.* FROM `comment_news`,`news`,`user` WHERE comment_news.news_id=news.id and comment_news.user_id=user.id ORDER BY comment_news.id DESC LIMIT $start,$per_page");
                                 $result=mysqli_query($sql,$comment_news);
 
                                 if(mysqli_num_rows($result) > 0){

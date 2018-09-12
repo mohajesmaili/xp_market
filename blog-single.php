@@ -83,6 +83,28 @@
               }
           }
       }
+      function validateForm(){
+          var captcha = document.forms["commentform"]["captcha1"].value;
+          if (captcha == null || captcha == ""){
+              document.getElementById('captcha1').style="border:1px solid #D40000;margin-top:10px;width:169px";
+              document.getElementById('captcha1').placeholder="کپتچا را وارد کنید";
+              return false;
+          }
+          return true;
+      }
+
+      function CheckEmpty(){
+          var captcha=document.getElementById('captcha1').value;
+          if(captcha === ''){
+              document.getElementById('captcha1').style="border:1px solid #D40000;margin-top:10px;width:169px";
+              document.getElementById('captcha1').placeholder="کپتچا را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('captcha1').style="margin-top:10px;width:169px";
+          }
+          return true;
+      }
       </script>
   </head>
 
@@ -253,7 +275,7 @@
                         <h3 class="push-down-25"><span class="light">نظر</span> بدهید</h3>
                         <?php
                         if($_SESSION["user"]==true) {
-                            echo '<form id="commentform" method="POST" action="inc/send_commentn.php?userid='.$_SESSION["user_id"].'&newsid='.$id.'" class="form form-inline form-comments">
+                            echo '<form id="commentform" name="commentform" method="POST" action="inc/send_commentn.php?userid='.$_SESSION["user_id"].'&newsid='.$id.'" class="form form-inline form-comments" onsubmit="return validateForm();">
                                     <p class="push-down-20">
                                         <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
                                     </p>
@@ -264,7 +286,7 @@
                                           require("admin/assets/sc/sa-captcha/captcha.php");
 
                                        echo'<br/>
-                                            <input id="captcha" name="captcha" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی"">
+                                            <input id="captcha1" name="captcha1" onblur="CheckEmpty();" style="margin-top:10px;width:169px" class="form-control round-form" type="text" placeholder="کد امنیتی"">
                                      </p>
                                     <p>
                                         <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit" name="submit">ارسال نظر</button>

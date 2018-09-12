@@ -151,7 +151,7 @@ if(!$_SESSION['login']){
                               <thead>
 
                               <tr>
-                                  <th>نام</th>
+                                  <th>ایمیل</th>
                                   <th class="hidden-phone">کالا</th>
                                   <th>تاریخ</th>
                                   <th>تنظیمات</th>
@@ -167,7 +167,7 @@ if(!$_SESSION['login']){
                                 $resu=mysqli_query($sql,$show_pages);
                                 $coun = mysqli_num_rows($resu);
 
-                                $comment_news=("SELECT product.name as 'product_name' , user.username as 'user_name' , comment_product.* FROM `comment_product`,`product`,`user` WHERE comment_product.product_id=product.id and comment_product.user_id=user.id ORDER BY comment_product.id DESC LIMIT $start,$per_page");
+                                $comment_news=("SELECT product.name as 'product_name' , user.email as 'user_name' , comment_product.* FROM `comment_product`,`product`,`user` WHERE comment_product.product_id=product.id and comment_product.user_id=user.id ORDER BY comment_product.id DESC LIMIT $start,$per_page");
                                 $result=mysqli_query($sql,$comment_news);
 
                                 if(mysqli_num_rows($result) > 0){

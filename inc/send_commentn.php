@@ -5,7 +5,7 @@ if(isset($_POST['submit'])) {
 
     session_start();
 
-    if($_POST['captcha'] == $_SESSION['sacaptchaCode']) {
+    if($_POST['captcha1'] == $_SESSION['sacaptchaCode']) {
         require("connect.php");
 
         require("jalali-date.php");

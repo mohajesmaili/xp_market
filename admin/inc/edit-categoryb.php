@@ -41,7 +41,7 @@ if(isset($_POST['submit']))
     echo '
 	<script>
 		    alert("کد اشتباه است")
-	        document.location.href="../edit-categoryp.php?categoryb_id='.$hiddenid.'";
+	        document.location.href="../edit-categoryb.php?categoryb_id='.$hiddenid.'";
 	</script>';
 }
 }

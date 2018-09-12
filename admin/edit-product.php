@@ -41,16 +41,45 @@ if($_SESSION["permission"]!=1){
     <script src="assets/js/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script src="assets/js/ckfinder/ckfinder.js" type="text/javascript"></script>
     <script>
-        function dl()
-         {
-            a=confirm('آیا برای حذف مطمئنید؟');
-            if(a==false)
-            return false
-            else return true;
-         }
-
-}
-</script>
+        function validateForm(){
+            var name = document.forms["form"]["name"].value;
+            var code = document.forms["form"]["code"].value;
+            var categoryp = document.forms["form"]["categoryp"].value;
+            var categoryb = document.forms["form"]["categoryb"].value;
+            var price = document.forms["form"]["price"].value;
+            var special = document.forms["form"]["special"].value;
+            var number = document.forms["form"]["number"].value;
+            var captcha = document.forms["form"]["captcha"].value;
+            if (name == null || name == ""){
+                document.getElementById('name').style="border:1px solid #D40000";
+                return false;
+            }
+            else if (code == null || code == ""){
+                document.getElementById('code').style="border:1px solid #D40000";
+                return false;
+            }else if (categoryp== null || categoryp == ""){
+                document.getElementById('categoryp').style="border:1px solid #D40000";
+                return false;
+            }else if (categoryb== null || categoryb == ""){
+                document.getElementById('categoryb').style="border:1px solid #D40000";
+                return false;
+            }else if (price== null || price== ""){
+                document.getElementById('price').style="border:1px solid #D40000";
+                return false;
+            }else if (special== null || special == ""){
+                document.getElementById('special').style="border:1px solid #D40000";
+                return false;
+            }else if (number== null || number == ""){
+                document.getElementById('number').style="border:1px solid #D40000";
+                return false;
+            }
+            else if (captcha == null || captcha == ""){
+                document.getElementById('captcha').style="border:1px solid #D40000;margin-top:10px;width:169px";
+                return false;
+            }
+            return true
+        }
+    </script>
   </head>
 
   <body>
@@ -86,7 +115,7 @@ if($_SESSION["permission"]!=1){
                           <li class="active"><a  href="show-product.php?pageid=1">نمایش کالا</a></li>
                           <li><a  href="add-product.php">اضافه کردن کالا</a></li>
                           <li><a  href="show-sproduct.php?pageid=1">نمایش کالا فروخته شده</a></li>
-                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>                  
+                          <li><a  href="show-comment-product.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -237,7 +266,7 @@ if($_SESSION["permission"]!=1){
                                        <option value="1">بله</option>';
                                   }
 
-                              echo '</select>                                     
+                              echo '</select>
                           </div>
                           </div>
                           <div class="form-group">
