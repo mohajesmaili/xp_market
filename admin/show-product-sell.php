@@ -5,6 +5,13 @@ $_SESSION['login'];
 if(!$_SESSION['login']){
   echo "<script>document.location.href='login.php'</script>";
   }
+$_SESSION["permission"];
+if($_SESSION["permission"]!=1){
+  echo "<script>
+        alert('شما اجازه ورود به این قسمت را ندارید');
+        document.location.href='index.php';
+        </script>";
+  }
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +23,7 @@ if(!$_SESSION['login']){
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>XP_Market | نمایش کاربران</title>
+    <title>XP_Market | نمایش کالا</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -35,9 +42,12 @@ if(!$_SESSION['login']){
         function dl()
          {
             a=confirm('آیا برای حذف مطمئنید؟');
-            if(a==false)
-            return false
-            else return true;
+            if(a==false) {
+                return false;
+            }
+            else {
+                return true;
+            }
          }
     </script>
 
@@ -49,7 +59,7 @@ if(!$_SESSION['login']){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-<?php require('inc/header.php') ?>
+      <?php require('inc/header.php') ?>
 
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
@@ -68,8 +78,8 @@ if(!$_SESSION['login']){
                   </li>
 
                   <li class="sub-menu">
-                      <a  href="javascript:;" >
-                          <i class="fa fa-shopping-cart"></i>
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
                           <span>کالا</span>
                       </a>
                       <ul class="sub">
@@ -103,14 +113,14 @@ if(!$_SESSION['login']){
                   </li>
 
                   <li class="sub-menu">
-                      <a  href="javascript:;" >
+                      <a href="javascript:;" >
                           <i class="fa fa-pencil"></i>
                           <span>اخبار</span>
                       </a>
                       <ul class="sub">
                           <li><a  href="show-news.php?pageid=1">مشاهده اخبار</a></li>
                           <li><a  href="add-news.php">اضافه کردن خبر</a></li>
-                          <li ><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
+                          <li><a  href="show-comment-news.php?pageid=1">مشاهده نظرات</a></li>
                       </ul>
                   </li>
 
@@ -132,7 +142,6 @@ if(!$_SESSION['login']){
                   </li>
 
               </ul>
-
               <!-- sidebar menu end-->
           </div>
       </aside>
@@ -147,66 +156,73 @@ if(!$_SESSION['login']){
 
                   <div class="col-md-12" style="margin-top: 20px;">
                       <div class="content-panel">
-                          <h4></i>نظرات کاربران</h4><hr><table class="table table-striped table-advance table-hover">
+                          <h4></i>کالا خریداری شده کاربر</h4><hr><table class="table table-striped table-advance table-hover">
                               <thead>
 
                               <tr>
-                                  <th>ایمیل</th>
-                                  <th class="hidden-phone">تعداد کالا خریداری شده</th>
-                                  <th>تنظیمات</th>
+                                  <th>نام کالا</th>
+                                  <th>کد</th>
+                                  <th>دسته بندی</th>
+                                  <th>برند</th>
+                                  <th>قیمت</th>
+                                  <th>تعداد</th>
+                                  <th>عکس</th>
                               </tr>
                               </thead>
                               <tbody>
                               <?php
-                                require('inc/connect.php');
-                                $page=$_GET["pageid"];
-                                $per_page = 10;
-                                $start = ($page-1)*$per_page;
-                                $show_pages=("SELECT * FROM `user`");
-                                $resu=mysqli_query($sql,$show_pages);
-                                $coun = mysqli_num_rows($resu);
+                              require('inc/connect.php');
+                              $user_id=$_GET["user_id"];
+                              $page=$_GET["pageid"];
+                              $per_page =10;
+                              $start = ($page-1)*$per_page;
+                              $show_pages=("SELECT distinct(code),product.*,basket.product_id,basket.user_id,basket.date from product,basket where product.id=basket.product_id AND basket.user_id='$user_id' AND basket.sell=1");
+                              $resu=mysqli_query($sql,$show_pages);
+                              $coun = mysqli_num_rows($resu);
 
-                                $show_user=("SELECT * FROM user ORDER BY id DESC LIMIT $start,$per_page");
-                                $result=mysqli_query($sql,$show_user);
+                               $show_sell=("SELECT distinct(code),product.*,basket.product_id,basket.user_id,basket.date from product,basket where product.id=basket.product_id AND basket.user_id='$user_id' AND basket.sell=1 ORDER BY basket.id DESC limit $start,$per_page");
+                                $result=mysqli_query($sql,$show_sell);
                                 if(mysqli_num_rows($result) > 0){
                                 for($i=1;$row=mysqli_fetch_assoc($result);$i++){
-                                $id=$row["id"];
-                                echo'<form method="post" action="inc/dl-user.php" id="frm"   onSubmit="return dl()">
-                                      <tr>
-                                      <td>'.$row["email"].'</td>';
-
-                                    $counter="SELECT COUNT(user_id) as counter FROM basket WHERE user_id='$id' AND basket.sell!=0";
-                                    $r=mysqli_query($sql,$counter);
-                                    if(mysqli_num_rows($r) >0) {
-                                        $ro = (mysqli_fetch_assoc($r));
-                                        echo '<td><a href="show-product-sell.php?pageid=1&user_id='.$id.'">' . $ro["counter"] . '</a></td>';
-                                    }
-                                    echo '<td>
-                                      <input type="hidden" name="inputhidden" value="'.$row["id"].'">
-                                      <input type="hidden" name="page_id_hidden" value="'.$page.'">
-                                      <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';
-                                      if($row["status"]==1){
-                                      echo'
-                                        <a href="inc/ban.php?id='.$row["id"].'&status='.$row["status"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-danger btn-xs" name="change" ><i class="fa fa-ban" ></i></a>';
-                                    }else if($row["status"]==0){
-                                        echo'
-                                        <a href="inc/ban.php?id='.$row["id"].'&status='.$row["status"].'&page_id_hidden='.$page.'" style="margin-right:0" class="btn btn-success btn-xs" name="change" ><i class="fa fa-ban" ></i></a>';
-                                      }
-                                    echo'</td>
+                                $id=$row["product_id"];
+                                echo'<form method="post" id="frm">
+                                      <tr style="font-family:roya;">';
+                                       echo'<td>'.$row["name"].'</td>';
+                                       echo '<td>'.$row["code"].'</td>';
+                                       //category product
+                                       $categoryp="SELECT categoryp.name as categoryp FROM `categoryp`,`product` WHERE categoryp.id=product.categoryp and product.id='$id'";
+                                       $re=mysqli_query($sql,$categoryp);
+                                       $r=mysqli_fetch_assoc($re);
+                                       //category brand
+                                       $categoryb="SELECT categoryb.name as categoryb FROM `categoryb`,`product` WHERE categoryb.id=product.categoryb and product.id='$id'";
+                                       $res=mysqli_query($sql,$categoryb);
+                                       $ro=mysqli_fetch_assoc($res);
+                                      echo '
+                                      <td>'.$r["categoryp"].'</td>
+                                      <td>'.$ro["categoryb"].'</td>
+                                      <td>'.$row["price"].'</td>';
+                                      //for counter
+                                      $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$id'=basket.product_id AND basket.user_id='$user_id' AND basket.sell=1";
+                                      $r=mysqli_query($sql,$counter);
+                                      $ro=(mysqli_fetch_assoc($r));
+                                      //end counter
+                                    echo'
+                                      <td>'.$ro["counter"].'</td>
+                                      <td><img src="../images/product_s/'.$id.'.png" width="62" height="62" style="border-radius:8px;"/></td>
                                     </tr>
-                                    </form>';
+                                  </form>';
                                   }
                                 }
                               ?>
                               </tbody>
                           </table>
                           <div style="align-items: center;direction: ltr;text-align: center;" class="general-pagination group">
-                            <?php
-                            $allpages = ceil($coun / $per_page);
-                            for($i = 1 ; $i <= $allpages ; $i++){
-                            echo '<a style="margin-right:2px;" href="show-users.php?pageid='.$i.'"><span class="badge bg-warning">'.$i.'</span></a>';
-                             }
-                            ?>
+                              <?php
+                              $allpages = ceil($coun / $per_page);
+                              for($i = 1 ; $i <= $allpages ; $i++){
+                                  echo '<a style="margin-right:2px;" href="show-product-sell.php?pageid='.$i.'&user_id='.$user_id.'"><span class="badge bg-warning">'.$i.'</span></a>';
+                              }
+                              ?>
                           </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
@@ -215,7 +231,6 @@ if(!$_SESSION['login']){
       </section>
 
       <!--main content end-->
-
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
