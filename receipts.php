@@ -103,7 +103,7 @@ session_start();
                                         $p_id=$row["id"];
                                         echo '<tr>
 							        	<td class="image"><img src="images/product_s/'.$row["id"].'.png" alt="" width="124" height="124" /></td>
-							        	<td class="desc">'.$row["name"].' <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="desc">'.$row["name"].'</td>
 							        	<td class="qty">';
                                         $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell=1";
                                         $r=mysqli_query($sql,$counter);

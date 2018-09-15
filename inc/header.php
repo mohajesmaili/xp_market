@@ -230,7 +230,7 @@ $_SESSION["user"];
                   $result2=mysqli_query($sql,$sum);
                   $row2= mysqli_fetch_assoc($result2);
                   //end sum
-                  echo '<div class="span3">
+                  echo '<div class="span3" style="width: 290px">
                 <div class="cart-container" id="cartContainer">
                     <div class="cart">
                         <p class="items">سبد خرید <span class="dark-clr">('.$row["count"].')</span></p>';
@@ -277,7 +277,7 @@ $_SESSION["user"];
                                 $ro=(mysqli_fetch_assoc($r));
                                  echo 'تعداد :  '.$ro["counter"].'  ';
                                 }
-                                echo'<a href="#" class="icon-remove-sign" title="Remove Item"></a>
+                                echo'<a href="inc/remove_basket.php?p_id='.$row["id"].'"  title="Remove Item"><Span class="icon-remove"></Span></a>
                                 </span>
                             </div>
                             <div class="price">
