@@ -14,9 +14,6 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
 
-    <!--  Google Fonts  -->
-    <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -181,7 +178,7 @@ session_start();
 							
 							<p class="right-align">
 							    در مرحله بعدی شما آدرس ارسال را انتخاب خواهید کرد. &nbsp; &nbsp;
-							    <a href="checkout-step-2.php" class="btn btn-primary higher bold">ادامه</a>
+							    <a href="inc/in_check.php" class="btn btn-primary higher bold">ادامه</a>
 							</p>
                     	</div>
                     </div>
@@ -207,17 +204,9 @@ session_start();
     <!--  = FB =  -->
     
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
     
     
     <!--  = jQuery - CDN with local fallback =  -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write('<script src="js/jquery.min.js"><\/script>');

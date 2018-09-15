@@ -38,6 +38,102 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch/72.png">
     <link rel="apple-touch-icon-precomposed" href="images/apple-touch/57.png">
     <link rel="shortcut icon" href="images/apple-touch/57.png">
+    <script>
+      function validateForm(){
+      var firstName = document.forms["form"]["firstName"].value;
+      var lastName = document.forms["form"]["lastName"].value;
+      var telephone = document.forms["form"]["telephone"].value;
+      var addr1 = document.forms["form"]["addr1"].value;
+      var addr2 = document.forms["form"]["addr2"].value;
+      var city = document.forms["form"]["city"].value;
+      var zip = document.forms["form"]["zip"].value;
+      if (firstName == null || firstName == ""){
+      document.getElementById('firstName').style="border:1px solid #D40000";
+      return false;
+      }
+      else if (lastName == null || lastName == ""){
+      document.getElementById('lastName').style="border:1px solid #D40000";
+      return false;
+      }else if (telephone== null || telephone == ""){
+      document.getElementById('telephone').style="border:1px solid #D40000";
+      return false;
+      }else if (addr1== null || addr1 == ""){
+      document.getElementById('addr1').style="border:1px solid #D40000";
+      return false;
+      }else if (addr2== null || addr2== ""){
+      document.getElementById('addr2').style="border:1px solid #D40000";
+      return false;
+      }else if (city== null || city == ""){
+      document.getElementById('city').style="border:1px solid #D40000";
+      return false;
+      }else if (zip== null || zip == ""){
+      document.getElementById('zip').style="border:1px solid #D40000";
+      return false;
+      }
+      return true
+      }
+      function CheckEmpty(){
+          var firstName=document.getElementById('firstName').value;
+          var lastName=document.getElementById('lastName').value;
+          var telephone=document.getElementById('telephone').value;
+          var addr1=document.getElementById('addr1').value;
+          var addr2=document.getElementById('addr2').value;
+          var city=document.getElementById('city').value;
+          var zip=document.getElementById('zip').value;
+
+          if(firstName === ''){
+              document.getElementById('firstName').style="border:1px solid #D40000;";
+              document.getElementById('firstName').placeholder="نام را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('firstName').style="";
+          }if(lastName === ''){
+              document.getElementById('lastName').style="border:1px solid #D40000;";
+              document.getElementById('lastName').placeholder="نام خانوادگی را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('lastName').style="";
+          }if(telephone === ''){
+              document.getElementById('telephone').style="border:1px solid #D40000;";
+              document.getElementById('telephone').placeholder="تلفن را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('telephone').style="margin-top:10px;width:169px";
+          }if(addr1 === ''){
+              document.getElementById('addr1').style="border:1px solid #D40000;";
+              document.getElementById('addr1').placeholder="آدرس را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('addr1').style="";
+          }if(addr2 === ''){
+              document.getElementById('addr2').style="border:1px solid #D40000;";
+              document.getElementById('addr2').placeholder="آدرس را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('addr2').style="";
+          }if(city === ''){
+              document.getElementById('city').style="border:1px solid #D40000;";
+              document.getElementById('city').placeholder="شهر را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('city').style="";
+          }if(zip === ''){
+              document.getElementById('zip').style="border:1px solid #D40000;";
+              document.getElementById('zip').placeholder="کد پستی را وارد کنید";
+              return false;
+          }
+          else{
+              document.getElementById('zip').style="";
+          }
+          return true;
+      }
+    </script>
   </head>
 
    
@@ -108,65 +204,57 @@
 							<!--  = Shipping addr form =  -->
 							<!--  ==========  -->
 							    
-						    <form action="#" method="post" class="form-horizontal form-checkout">
+						    <form action="inc/user_in.php" method="post" class="form-horizontal form-checkout" name="form" onsubmit="return validateForm();">
                                 <div class="control-group">
                                     <label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="firstName" class="span4" required>
+                                        <input type="text" id="firstName" name="firstName" class="span4" required>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="lastName">نام خانوادگی<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="lastName" class="span4" required>
+                                        <input type="text" id="lastName" name="lastName" class="span4" required>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="telephone">تلفن<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="tel" id="telephone" class="span4" required>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="email">ایمیل<span class="red-clr bold">*</span></label>
-                                    <div class="controls">
-                                        <input type="email" id="email" class="span4" required>
+                                        <input type="tel" id="telephone" name="telephone" class="span4" required>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="addr1">ادرس 1<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="addr1" class="span4" required>
+                                        <input type="text" id="addr1" name="addr1" class="span4" required>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="addr2">آدرس 2</label>
                                     <div class="controls">
-                                        <input type="text" id="addr2" class="span4" >
+                                        <input type="text" id="addr2" name="addr2" class="span4" >
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="city">شهر<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="city" class="span4" >
+                                        <input type="text" id="city" name="city" class="span4" >
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="zip">کد پستی<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="text" id="zip" class="span4" >
+                                        <input type="text" id="zip" name="zip" class="span4" >
                                     </div>
                                 </div>
-                                
+
+                                <hr />
+
+                                <p class="right-align">
+                                    برای وصل شد ن به درگاه پرداخت لطفا کلیک کنید
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary higher bold">ادامه</button>
+                                </p>
                             </form>
-							
-                            <hr />
-						    
-						    <p class="right-align">
-						        برای وصل شد ن به درگاه پرداخت لطفا کلیک کنید
-						        <a href="checkout-step-3.php" class="btn btn-primary higher bold">ادامه</a>
-						    </p>
-							    
 							    
                     	</div>
                     </div>
@@ -192,15 +280,7 @@
     <!--  = FB =  -->
     
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    
-    
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
