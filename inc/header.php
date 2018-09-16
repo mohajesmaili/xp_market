@@ -191,11 +191,6 @@ $_SESSION["user"];
                         <a href="blog.php?pageid=1" class="dropdown-toggle">اخبار</a>
                     </li>
                     <li class="dropdown">
-                        <a href="about-us.php" class="dropdown-toggle">درباره ما</a>
-
-                    </li>
-
-                    <li class="dropdown">
                         <a href="contact.php" class="dropdown-toggle">تماس با ما</a>
 
                     </li>
