@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
@@ -13,7 +13,7 @@
 
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
+
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -24,13 +24,13 @@
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -136,25 +136,25 @@
     </script>
   </head>
 
-   
+
   <body class=" checkout-page">
-    
+
     <div class="master-wrapper">
-     
-    
-    
+
+
+
     <div class="container">
         <div class="row">
-            
+
             <!--  ==========  -->
             <!--  = Main content =  -->
             <!--  ==========  -->
             <section class="span12">
-                
+
                 <div class="checkout-container">
                     <div class="row">
                     	<div class="span10 offset1">
-                    	    
+
                     	    <!--  ==========  -->
 							<!--  = Header =  -->
 							<!--  ==========  -->
@@ -175,7 +175,7 @@
                     		    	</div>
                     		    </div>
                     		</header>
-                    		
+
                     		<!--  ==========  -->
 							<!--  = Steps =  -->
 							<!--  ==========  -->
@@ -199,11 +199,11 @@
                     		    	</div>
                     		    </div>
                     		</div> <!-- /steps -->
-                    		
+
 						    <!--  ==========  -->
 							<!--  = Shipping addr form =  -->
 							<!--  ==========  -->
-							    
+
 						    <form action="inc/user_in.php" method="post" class="form-horizontal form-checkout" name="form" onsubmit="return validateForm();">
                                 <div class="control-group">
                                     <label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>
@@ -247,7 +247,17 @@
                                         <input type="text" id="zip" name="zip" class="span4" >
                                     </div>
                                 </div>
-
+                                <div class="control-group">
+                                    <label class="control-label" for="captcha">کد<span class="red-clr bold">*</span></label>
+                                    <div class="controls" style="margin-right: 160px;">
+                                      <?php
+                                      $sa_captchaDIR='admin/assets/sc/sa-captcha';
+                                      require('admin/assets/sc/sa-captcha/captcha.php');
+                                      ?>
+                                      <br>
+                                      <input type="text" id="captcha" name="captcha" class="span4" style="margin-top:10px;width:169px" >
+                                    </div>
+                                </div>
                                 <hr />
 
                                 <p class="right-align">
@@ -255,30 +265,30 @@
                                     <button type="submit" name="submit" id="submit" class="btn btn-primary higher bold">ادامه</button>
                                 </p>
                             </form>
-							    
+
                     	</div>
                     </div>
                 </div>
-                
-                
+
+
             </section> <!-- /main content -->
-        
+
         </div>
     </div> <!-- /container -->
-    
-     
-    
-     
+
+
+
+
     </div> <!-- end of master-wrapper -->
-    
+
 
 
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
 
     <!--  = jQuery - CDN with local fallback =  -->
@@ -288,42 +298,39 @@
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-    
+
     <!--  = Google Maps API =  -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/goMap/js/jquery.gomap-1.3.2.min.js"></script>
-    
+
     <!--  = Custom JS =  -->
     <script src="js/custom.js" type="text/javascript"></script>
 
   </body>
 </html>
-
-    
-    

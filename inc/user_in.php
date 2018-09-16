@@ -1,8 +1,10 @@
 <?php
+session_start();
+
+if($_POST['captcha'] == $_SESSION['sacaptchaCode']){
+
 if (isset($_POST['submit'])) {
     require ("connect.php");
-
-    session_start();
 
     $name = $_POST['firstName'];
 
@@ -25,7 +27,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($sql, $insert);
 
     if ($result) {
-        echo "<script>   
+        echo "<script>
 			document.location.href='../checkout-step-3.php';
 			</script>";
     }else{
@@ -33,4 +35,11 @@ if (isset($_POST['submit'])) {
               document.location.href='../checkout-step-2.php';
               </script>";
     }
+}
+}else{
+  echo '
+      <script>
+            alert("کد اشتباه است")
+              document.location.href="../checkout-step-2.php";
+      </script>';
 }
