@@ -125,7 +125,7 @@
                                     if(mysqli_num_rows($result2)>0){
 
                                     while($row2=mysqli_fetch_assoc($result2)){
-                                    echo '<a href="#" data-target="'.$row2["id"].'" data-type="brand" class="selectable detailed"><i class="box"></i>'.$row2["name"].'</a>';
+                                    echo '<a href="#" data-target="'.$row2["name"].'" data-type="brand" class="selectable detailed"><i class="box"></i>'.$row2["name"].'</a>';
                                             }
                                         }
                                     ?>
@@ -194,7 +194,16 @@
 
                             if(mysqli_num_rows($result) >0){
                                 while($row=mysqli_fetch_assoc($result)){
-                    	    echo '<div class="span3 filter--'.$row["categoryp"].'" data-price="'.$row["price"].'" data-id="'.$row["id"].'" data-popularity="2" data-brand="'.$row["categoryb"].'">
+
+                                $categoryb=$row["categoryb"];
+
+                                $select=("SELECT * FROM `categoryb` WHERE id='$categoryb'");
+
+                                $result4=mysqli_query($sql,$select);
+
+                                $row4=mysqli_fetch_assoc($result4);
+
+                    	    echo '<div class="span3 filter--'.$row["categoryp"].'" data-price="'.$row["price"].'" data-id="'.$row["id"].'" data-popularity="2" data-brand="'.$row4["name"].'">
                     	        <div class="product" >';
                     	        if($row["number"]!=0){
                 	               echo'<div class="stamp green">موجود</div>';
