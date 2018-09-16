@@ -175,7 +175,7 @@ if(!$_SESSION['login']){
                                       <tr>
                                       <td>'.$row["name"].'</a></td>
                                       <td class="hidden-phone">'.$row["email"].'</td>
-                                      <td>'.substr($row["content"],0,100).'</td>
+                                      <td title="'.$row["content"].'">'.substr($row["content"],0,100).'</td>
                                       <td>
                                       <input type="hidden" name="inputhidden" value='.$row["id"].'></input>
                                       <button type="submit" name="delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>';

@@ -16,7 +16,7 @@ session_start();
 
     <!--  Google Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
-    
+
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -27,13 +27,13 @@ session_start();
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -45,7 +45,7 @@ session_start();
 
 
   <body class=" checkout-page">
-    
+
     <div class="master-wrapper">
 
 
@@ -57,7 +57,7 @@ session_start();
             <!--  = Main content =  -->
             <!--  ==========  -->
             <section class="span12">
-                
+
                 <div class="checkout-container">
                     <div class="row">
                     	<div class="span10 offset1">
@@ -114,26 +114,34 @@ session_start();
 					            	    echo'</td>
 							        	<td class="price">
 							        	   '.$row["price"].' T
-							        	</td>							        	
+							        	</td>
 							        	<td class="price">
-							        	   '.$row["date"].' 
-							        	</td>								        	
+							        	   '.$row["date"].'
+							        	</td>
 							        	<td class="price">
-							        	   '.$row["date"].' 
-							        	</td>							        								        	
+							        	   '.$row["date"].'
+							        	</td>
 							           </tr>';
                                     }
                                 }
                                 ?>
 							     <tr>
 							        	<td colspan="4" rowspan="2">
-							        	    <div class="alert alert-info">
-                                                <button data-dismiss="alert" class="close" type="button">×</button>
-                                                هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a>
-                                            </div>
 							        	</td>
 							        	<td class="stronger">هزینه ارسال :</td>
-							        	<td class="stronger"><div class="align-right">20000 تومان</div></td>
+                        <?php
+                        //sum product
+                        $sum="SELECT sum(price) as 'sum' FROM `product`,basket WHERE product.id=basket.product_id and basket.user_id='$id' AND basket.sell=1";
+                        $result2=mysqli_query($sql,$sum);
+                        $row2= mysqli_fetch_assoc($result2);
+                        //end sum
+
+                        if($row2["sum"]<=500000) {
+                            echo '<td class="stronger"><div class="align-right">20000 تومان</div></td>';
+                        }else{
+                            echo '<td class="stronger"><div class="align-right">رایگان</div></td>';
+                        }
+                        ?>
 							        </tr>
 							        <tr>
 							        	<td class="stronger">جمع کل :</td>
@@ -148,31 +156,31 @@ session_start();
 							        </tr>
 							    </tbody>
 							</table>
-							
+
 							<hr />
                     	</div>
                     </div>
                 </div>
-                
-                
+
+
             </section> <!-- /main content -->
-        
+
         </div>
     </div> <!-- /container -->
-    
-     
-    
-     
+
+
+
+
     </div> <!-- end of master-wrapper -->
-    
+
 
 
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -181,8 +189,8 @@ session_start();
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
-    
+
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -190,42 +198,39 @@ session_start();
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-    
+
     <!--  = Google Maps API =  -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/goMap/js/jquery.gomap-1.3.2.min.js"></script>
-    
+
     <!--  = Custom JS =  -->
     <script src="js/custom.js" type="text/javascript"></script>
 
   </body>
 </html>
-
-    
-    

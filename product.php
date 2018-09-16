@@ -284,7 +284,7 @@
                                     <div class="comment-content">
                                         <div class="comment-inner">
                                             <cite class="author-name">
-                                                <span class="light">'.$row3["username"].'</span>
+                                                <span class="light">'.$row3["email"].'</span>
                                             </cite>
                                             <div class="metadata">
                                                     '.$row3["date"].' در '.$row3["time"].'';?>   /  <a href="#script" onclick="show_hide('script<?php echo $comment_id?>');return(false);">پاسخ</a>
@@ -296,7 +296,7 @@
                                         </div>
                                         <hr>';
                                         if($_SESSION["user"]==true){
-                                        echo' 
+                                        echo'
                                         <form id="script'.$comment_id.'" style="display: none;" method="POST" action="inc/send_commentp.php?userid='.$_SESSION["user_id"].'&productid='.$id.'&categoryid='.$category.'" class="form form-inline form-comments">
                                         <p class="push-down-20">
                                             <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="comment" placeholder="نظرتان را در اینجا بنویسید ..." required></textarea>
@@ -331,16 +331,16 @@
                                         <div class="comment-content">
                                             <div class="comment-inner">
                                                 <cite class="author-name">
-                                                   ' . $row4["username"] .'
+                                                   ' . $row4["email"] .'
                                                 </cite>
                                                 <div class="metadata">
                                                     ' . $row4["date"] . ' در ' . $row4["time"] . ' بعد از ظهر  /  <a href="#">پاسخ</a>
                                                 </div>
                                                 <div class="comment-text">
                                                 <p>' . $row4["comment"] .'</p>
-                                                </div> 
+                                                </div>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div> ';
                                         }
                                     }

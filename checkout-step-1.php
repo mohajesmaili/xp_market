@@ -24,13 +24,13 @@ session_start();
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-     
+
     <link href="stylesheets/main.css" rel="stylesheet">
-     
-    
+
+
 
     <!-- Modernizr -->
-    <script src="js/modernizr.custom.56918.js"></script>    
+    <script src="js/modernizr.custom.56918.js"></script>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch/144.png">
@@ -40,25 +40,25 @@ session_start();
     <link rel="shortcut icon" href="images/apple-touch/57.png">
   </head>
 
-   
+
   <body class=" checkout-page">
-    
+
     <div class="master-wrapper">
-     
-    
-    
+
+
+
     <div class="container">
         <div class="row">
-            
+
             <!--  ==========  -->
             <!--  = Main content =  -->
             <!--  ==========  -->
             <section class="span12">
-                
+
                 <div class="checkout-container">
                     <div class="row">
                     	<div class="span10 offset1">
-                    	    
+
                     	    <!--  ==========  -->
 							<!--  = Header =  -->
 							<!--  ==========  -->
@@ -79,7 +79,7 @@ session_start();
                     		    	</div>
                     		    </div>
                     		</header>
-                    		
+
                     		<!--  ==========  -->
 							<!--  = Steps =  -->
 							<!--  ==========  -->
@@ -103,7 +103,7 @@ session_start();
                     		    	</div>
                     		    </div>
                     		</div> <!-- /steps -->
-                    		
+
                     		<!--  ==========  -->
 							<!--  = Selected Items =  -->
 							<!--  ==========  -->
@@ -126,7 +126,7 @@ session_start();
                                         $p_id=$row["id"];
                                         echo '<tr>
 							        	<td class="image"><img src="images/product_s/'.$row["id"].'.png" alt="" width="124" height="124" /></td>
-							        	<td class="desc">'.$row["name"].' <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="desc">'.$row["name"].'</td>
 							        	<td class="qty">';
                                         $counter="SELECT COUNT(product_id) as counter FROM basket WHERE '$p_id'=basket.product_id AND basket.user_id='$id' AND basket.sell!=1";
                                         $r=mysqli_query($sql,$counter);
@@ -173,9 +173,9 @@ session_start();
 							        </tr>
 							    </tbody>
 							</table>
-							
+
 							<hr />
-							
+
 							<p class="right-align">
 							    در مرحله بعدی شما آدرس ارسال را انتخاب خواهید کرد. &nbsp; &nbsp;
 							    <a href="inc/in_check.php" class="btn btn-primary higher bold">ادامه</a>
@@ -183,71 +183,68 @@ session_start();
                     	</div>
                     </div>
                 </div>
-                
-                
+
+
             </section> <!-- /main content -->
-        
+
         </div>
     </div> <!-- /container -->
-    
-     
-    
-     
+
+
+
+
     </div> <!-- end of master-wrapper -->
-    
+
 
 
     <!--  ==========  -->
     <!--  = JavaScript =  -->
     <!--  ==========  -->
-    
+
     <!--  = FB =  -->
-    
+
     <div id="fb-root"></div>
-    
-    
+
+
     <!--  = jQuery - CDN with local fallback =  -->
     <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
     </script>
-    
+
     <!--  = _ =  -->
     <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
-    
+
     <!--  = Bootstrap =  -->
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    
+
     <!--  = Slider Revolution =  -->
     <script src="js/rs-plugin/pluginsources/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
-    
+
     <!--  = CarouFredSel =  -->
     <script src="js/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
-    
+
     <!--  = jQuery UI =  -->
     <script src="js/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.10.3/touch-fix.min.js" type="text/javascript"></script>
-    
+
     <!--  = Isotope =  -->
     <script src="js/isotope/jquery.isotope.min.js" type="text/javascript"></script>
-    
+
     <!--  = Tour =  -->
     <script src="js/bootstrap-tour/build/js/bootstrap-tour.min.js" type="text/javascript"></script>
-    
+
     <!--  = PrettyPhoto =  -->
     <script src="js/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-    
+
     <!--  = Google Maps API =  -->
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/goMap/js/jquery.gomap-1.3.2.min.js"></script>
-    
+
     <!--  = Custom JS =  -->
     <script src="js/custom.js" type="text/javascript"></script>
 
   </body>
 </html>
-
-    
-    

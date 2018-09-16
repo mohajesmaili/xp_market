@@ -72,8 +72,6 @@ function CheckEmpty(){
 		            <input type="password" id="pw" name="pw" autocomplete="off" class="form-control" placeholder="پسورد" onblur="CheckEmpty();">
 		            <label class="checkbox">
 		                <span class="pull-right" style="float: right;">
-		                    <a data-toggle="modal" href="login.php#myModal">پسورد خود را فراموش کرده اید؟</a>
-
 		                </span>
 		            </label>
 		            <button class="btn btn-theme btn-block" name="submit" type="submit"><i class="fa fa-lock"></i> ورود</button>

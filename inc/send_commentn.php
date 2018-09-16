@@ -1,11 +1,13 @@
 <?php
+error_reporting(0);
+
 if(isset($_POST['submit'])) {
 
     $news_id = $_GET['newsid'];
 
     session_start();
 
-    if($_POST['captcha1'] == $_SESSION['sacaptchaCode']) {
+    if($_POST['captcha1'] == $_SESSION['sacaptchaCode'] || $_POST['captcha'] == $_SESSION['sacaptchaCode']) {
         require("connect.php");
 
         require("jalali-date.php");

@@ -60,7 +60,6 @@
                 <div class="span12">
                     <div class="title-area">
                         <h1 class="inline"><span class="light">وبلاگ</span> XP _ Market</h1>
-                        <h2 class="inline tagline">- جایی که آدمهای باهوش، حرفهای احمقانه میزنند!</h2>
                     </div>
                 </div>
 
@@ -96,8 +95,7 @@
                             	<h2><a href="blog-single.php?newsid='.$row["id"].'">'.$row["subject"].'</a></h2>
                             	<div class="metadata">
                             	    '.$row["date"].'/
-                            	    <a href="#">'.$r["counter"].' نظر </a> /
-                            	    Posted in: <a rel="category tag" title="View all posts in aciform" href="#">Webmarket</a>
+                            	    <a href="#">'.$r["counter"].' نظر </a>
                             	</div>
                             </div>
 
@@ -152,25 +150,6 @@
                                 <i class="icon-search"></i>
                             </button>
                         </form>
-                    </div>
-
-
-                    <!--  ==========  -->
-                    <!--  = Archive =  -->
-                    <!--  ==========  -->
-                    <div class="sidebar-item widget_archive">
-                        <div class="underlined">
-                            <h3><span class="light">آرشیو</span>نوشته های بلاگ</h3>
-                        </div>
-
-                        <ul>
-                            <li><a title="بهمن 92" href="http://localhost/themeforest/wp-theme/2013/02/">بهمن 92</a>&nbsp;(2)</li>
-                            <li><a title="شهریور 92" href="http://localhost/themeforest/wp-theme/2008/09/">شهریور 92</a>&nbsp;(3)</li>
-                            <li><a title="مرداد 92" href="http://localhost/themeforest/wp-theme/2008/06/">مرداد 92</a>&nbsp;(10)</li>
-                            <li><a title="تیر 92" href="http://localhost/themeforest/wp-theme/2008/05/">تیر 92</a>&nbsp;(5)</li>
-                            <li><a title="اردیبهشت 91" href="http://localhost/themeforest/wp-theme/2008/04/">اردیبهشت 91</a>&nbsp;(1)</li>
-                            <li><a title="فروردین 91" href="http://localhost/themeforest/wp-theme/2008/03/">فروردین 91</a>&nbsp;(3)</li>
-                        </ul>
                     </div>
 
                 </aside> <!-- /sidebar -->
