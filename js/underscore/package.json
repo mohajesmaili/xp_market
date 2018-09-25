@@ -1,57 +1,75 @@
 {
-  "name": "phantomjs-prebuilt",
-  "version": "2.1.16",
-  "keywords": [
-    "phantomjs",
-    "headless",
-    "webkit"
-  ],
-  "description": "Headless WebKit with JS API",
-  "homepage": "https://github.com/Medium/phantomjs",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Medium/phantomjs.git"
+  "name": "es6-promise",
+  "namespace": "es6-promise",
+  "version": "4.2.5",
+  "description": "A lightweight library that provides tools for organizing asynchronous code",
+  "main": "dist/es6-promise.js",
+  "typings": "es6-promise.d.ts",
+  "directories": {
+    "lib": "lib"
   },
-  "license": "Apache-2.0",
-  "author": {
-    "name": "Dan Pupius",
-    "email": "dan@obvious.com",
-    "url": "http://pupius.co.uk"
-  },
-  "maintainers": [
-    {
-      "name": "Dan Pupius",
-      "email": "dan@medium.com",
-      "web": "http://pupius.co.uk/"
-    },
-    {
-      "name": "Nick Santos",
-      "email": "nick@medium.com",
-      "web": "http://nick-santos.com/"
-    }
+  "files": [
+    "dist",
+    "lib",
+    "es6-promise.d.ts",
+    "auto.js",
+    "!dist/test"
   ],
-  "main": "lib/phantomjs",
-  "bin": {
-    "phantomjs": "./bin/phantomjs"
+  "devDependencies": {
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-es2015-block-scoping": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-computed-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-constants": "^6.1.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
+    "babel6-plugin-strip-class-callcheck": "^6.0.0",
+    "broccoli-babel-transpiler": "^6.0.0",
+    "broccoli-concat": "^3.1.0",
+    "broccoli-merge-trees": "^2.0.0",
+    "broccoli-rollup": "^2.0.0",
+    "broccoli-stew": "^1.5.0",
+    "broccoli-uglify-js": "^0.2.0",
+    "broccoli-watchify": "^1.0.1",
+    "ember-cli": "2.18.0-beta.2",
+    "ember-cli-dependency-checker": "^2.1.0",
+    "git-repo-version": "1.0.1",
+    "json3": "^3.3.2",
+    "mocha": "^4.0.1",
+    "promises-aplus-tests-phantom": "^2.1.0-revise"
   },
   "scripts": {
-    "install": "node install.js",
-    "test": "nodeunit --reporter=minimal test/tests.js && eslint ."
+    "build": "ember build --environment production",
+    "start": "ember s",
+    "test": "ember test",
+    "test:server": "ember test --server",
+    "test:node": "ember test --launch Mocha",
+    "test:browser": "ember test --launch PhantomJS",
+    "prepublishOnly": "ember build --environment production"
   },
-  "dependencies": {
-    "es6-promise": "^4.0.3",
-    "extract-zip": "^1.6.5",
-    "fs-extra": "^1.0.0",
-    "hasha": "^2.2.0",
-    "kew": "^0.7.0",
-    "progress": "^1.1.8",
-    "request": "^2.81.0",
-    "request-progress": "^2.0.1",
-    "which": "^1.2.10"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stefanpenner/es6-promise.git"
   },
-  "devDependencies": {
-    "eslint": "2.7.0",
-    "nodeunit": "0.9.1",
-    "webdriverio": "~4.2.3"
-  }
+  "bugs": {
+    "url": "https://github.com/stefanpenner/es6-promise/issues"
+  },
+  "browser": {
+    "vertx": false
+  },
+  "keywords": [
+    "promises",
+    "promise",
+    "polyfill",
+    "futures"
+  ],
+  "author": "Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)",
+  "license": "MIT",
+  "spm": {
+    "main": "dist/es6-promise.js"
+  },
+  "dependencies": {}
 }
